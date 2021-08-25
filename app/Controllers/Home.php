@@ -6,6 +6,6 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return view('tabel/barang-masuk');
+		return view('blank_page');
 	}
 }
