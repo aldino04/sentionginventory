@@ -6,6 +6,9 @@ class Home extends BaseController
 {
 	public function index()
 	{
-		return view('blank_page');
+		$data = [
+			'tittle' => 'Blank Page &mdash; Sentiong'
+		];
+		return view('blank_page', $data);
 	}
 }

@@ -31,7 +31,7 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fab fa-wpforms"></i> <span>Tabel</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="<?= base_url(); ?>/tabel/barangmasuk">Tabel Barang Masuk</a></li>
-                  <li><a class="nav-link" href="#">Tabel Barang Keluar</a></li>
+                  <li><a class="nav-link" href="<?= base_url(); ?>/tabel/barangkeluar">Tabel Barang Keluar</a></li>
                   <li><a class="nav-link" href="#">Tabel Satuan</a></li>
                 </ul>
               </li>

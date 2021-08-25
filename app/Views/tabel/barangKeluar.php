@@ -7,7 +7,7 @@
 
           <!-- Header -->
           <div class="section-header">
-            <h1>Tabel Barang Masuk</h1>
+            <h1>Tabel Barang Keluar</h1>
           </div>
           <!-- End Header -->
 
@@ -20,7 +20,7 @@
                 <div class="card">
 
                 <div class="p-3 ml-3">
-                  <a href="#" class="btn btn-primary btn-lg"><i class="fas fa-plus-square mr-1"></i>Barang Masuk</a>
+                  <a href="#" class="btn btn-danger btn-lg"><i class="fas fa-minus-square mr-1"></i>Barang keluar</a>
                 </div>
 
                   <div class="card-body">
