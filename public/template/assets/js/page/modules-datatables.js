@@ -38,5 +38,5 @@ $("#table-1").dataTable({
   columnDefs: [{ sortable: false, targets: [3, 4, 5, 6, 7] }],
 });
 $("#table-2").dataTable({
-  columnDefs: [{ sortable: false, targets: [0, 2, 3] }],
+  columnDefs: [{ sortable: false, targets: [1, 2] }],
 });
