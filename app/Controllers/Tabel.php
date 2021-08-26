@@ -9,7 +9,7 @@ class Tabel extends BaseController
 		$data = [
 			'tittle' => 'Tabel Barang Masuk &mdash; Sentiong'
 		];
-		return view('tabel/tblBarangMasuk', $data);
+		return view('tabels/tblBarangMasuk', $data);
 	}
 
 	public function tblBarangKeluar()
@@ -17,7 +17,7 @@ class Tabel extends BaseController
 		$data = [
 			'tittle' => 'Tabel Barang Keluar &mdash; Sentiong'
 		];
-		return view('tabel/tblBarangKeluar', $data);
+		return view('tabels/tblBarangKeluar', $data);
 	}
 
 	public function tblsatuan()
@@ -25,6 +25,6 @@ class Tabel extends BaseController
 		$data = [
 			'tittle' => 'Tabel Satuan &mdash; Sentiong'
 		];
-		return view('tabel/tblSatuan', $data);
+		return view('tabels/tblSatuan', $data);
 	}
 }

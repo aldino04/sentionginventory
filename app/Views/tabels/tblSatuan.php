@@ -28,7 +28,7 @@
                       <table class="table table-striped" id="table-2">
                         <thead class="bg-primary" style="color: white;">
                           <tr>
-                            <th class="text-center">
+                            <th>
                               No
                             </th>
                             <th>Satuan</th>

@@ -18,8 +18,8 @@
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fab fa-wpforms"></i> <span>Formulir</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="#">Formulir Barang Masuk</a></li>
-                  <li><a class="nav-link" href="#">Formulir Barang Keluar</a></li>
+                  <li><a class="nav-link" href="<?= base_url(); ?>/form/formbarangmasuk">Formulir Barang Masuk</a></li>
+                  <li><a class="nav-link" href="<?= base_url(); ?>/form/formbarangkeluar">Formulir Barang Keluar</a></li>
                   <li><a class="nav-link" href="#">Formulir Satuan</a></li>
                 </ul>
               </li>
@@ -28,7 +28,7 @@
               <!-- Sidebar tabel -->
               <li class="menu-header">Tabel</li>
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fab fa-wpforms"></i> <span>Tabel</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-clipboard-list"></i> <span>Tabel</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="<?= base_url(); ?>/tabel/tblbarangmasuk">Tabel Barang Masuk</a></li>
                   <li><a class="nav-link" href="<?= base_url(); ?>/tabel/tblbarangkeluar">Tabel Barang Keluar</a></li>
