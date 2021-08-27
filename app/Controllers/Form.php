@@ -19,4 +19,12 @@ class Form extends BaseController
 		];
 		return view('forms/formBarangKeluar', $data);
 	}
+
+	public function formSatuan()
+	{
+		$data = [
+			'tittle' => 'Form Satuan &mdash; Sentiong'
+		];
+		return view('forms/formSatuan', $data);
+	}
 }

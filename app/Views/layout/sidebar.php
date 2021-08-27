@@ -20,7 +20,6 @@
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="<?= base_url(); ?>/form/formbarangmasuk">Formulir Barang Masuk</a></li>
                   <li><a class="nav-link" href="<?= base_url(); ?>/form/formbarangkeluar">Formulir Barang Keluar</a></li>
-                  <li><a class="nav-link" href="#">Formulir Satuan</a></li>
                 </ul>
               </li>
               <!-- End Sidebar Formulir -->

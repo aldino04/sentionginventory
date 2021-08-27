@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
   <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/select2/dist/css/select2.min.css">
   <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/selectric/public/selectric.css">
+  <!-- <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/prismjs/themes/prism.css"> -->
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/css/style.css">
@@ -76,12 +77,18 @@
   <script src="<?= base_url(); ?>/template/node_modules/selectric/public/jquery.selectric.min.js"></script>
     <!-- End Form -->
 
+    <!-- JS Modal -->
+    <!-- <script src="<?= base_url(); ?>/template/node_modules/prismjs/prism.js"></script> -->
+    <!-- End JS Modal -->
+
   <!-- Template JS File -->
   <script src="<?= base_url(); ?>/template/assets/js/scripts.js"></script>
   <script src="<?= base_url(); ?>/template/assets/js/custom.js"></script>
+  
 
   <!-- Page Specific JS File -->
   <script src="<?= base_url(); ?>/template/assets/js/page/modules-datatables.js"></script>
+  <script src="<?= base_url(); ?>/template/assets/js/page/bootstrap-modal.js"></script>
 
     <!-- Kalau Mau Pakai Advance form {Currency, password strength, js ini aktifin} -->
   <script src="<?= base_url(); ?>/template/assets/js/page/forms-advanced-forms.js"></script>
