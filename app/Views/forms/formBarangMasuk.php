@@ -20,7 +20,7 @@
                 <div class="card">
                   <form class="needs-validation" novalidate="">
                     <div class="card-header text-center">
-                      <h4>Berita Acara Penerimaan Barang</h4>
+                      <h4 class="text-center">Berita Acara Penerimaan Barang</h4>
                     </div>
 
                       <div class="card-body mb-0 pb-0">
@@ -155,4 +155,8 @@
         </section>
       </div>
 
-<?= $this->endSection(); ?>
+<?= $this->endSection('content'); ?>
+
+<?= $this->section('jsform'); ?>
+  <script src="<?= base_url(); ?>/template/assets/js/page/forms-advanced-forms.js"></script>
+<?= $this->endSection('jsform'); ?>
