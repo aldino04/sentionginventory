@@ -7,7 +7,7 @@
 
           <!-- Header -->
           <div class="section-header">
-            <h1>Tabel Satuan</h1>
+            <h1>Tabel User</h1>
           </div>
           <!-- End Header -->
 
@@ -21,7 +21,7 @@
 
                 <div class="p-3 ml-3">
                   <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fas fa-plus-square mx-1"></i>Tambah Satuan
+                    <i class="fas fa-plus-square mx-1"></i>Tambah User
                   </button>
                 </div>
 
@@ -30,10 +30,9 @@
                       <table class="table table-striped" id="table-2">
                         <thead class="bg-primary" style="color: white;">
                           <tr>
-                            <th>
-                              No
-                            </th>
-                            <th>Satuan</th>
+                            <th>No</th>
+                            <th>Username</th>
+                            <th>Role User</th>
                             <th class="text-center">Aksi</th>
                           </tr>
                         </thead>
@@ -41,28 +40,32 @@
 
                           <tr>
                             <td>1</td>
-                            <td>Liter</td>
+                            <td>Sentiong Project</td>
+                            <td>Administrator</td>
                             <td class="text-center"><a href="#" class="btn btn-warning ml-2">Update</a>
                             <a href="#" class="btn btn-danger">Delete</a>
                             </td>
                           </tr>
                           <tr>
                             <td>2</td>
-                            <td>Kilo Gram</td>
+                            <td>Satria Aldino</td>
+                            <td>Administrator</td>
                             <td class="text-center"><a href="#" class="btn btn-warning ml-2">Update</a>
                             <a href="#" class="btn btn-danger">Delete</a>
                             </td>
                           </tr>
                           <tr>
                             <td>3</td>
-                            <td>Batang</td>
+                            <td>Orang Keuangan</td>
+                            <td>User Biasa</td>
                             <td class="text-center"><a href="#" class="btn btn-warning ml-2">Update</a>
                             <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>4</td>
-                            <td>Sak</td>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Orang Gudang</td>
+                          <td>User Biasa</td>
                             <td class="text-center"><a href="#" class="btn btn-warning ml-2">Update</a>
                             <a href="#" class="btn btn-danger">Delete</a>
                             </td>
@@ -99,11 +102,11 @@
                 <!-- Modal Body -->
                   <form class="needs-validation" novalidate="">
 
-                    <div class="row justify-content-center">
+                    <div class="row text-left">
                       <div class="col">
 
                         <div class="form-group row">
-                          <label class="col col-form-label text-center tengah pt-3">ID Satuan</label>
+                          <label class="col col-form-label pt-3">ID User</label>
                           <div class="col-8">
                             <div class="input-group">
                               <div class="input-group-prepend">
@@ -117,7 +120,7 @@
                         </div>
 
                         <div class="form-group row">
-                          <label class="col col-form-label text-center tengah pt-3">Satuan</label>
+                          <label class="col col-form-label pt-3">Username</label>
                           <div class="col-8">
                             <div class="input-group">
                               <div class="input-group-prepend">
@@ -125,11 +128,55 @@
                                   <i class="fas fa-thumbtack"></i>
                                 </div>
                               </div>
-                              <input type="text" class="form-control" required placeholder="Masukan Satuan..">
+                              <input type="text" class="form-control" required placeholder="Masukan Username..">
                               <div class="invalid-feedback">
-                              Masukan Satuan!
+                              Masukan User!
                             </div>
                             </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label class="col col-form-label pt-3">Password</label>
+                          <div class="col-8">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                  <i class="fas fa-lock"></i>
+                                </div>
+                              </div>
+                              <input type="password" class="form-control" required placeholder="Masukan Password..">
+                              <div class="invalid-feedback">
+                              Masukan Password!
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label class="col col-form-label pt-3">Konfirmasi Password</label>
+                          <div class="col-8">
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                  <i class="fas fa-lock"></i>
+                                </div>
+                              </div>
+                              <input type="password" class="form-control" required placeholder="Konfirmasi Password..">
+                              <div class="invalid-feedback">
+                              Masukan Password!
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label class="col col-form-label pt-3">Role User</label>
+                          <div class="col-8">
+                            <select class="form-control selectric">
+                            <option>Administrator</option>
+                            <option>User Biasa</option>
+                          </select>
                           </div>
                         </div>
 
@@ -142,7 +189,7 @@
               </div>
               <div class="modal-footer bg-whitesmoke br">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Tambah Satuan</button>
+                <button type="submit" class="btn btn-primary">Tambah User</button>
               </div>
             </div>
           </div>

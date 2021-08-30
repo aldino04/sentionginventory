@@ -38,7 +38,7 @@
 
 
               <!-- Sidebar Users -->
-              <li><a class="nav-link" href="#"><i class="fas fa-users"></i> <span>Users</span></a></li>
+              <li><a class="nav-link" href="<?= base_url(); ?>/user/tbluser"><i class="fas fa-users"></i> <span>Users</span></a></li>
               <!-- End Sidebar Users -->
 
         </aside>
