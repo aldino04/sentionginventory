@@ -11,5 +11,12 @@ class User extends BaseController
 		];
 		return view('users/tblUser', $data);
 	}
-
+	
+	public function profile()
+	{ 
+		$data = [
+			'tittle' => 'Profile &mdash; Sentiong'
+		];
+		return view('profile/index', $data);
+	}
 }

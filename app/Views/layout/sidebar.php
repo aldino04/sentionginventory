@@ -10,7 +10,7 @@
           <ul class="sidebar-menu">
 
               <!-- Sidebar Dashboard -->
-              <li><a class="nav-link" href="#"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
+              <li><a class="nav-link" href="<?= base_url(); ?>"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
               <!-- End Sidebar Dashboard -->
               
               <!-- Sidebar Formulir -->
