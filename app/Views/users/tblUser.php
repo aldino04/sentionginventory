@@ -27,13 +27,14 @@
 
                   <div class="card-body">
                     <div class="table-responsive">
-                      <table class="table table-striped" id="table-2">
+                      <table class="table table-striped" id="table-user">
                         <thead class="bg-primary" style="color: white;">
                           <tr>
                             <th>No</th>
                             <th>Username</th>
                             <th>Role User</th>
-                            <th class="text-center">Aksi</th>
+                            <th>Update</th>
+                            <th>Delete</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -42,32 +43,44 @@
                             <td>1</td>
                             <td>Sentiong Project</td>
                             <td>Administrator</td>
-                            <td class="text-center"><a href="#" class="btn btn-warning ml-2">Update</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <td>
+                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
+                            </td>
+                            <td>
+                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                           </tr>
                           <tr>
                             <td>2</td>
                             <td>Satria Aldino</td>
                             <td>Administrator</td>
-                            <td class="text-center"><a href="#" class="btn btn-warning ml-2">Update</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <td>
+                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
+                            </td>
+                            <td>
+                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                           </tr>
                           <tr>
                             <td>3</td>
                             <td>Orang Keuangan</td>
                             <td>User Biasa</td>
-                            <td class="text-center"><a href="#" class="btn btn-warning ml-2">Update</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
-                          </td>
+                            <td>
+                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
+                            </td>
+                            <td>
+                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                            </td>
                         </tr>
                         <tr>
                           <td>4</td>
                           <td>Orang Gudang</td>
                           <td>User Biasa</td>
-                            <td class="text-center"><a href="#" class="btn btn-warning ml-2">Update</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <td>
+                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
+                            </td>
+                            <td>
+                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                           </tr>
                           

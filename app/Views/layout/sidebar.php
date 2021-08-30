@@ -18,8 +18,8 @@
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fab fa-wpforms"></i> <span>Formulir</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="<?= base_url(); ?>/form/formbarangmasuk">Formulir Barang Masuk</a></li>
-                  <li><a class="nav-link" href="<?= base_url(); ?>/form/formbarangkeluar">Formulir Barang Keluar</a></li>
+                  <li><a class="nav-link" href="<?= base_url(); ?>/form/formbarangmasuk"> <i class="fab fa-wpforms mx-0"></i>Barang Masuk</a></li>
+                  <li><a class="nav-link" href="<?= base_url(); ?>/form/formbarangkeluar"> <i class="fab fa-wpforms mx-0"></i>Barang Keluar</a></li>
                 </ul>
               </li>
               <!-- End Sidebar Formulir -->
@@ -29,9 +29,9 @@
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-clipboard-list"></i> <span>Tabel</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="<?= base_url(); ?>/tabel/tblbarangmasuk">Tabel Barang Masuk</a></li>
-                  <li><a class="nav-link" href="<?= base_url(); ?>/tabel/tblbarangkeluar">Tabel Barang Keluar</a></li>
-                  <li><a class="nav-link" href="<?= base_url(); ?>/tabel/tblSatuan">Tabel Satuan</a></li>
+                  <li><a class="nav-link" href="<?= base_url(); ?>/tabel/tblbarangmasuk"><i class="fas fa-clipboard-list mx-0"></i> Barang Masuk</a></li>
+                  <li><a class="nav-link" href="<?= base_url(); ?>/tabel/tblbarangkeluar"><i class="fas fa-clipboard-list mx-0"></i> Barang Keluar</a></li>
+                  <li><a class="nav-link" href="<?= base_url(); ?>/tabel/tblSatuan"><i class="fas fa-clipboard-list mx-0"></i> Satuan</a></li>
                 </ul>
               </li>
               <!-- End Sidebar tabel -->

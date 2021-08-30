@@ -35,8 +35,11 @@ $("[data-checkboxes]").each(function () {
 });
 
 $("#table-1").dataTable({
-  columnDefs: [{ sortable: false, targets: [3, 4, 5, 6, 7] }],
+  columnDefs: [{ sortable: false, targets: [3, 4, 5, 6, 7, 8] }],
 });
-$("#table-2").dataTable({
-  columnDefs: [{ sortable: false, targets: [1, 2] }],
+$("#table-satuan").dataTable({
+  columnDefs: [{ sortable: false, targets: [1, 2, 3] }],
+});
+$("#table-user").dataTable({
+  columnDefs: [{ sortable: false, targets: [1, 3, 4] }],
 });

@@ -37,7 +37,8 @@
                             <th>Nama Barang</th>
                             <th>Jumlah</th>
                             <th>Satuan</th>
-                            <th class="text-center">Aksi</th>
+                            <th>Update</th>
+                            <th>Delete</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -50,8 +51,11 @@
                             <td>BBM Solar</td>
                             <td>100</td>
                             <td>Liter</td>
-                            <td class="text-center"><a href="#" class="btn btn-warning ml-2">Update</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <td>
+                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
+                            </td>
+                            <td>
+                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                           </tr>
                           <tr>
@@ -62,8 +66,11 @@
                             <td>Semen</td>
                             <td>10</td>
                             <td>Sak</td>
-                            <td class="text-center"><a href="#" class="btn btn-warning ml-2">Update</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <td>
+                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
+                            </td>
+                            <td>
+                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                           </tr>
                           <tr>
@@ -74,8 +81,11 @@
                             <td>Besi Ulir D 13</td>
                             <td>364</td>
                             <td>Batang</td>
-                            <td class="text-center"><a href="#" class="btn btn-warning ml-2">Update</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <td>
+                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
+                            </td>
+                            <td>
+                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                           </tr>
                           <tr>
@@ -86,8 +96,11 @@
                             <td>Cat Besi</td>
                             <td>30</td>
                             <td>Kilo Gram</td>
-                            <td class="text-center"><a href="#" class="btn btn-warning ml-2">Update</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <td>
+                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
+                            </td>
+                            <td>
+                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                           </tr>
                           <tr>
@@ -98,8 +111,11 @@
                             <td>Sika Separol</td>
                             <td>20</td>
                             <td>Kilo Gram</td>
-                            <td class="text-center"><a href="#" class="btn btn-warning ml-2">Update</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <td>
+                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
+                            </td>
+                            <td>
+                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                           </tr>
                           
