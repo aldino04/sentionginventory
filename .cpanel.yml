@@ -6,18 +6,8 @@ deployment:
     - /bin/cp -R app $DEPLOYPATH
     - /bin/cp -R system $DEPLOYPATH
     - /bin/cp -R writable $DEPLOYPATH
-    - /bin/cp .gitignore $DEPLOYPATH
-    - /bin/cp composer.json $DEPLOYPATH
-    - /bin/cp LICENSE $DEPLOYPATH
-    - /bin/cp phpunit.xml.dist $DEPLOYPATH
-    - /bin/cp README.md $DEPLOYPATH
-    - /bin/cp spark $DEPLOYPATH
 
 deployment:
   tasks:
     - export DEPLOYPATH=/home/u1549909/public_html/
     - /bin/cp -R public/template $DEPLOYPATH
-    - /bin/cp public/.htaccess $DEPLOYPATH
-    - /bin/cp public/favicon.ico $DEPLOYPATH
-    - /bin/cp public/index.php $DEPLOYPATH
-    - /bin/cp public/robots.txt $DEPLOYPATH
