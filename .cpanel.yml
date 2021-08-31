@@ -14,8 +14,8 @@ deployment:
     - /bin/cp spark $DEPLOYPATH
 
     - export DEPLOYPATH=/home/u1549909/public_html/
-    - /bin/cp -R template $DEPLOYPATH
-    - /bin/cp .htaccess $DEPLOYPATH
-    - /bin/cp favicon.ico $DEPLOYPATH
-    - /bin/cp index.php $DEPLOYPATH
-    - /bin/cp robots.txt $DEPLOYPATH
+    - /bin/cp -R public/template $DEPLOYPATH
+    - /bin/cp public/.htaccess $DEPLOYPATH
+    - /bin/cp public/favicon.ico $DEPLOYPATH
+    - /bin/cp public/index.php $DEPLOYPATH
+    - /bin/cp public/robots.txt $DEPLOYPATH
