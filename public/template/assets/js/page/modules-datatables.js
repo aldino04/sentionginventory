@@ -43,3 +43,6 @@ $("#table-satuan").dataTable({
 $("#table-user").dataTable({
   columnDefs: [{ sortable: false, targets: [1, 3, 4] }],
 });
+$("#table-barang").dataTable({
+  columnDefs: [{ sortable: false, targets: [1, 4, 5, 6] }],
+});

@@ -20,7 +20,7 @@
                 <div class="card">
                   <form class="needs-validation" novalidate="">
                     <div class="card-header text-center">
-                      <h4 class="text-center">Bon Pemakaian Material/Suku Cadang</h4>
+                      <h4 class="text-center">Bon Pemakaian Material/Suku Cadang [BPM]</h4>
                     </div>
 
                       <div class="card-body mb-0 pb-0">
@@ -39,7 +39,7 @@
                                       <i class="fas fa-key"></i>
                                     </div>
                                   </div>
-                                  <input type="text" class="form-control" disabled placeholder="SI-2108250010">
+                                  <input type="text" class="form-control" disabled value="SI-2108250010">
                                 </div>
                               </div>
                             </div>
