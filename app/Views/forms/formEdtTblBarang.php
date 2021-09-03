@@ -7,7 +7,7 @@
 
           <!-- Header -->
           <div class="section-header">
-            <h1>Formulir Satuan</h1>
+            <h1>Formulir Edit Barang</h1>
           </div>
           <!-- End Header -->
 
@@ -18,20 +18,20 @@
               <div class="col">
 
                 <div class="card">
-                  <form class="needs-validation" novalidate="">
+                  <form action="/tabel/formUpdateTblBarang/<?= $barang['id']; ?>" method="POST" class="needs-validation" novalidate="">
                     <div class="card-header text-center">
-                      <h4>Berita Acara Penerimaan Barang</h4>
+                      <h4>Formulir Edit Barang</h4>
                     </div>
 
                       <div class="card-body mb-0 pb-0">
 
-                        <a href="#" class="btn btn-secondary mb-2"><i class="fas fa-clipboard-list mx-1"></i>Tabel Satuan</a>
+                        <a href="<?= base_url(); ?>/tabel/tblbarang" class="btn btn-secondary mb-2"><i class="fas fa-clipboard-list mx-1"></i>Tabel Barang</a>
 
                         <div class="row justify-content-center pb-0 mb-0">
                           <div class="col-md-7">
 
                             <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">ID Satuan</label>
+                              <label for="kodeBarang" class="col-sm-3 col-form-label">Kode Barang</label>
                               <div class="col-sm-9">
                                 <div class="input-group">
                                   <div class="input-group-prepend">
@@ -39,30 +39,54 @@
                                       <i class="fas fa-key"></i>
                                     </div>
                                   </div>
-                                  <input type="text" class="form-control" disabled placeholder="SI-2108250010">
+                                  <input type="text" class="form-control" required placeholder="Masukan Kode Barang.." name="kodeBarang" id="kodeBarang" value="<?= $barang['kode_barang']; ?>">
                                 </div>
                               </div>
                             </div>
 
                             <div class="form-group row">
-                              <label class="col-sm-3 col-form-label">Satuan</label>
+                              <label for="namaBarang" class="col-sm-3 col-form-label">Nama Barang</label>
                               <div class="col-sm-9">
                                 <div class="input-group">
                                   <div class="input-group-prepend">
                                     <div class="input-group-text">
-                                      <i class="fas fa-thumbtack"></i>
+                                      <i class="fas fa-tag"></i>
                                     </div>
                                   </div>
-                                  <input type="text" class="form-control" required placeholder="Masukan Satuan..">
-                                  <div class="invalid-feedback">
-                                  Masukan Satuan!
+                                  <input type="text" class="form-control" required placeholder="Masukan Nama Barang.." name="namaBarang" id="namaBarang" value="<?= $barang['nama_barang']; ?>">
                                 </div>
+                              </div>
+                            </div>
+
+                            <div class="form-group row">
+                              <label for="stok" class="col-sm-3 col-form-label">Stok Awal</label>
+                              <div class="col-sm-9">
+                                <div class="input-group">
+                                  <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                      <i class="fas fa-cubes"></i>
+                                    </div>
+                                  </div>
+                                  <input type="number" class="form-control" required placeholder="Masukan Stok Barang.." name="stok" id="stok" value="<?= $barang['stok']; ?>">
                                 </div>
+                              </div>
+                            </div>
+
+                            <div class="form-group row">
+                              <label for="satuan" class="col-sm-3 col-form-label">Satuan</label>
+                              <div class="col-sm-9">
+                                <select class="form-control selectric"  name="satuan" id="satuan">
+                                <option>Liter</option>
+                                <option>Batang</option>
+                                <option>Sak</option>
+                                <option>Kilo Gram</option>
+                              </select>
                               </div>
                             </div>
 
                           </div>
                         </div>
+                      </div>
 
                     <div class="card-footer text-center">
                       

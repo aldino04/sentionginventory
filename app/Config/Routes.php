@@ -34,6 +34,15 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+	// Custom ku
+	$routes->get('/tabel/tblbarang', 'Tabel::tblbarang');
+	$routes->get('/tabel/tblbarangmasuk', 'Tabel::tblbarangmasuk');
+	$routes->get('/tabel/tblbarangkeluar', 'Tabel::tblbarangkeluar');
+	$routes->get('/tabel/tblsatuan', 'Tabel::tblsatuan');
+	$routes->get('/tabel/formEdtTblBarang/(:segment)', 'Tabel::formEdtTblBarang/$1');
+	$routes->delete('/tabel/(:num)', 'Tabel::delete/$1');
+	$routes->get('/tabel/(:any)', 'Tabel::delete/$1');
+	
 /*
  * --------------------------------------------------------------------
  * Additional Routing

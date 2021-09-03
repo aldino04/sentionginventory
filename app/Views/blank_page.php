@@ -13,7 +13,6 @@
 
           <!-- Body -->
           <div class="section-body">
-            <h2>halo halo bandung</h2>
 
           </div>
           <!-- End Body -->

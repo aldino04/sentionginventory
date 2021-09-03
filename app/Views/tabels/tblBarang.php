@@ -65,10 +65,14 @@
                             <td><?= $br['stok']; ?></td>
                             <td><?= $br['satuan']; ?></td>
                             <td>
-                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
+                              <a href="/tabel/formEdtTblBarang/<?= $br['id']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
                             </td>
                             <td>
-                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                              <form action="/tabel/<?= $br['id']; ?>" method="POST">
+                              <?= csrf_field(); ?>
+                              <input type="hidden" name="_method" value="DELETE">
+                              <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin ?')"><i class="fas fa-trash-alt"></i></button>
+                              </form>
                             </td>
                           </tr>
                           <?php endforeach; ?>
@@ -143,7 +147,7 @@
                                   <i class="fas fa-cubes"></i>
                                 </div>
                               </div>
-                              <input type="number" class="form-control" required placeholder="Masukan Nama Barang.." name="stok" id="stok">
+                              <input type="number" class="form-control" required placeholder="Masukan Stok.." name="stok" id="stok">
                             </div>
                           </div>
                         </div>
