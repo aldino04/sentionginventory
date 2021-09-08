@@ -195,15 +195,15 @@
 
                       </div>
                     </div>
-
-                  </form>
-                <!-- End Modal Body -->
-              
-              </div>
-              <div class="modal-footer bg-whitesmoke br">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Tambah User</button>
-              </div>
+                  </div>
+                  <!-- End Modal Body -->
+                  
+                  <div class="modal-footer bg-whitesmoke br">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Tambah User</button>
+                  </div>
+                </form>
+                
             </div>
           </div>
         </div>
