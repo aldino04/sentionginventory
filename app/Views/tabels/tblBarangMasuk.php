@@ -28,10 +28,8 @@
                       <table class="table table-striped" id="table-1">
                         <thead class="bg-primary" style="color: white;">
                           <tr>
-                            <th class="text-center">
-                              No
-                            </th>
-                            <th>ID_Transaksi</th>
+                            <th class="text-center">No</th>
+                            <th class="text center">BAPB</th>
                             <th>Tanggal</th>
                             <th>Kode Barang</th>
                             <th>Nama Barang</th>
@@ -45,7 +43,7 @@
 
                           <tr>
                             <td>1</td>
-                            <td>SI-2108250001</td>
+                            <td>01-GD-PSP-09-21</td>
                             <td>25-08-2021</td>
                             <td>AA0030</td>
                             <td>BBM Solar</td>
@@ -60,7 +58,7 @@
                           </tr>
                           <tr>
                             <td>2</td>
-                            <td>SI-2108250002</td>
+                            <td>02-GD-PSP-09-21</td>
                             <td>26-08-2021</td>
                             <td>AA0031</td>
                             <td>Semen</td>
@@ -75,7 +73,7 @@
                           </tr>
                           <tr>
                             <td>3</td>
-                            <td>SI-2108250003</td>
+                            <td>03-GD-PSP-09-21</td>
                             <td>26-08-2021</td>
                             <td>AA0023</td>
                             <td>Besi Ulir D 13</td>
@@ -90,7 +88,7 @@
                           </tr>
                           <tr>
                             <td>4</td>
-                            <td>SI-2108250004</td>
+                            <td>04-GD-PSP-09-21</td>
                             <td>25-09-2021</td>
                             <td>AA0012</td>
                             <td>Cat Besi</td>
@@ -105,7 +103,7 @@
                           </tr>
                           <tr>
                             <td>5</td>
-                            <td>SI-2108250005</td>
+                            <td>01-GD-PSP-08-21</td>
                             <td>21-08-2021</td>
                             <td>AA0040</td>
                             <td>Sika Separol</td>

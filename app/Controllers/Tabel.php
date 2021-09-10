@@ -7,6 +7,7 @@ use App\Models\BarangModel;
 class Tabel extends BaseController
 {
 	protected $barangModel;
+	
 	public function __construct()
 	{
 		$this->barangModel = new BarangModel();
@@ -83,13 +84,5 @@ class Tabel extends BaseController
 			'tittle' => 'Tabel Barang Keluar &mdash; Sentiong'
 		];
 		return view('tabels/tblBarangKeluar', $data);
-	}
-
-	public function tblsatuan()
-	{
-		$data = [
-			'tittle' => 'Tabel Satuan &mdash; Sentiong'
-		];
-		return view('tabels/tblSatuan', $data);
 	}
 }

@@ -32,7 +32,7 @@
                   <li><a class="nav-link" href="<?= base_url(); ?>/tabel/tblbarang"><i class="fas fa-clipboard-list mx-0"></i> Barang</a></li>
                   <li><a class="nav-link" href="<?= base_url(); ?>/tabel/tblbarangmasuk"><i class="fas fa-clipboard-list mx-0"></i> Barang Masuk</a></li>
                   <li><a class="nav-link" href="<?= base_url(); ?>/tabel/tblbarangkeluar"><i class="fas fa-clipboard-list mx-0"></i> Barang Keluar</a></li>
-                  <li><a class="nav-link" href="<?= base_url(); ?>/tabel/tblsatuan"><i class="fas fa-clipboard-list mx-0"></i> Satuan</a></li>
+                  <li><a class="nav-link" href="<?= base_url(); ?>/tblsatuan"><i class="fas fa-clipboard-list mx-0"></i> Satuan</a></li>
                 </ul>
               </li>
               <!-- End Sidebar tabel -->

@@ -30,7 +30,7 @@
                         <div class="row justify-content-center pb-0 mb-0">
                           <div class="col-md-7">
 
-                            <div class="form-group row">
+                            <!-- <div class="form-group row">
                               <label class="col-sm-3 col-form-label">ID Transaksi</label>
                               <div class="col-sm-9">
                                 <div class="input-group">
@@ -42,7 +42,7 @@
                                   <input type="text" class="form-control" disabled value="SI-2108250010">
                                 </div>
                               </div>
-                            </div>
+                            </div> -->
 
                             <div class="form-group row">
                               <label class="col-sm-3 col-form-label">Tanggal</label>
@@ -101,14 +101,14 @@
                           <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
                             <div class="form-group">
                               <label>Nama Barang</label>
-                              <input type="text" class="form-control" required="" disabled placeholder="BBM Solar">
+                              <input type="text" class="form-control" required="" disabled value="BBM Solar">
                             </div>
                           </div>
 
                           <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
                             <div class="form-group">
                               <label>Satuan</label>
-                              <input type="text" class="form-control" required="" disabled placeholder="Liter">
+                              <input type="text" class="form-control" required="" disabled value="Liter">
                             </div>
                           </div>
 
