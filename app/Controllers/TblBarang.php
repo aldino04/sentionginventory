@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\BarangModel;
 
-class Tabel extends BaseController
+class TblBarang extends BaseController
 {
 	protected $barangModel;
 	
@@ -14,7 +14,7 @@ class Tabel extends BaseController
 	}
 
 // Controller Tabel Barang
-	public function tblBarang()
+	public function index()
 	{ 
 		// $barang = $this->barangModel->findAll();
 		$data = [
@@ -35,7 +35,7 @@ class Tabel extends BaseController
 		]);
 
 		session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!');
-		return redirect()->to('/tabel/tblbarang');
+		return redirect()->to('/tblbarang');
 	}
 
 	public function delete($id)
@@ -43,10 +43,10 @@ class Tabel extends BaseController
 		$this->barangModel->delete($id);
 
 		session()->setFlashdata('pesan', 'Data Berhasil Dihapus!');
-		return redirect()->to('/tabel/tblbarang');
+		return redirect()->to('/tblbarang');
 	}
 
-	public function formEdtTblBarang($id)
+	public function edit($id)
 	{
 		$data = [
 			'tittle' => 'Form Edit Barang &mdash; Sentiong',
@@ -55,7 +55,7 @@ class Tabel extends BaseController
 		return view('forms/formEdtTblBarang', $data);
 	}
 
-	public function formUpdateTblBarang($id)
+	public function update($id)
 	{
 		$this->barangModel->save([
 			'id' => $id,
@@ -66,7 +66,7 @@ class Tabel extends BaseController
 		]);
 
 		session()->setFlashdata('pesan', 'Data Berhasil Diubah!');
-		return redirect()->to('/tabel/tblbarang');
+		return redirect()->to('/tblbarang');
 	}
 // End Controller Tabel Barang
 

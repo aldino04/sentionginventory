@@ -18,14 +18,14 @@
               <div class="col">
 
                 <div class="card">
-                  <form action="/tabel/formUpdateTblBarang/<?= $barang['id']; ?>" method="POST" class="needs-validation" novalidate="">
+                  <form action="/tblbarang/update/<?= $barang['id']; ?>" method="POST" class="needs-validation" novalidate="">
                     <div class="card-header text-center">
                       <h4>Formulir Edit Barang</h4>
                     </div>
 
                       <div class="card-body mb-0 pb-0">
 
-                        <a href="<?= base_url(); ?>/tabel/tblbarang" class="btn btn-secondary mb-2"><i class="fas fa-clipboard-list mx-1"></i>Tabel Barang</a>
+                        <a href="<?= base_url(); ?>/tblbarang" class="btn btn-secondary mb-2"><i class="fas fa-clipboard-list mx-1"></i>Tabel Barang</a>
 
                         <div class="row justify-content-center pb-0 mb-0">
                           <div class="col-md-7">

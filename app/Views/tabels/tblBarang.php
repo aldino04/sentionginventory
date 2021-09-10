@@ -65,10 +65,10 @@
                             <td><?= $br['stok']; ?></td>
                             <td><?= $br['satuan']; ?></td>
                             <td>
-                              <a href="/tabel/formEdtTblBarang/<?= $br['id']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
+                              <a href="/tblbarang/edit/<?= $br['id']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
                             </td>
                             <td>
-                              <form action="/tabel/<?= $br['id']; ?>" method="POST">
+                              <form action="/tblbarang/<?= $br['id']; ?>" method="POST">
                               <?= csrf_field(); ?>
                               <input type="hidden" name="_method" value="DELETE">
                               <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin ?')"><i class="fas fa-trash-alt"></i></button>

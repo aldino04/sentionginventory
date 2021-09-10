@@ -36,13 +36,13 @@ $routes->get('/', 'Home::index');
 
 // Custom ku
 	// tblbarang
-	$routes->get('/tabel/tblbarang', 'Tabel::tblbarang');
-	$routes->get('/tabel/tblbarangmasuk', 'Tabel::tblbarangmasuk');
-	$routes->get('/tabel/tblbarangkeluar', 'Tabel::tblbarangkeluar');
+	$routes->get('/tblbarang', 'TblBarang::index');
+	$routes->get('/tblbarang/tblbarangmasuk', 'TblBarang::tblbarangmasuk');
+	$routes->get('/tblbarang/tblbarangkeluar', 'TblBarang::tblbarangkeluar');
 
-	$routes->get('/tabel/formEdtTblBarang/(:segment)', 'Tabel::formEdtTblBarang/$1');
-	$routes->delete('/tabel/(:num)', 'Tabel::delete/$1');
-	$routes->get('/tabel/(:any)', 'Tabel::delete/$1');
+	$routes->get('/tblbarang/edit/(:segment)', 'TblBarang::edit/$1');
+	$routes->delete('/tblbarang/(:num)', 'TblBarang::delete/$1');
+	$routes->get('/tblbarang/(:any)', 'TblBarang::delete/$1');
 	
 	// tblsatuan
 	$routes->get('/tblsatuan', 'TblSatuan::index');

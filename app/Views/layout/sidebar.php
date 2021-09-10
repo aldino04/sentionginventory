@@ -29,7 +29,7 @@
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-clipboard-list"></i> <span>Tabel</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="<?= base_url(); ?>/tabel/tblbarang"><i class="fas fa-clipboard-list mx-0"></i> Barang</a></li>
+                  <li><a class="nav-link" href="<?= base_url(); ?>/tblbarang"><i class="fas fa-clipboard-list mx-0"></i> Barang</a></li>
                   <li><a class="nav-link" href="<?= base_url(); ?>/tabel/tblbarangmasuk"><i class="fas fa-clipboard-list mx-0"></i> Barang Masuk</a></li>
                   <li><a class="nav-link" href="<?= base_url(); ?>/tabel/tblbarangkeluar"><i class="fas fa-clipboard-list mx-0"></i> Barang Keluar</a></li>
                   <li><a class="nav-link" href="<?= base_url(); ?>/tblsatuan"><i class="fas fa-clipboard-list mx-0"></i> Satuan</a></li>
