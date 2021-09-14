@@ -18,7 +18,7 @@
               <div class="col">
 
                 <div class="card">
-                  <form action="/tblbarang/update/<?= $barang['id']; ?>" method="POST" class="needs-validation" novalidate="">
+                  <form action="/tblbarang/update/<?= $barang['id_barang']; ?>" method="POST" class="needs-validation" novalidate="">
                     <div class="card-header text-center">
                       <h4>Formulir Edit Barang</h4>
                     </div>
@@ -75,11 +75,14 @@
                             <div class="form-group row">
                               <label for="satuan" class="col-sm-3 col-form-label">Satuan</label>
                               <div class="col-sm-9">
-                                <select class="form-control selectric"  name="satuan" id="satuan">
-                                <option>Liter</option>
-                                <option>Batang</option>
-                                <option>Sak</option>
-                                <option>Kilo Gram</option>
+                                <select class="form-control selectric" name="satuan" id="satuan">
+                                <?php foreach($satuan as $st) : ?>
+                                  <?php if($st['id_satuan'] == $barang['id_satuan']) : ?>
+                                    <option value="<?= $st['id_satuan']; ?>" selected><?= $st['nama_satuan']; ?></option>
+                                  <?php else : ?>
+                                    <option value="<?= $st['id_satuan']; ?>"><?= $st['nama_satuan']; ?></option>
+                                  <?php endif; ?>
+                                <?php endforeach; ?>
                               </select>
                               </div>
                             </div>

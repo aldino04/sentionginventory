@@ -41,7 +41,7 @@ $routes->get('/', 'Home::index');
 	$routes->get('/tblbarang/tblbarangkeluar', 'TblBarang::tblbarangkeluar');
 
 	$routes->get('/tblbarang/edit/(:segment)', 'TblBarang::edit/$1');
-	$routes->delete('/tblbarang/(:num)', 'TblBarang::delete/$1');
+	$routes->delete('/tblbarang/(:any)', 'TblBarang::delete/$1');
 	$routes->get('/tblbarang/(:any)', 'TblBarang::delete/$1');
 	
 	// tblsatuan

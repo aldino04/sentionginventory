@@ -57,18 +57,18 @@
                         </thead>
 
                         <tbody>
-                          <?php $i = 1; foreach( $barang as $br) : ?>
+                          <?php $i = 1; foreach($barang as $br) : ?>
                           <tr>
                             <td><?= $i++; ?></td>
                             <td><?= $br['kode_barang']; ?></td>
                             <td><?= $br['nama_barang']; ?></td>
-                            <td><?= $br['stok']; ?></td>
-                            <td><?= $br['satuan']; ?></td>
+                            <td class="font-weight-bold"><?= $br['stok']; ?></td>
+                            <td><?= $br['nama_satuan']; ?></td>
                             <td>
-                              <a href="/tblbarang/edit/<?= $br['id']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
+                              <a href="/tblbarang/edit/<?= $br['kode_barang']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
                             </td>
                             <td>
-                              <form action="/tblbarang/<?= $br['id']; ?>" method="POST">
+                              <form action="/tblbarang/<?= $br['kode_barang']; ?>" method="POST">
                               <?= csrf_field(); ?>
                               <input type="hidden" name="_method" value="DELETE">
                               <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin ?')"><i class="fas fa-trash-alt"></i></button>
@@ -104,7 +104,7 @@
               <div class="modal-body">
                 
                   <!-- Modal Body -->
-                  <form action="save" method="POST" class="needs-validation" novalidate="">
+                  <form action="tblbarang/save" method="POST" class="needs-validation" novalidate="">
                   <?= csrf_field(); ?>
 
                     <div class="row justify-content-center">
@@ -156,10 +156,9 @@
                           <label for="satuan" class="col col-form-label ml-2 pt-3">Satuan</label>
                           <div class="col-8">
                             <select class="form-control selectric"  name="satuan" id="satuan">
-                            <option>Liter</option>
-                            <option>Batang</option>
-                            <option>Sak</option>
-                            <option>Kilo Gram</option>
+                            <?php foreach($satuan as $st) : ?>
+                            <option value="<?= $st['id_satuan']; ?>"><?= $st['nama_satuan']; ?></option>
+                            <?php endforeach; ?>
                           </select>
                           </div>
                         </div>
@@ -170,7 +169,8 @@
                   <!-- End Modal Body -->
                     
                   <div class="modal-footer bg-whitesmoke br">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
                     <button type="submit" class="btn btn-primary">Tambah Barang</button>
                   </div>
                 </form>
