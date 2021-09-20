@@ -16,7 +16,6 @@ class TblBarang extends BaseController
 		$this->satuanModel = new SatuanModel();
 	}
 
-// Controller Tabel Barang
 	public function index()
 	{ 
 		// $barang = $this->barangModel->findAll();
@@ -89,14 +88,5 @@ class TblBarang extends BaseController
 
 		session()->setFlashdata('pesan', 'Data Berhasil Diubah!');
 		return redirect()->to('/tblbarang');
-	}
-// End Controller Tabel Barang
-
-	public function tblBarangKeluar()
-	{
-		$data = [
-			'tittle' => 'Tabel Barang Keluar &mdash; Sentiong'
-		];
-		return view('tabels/tblBarangKeluar', $data);
 	}
 }

@@ -44,7 +44,7 @@
                             <th class="text center">BAPB</th>
                             <th>Tanggal Masuk</th>
                             <th>Nama Barang</th>
-                            <th>Jumlah</th>
+                            <th>Masuk</th>
                             <th>Satuan</th>
                             <th>Keterangan</th>
                             <th>Update</th>

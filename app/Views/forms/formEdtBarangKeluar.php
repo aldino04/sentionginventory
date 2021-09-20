@@ -7,7 +7,7 @@
 
     <!-- Header -->
     <div class="section-header">
-      <h1>Formulir Barang Masuk</h1>
+      <h1>Formulir Barang Keluar</h1>
     </div>
     <!-- End Header -->
 
@@ -18,14 +18,14 @@
         <div class="col">
 
           <div class="card">
-            <form action="/tblmasuk/update/<?= $barang_masuk['id_masuk']; ?>" method="POST" class="needs-validation" novalidate="">
+            <form action="/tblkeluar/update/<?= $barang_keluar['id_keluar']; ?>" method="POST" class="needs-validation" novalidate="">
               <div class="card-header text-center">
                 <h4 class="text-center">Berita Acara Penerimaan Barang [BAPB]</h4>
               </div>
 
                 <div class="card-body mb-0 pb-0">
 
-                  <a href="#" class="btn btn-secondary mb-2"><i class="fas fa-clipboard-list mx-1"></i>Tabel Barang Masuk</a>
+                  <a href="<?= base_url(); ?>/tblkeluar" class="btn btn-secondary mb-2"><i class="fas fa-clipboard-list mx-1"></i>Tabel Barang Keluar</a>
 
                   <div class="row justify-content-center pb-0 mb-0">
                     <div class="col-md-7">
@@ -46,7 +46,7 @@
                       </div> -->
 
                       <div class="form-group row">
-                        <label for="bapb" class="col-sm-3 col-form-label">BAPB</label>
+                        <label for="bpm" class="col-sm-3 col-form-label">BPM</label>
                         <div class="col-sm-9">
                           <div class="input-group">
                             <div class="input-group-prepend">
@@ -54,16 +54,16 @@
                                 <i class="fas fa-window-restore"></i>
                               </div>
                             </div>
-                            <input type="text" class="form-control purchase-code" required placeholder="XX-GD-PSP-XX-XX" id="bapb" name="bapb" value="<?= $barang_masuk['bapb']; ?>">
+                            <input type="text" class="form-control purchase-code" required placeholder="XX-GD-PSP-XX-XX" id="bpm" name="bpm" value="<?= $barang_keluar['bpm']; ?>">
                             <div class="invalid-feedback">
-                            Masukan BAPB!
+                            Masukan BPM!
                           </div>
                           </div>
                         </div>
                       </div>
 
                       <div class="form-group row">
-                        <label for="tglMasuk" class="col-sm-3 col-form-label">Tanggal Masuk</label>
+                        <label for="tglKeluar" class="col-sm-3 col-form-label">Tanggal Keluar</label>
                         <div class="col-sm-9">
                           <div class="input-group">
                             <div class="input-group-prepend">
@@ -71,7 +71,7 @@
                                 <i class="fas fa-clock"></i>
                               </div>
                             </div>
-                            <input type="text" class="form-control datepicker" required placeholder="Masukan Tanggal.." id="tglMasuk" name="tglMasuk" value="<?= $barang_masuk['tgl_masuk']; ?>">
+                            <input type="text" class="form-control datepicker" required placeholder="Masukan Tanggal.." id="tglKeluar" name="tglKeluar" value="<?= $barang_keluar['tgl_keluar']; ?>">
                             <div class="invalid-feedback">
                             Masukan Tanggal!
                           </div>
@@ -88,7 +88,7 @@
                                 <i class="fas fa-qrcode"></i>
                               </div>
                             </div>
-                            <input type="text" class="form-control" required placeholder="Masukan Kode Barang.." id="kodeBarang" name="kodeBarang" value="<?= $barang_masuk['kode_barang']; ?>" disabled>
+                            <input type="text" class="form-control" required placeholder="Masukan Kode Barang.." id="kodeBarang" name="kodeBarang" value="<?= $barang_keluar['kode_barang']; ?>" disabled>
                             <div class="invalid-feedback">
                             Masukan Kode Barang!
                             </div>
@@ -98,7 +98,7 @@
 
 
                       <div class="form-group row">
-                        <label for="jmlMasuk" class="col-sm-3 col-form-label">Jumlah Masuk</label>
+                        <label for="JmlKeluar" class="col-sm-3 col-form-label">Jumlah Keluar</label>
                         <div class="col-sm-9">
                           <div class="input-group">
                             <div class="input-group-prepend">
@@ -106,7 +106,7 @@
                                 <i class="fas fa-window-restore"></i>
                               </div>
                             </div>
-                            <input type="text" class="form-control jumlah-si" required placeholder="XX-GD-PSP-XX-XX" id="jmlMasuk" name="jmlMasuk" value="<?= $barang_masuk['jml_masuk']; ?>">
+                            <input type="text" class="form-control jumlah-si" required placeholder="XX-GD-PSP-XX-XX" id="jmlKeluar" name="jmlKeluar" value="<?= $barang_keluar['jml_keluar']; ?>">
                             <div class="invalid-feedback">
                             Masukan Jumlah!
                           </div>
@@ -115,10 +115,10 @@
                       </div>
 
                       <div class="form-group row">
-                        <label for="ketMasuk" class="col-sm-3 col-form-label">Keterangan</label>
+                        <label for="ketKeluar" class="col-sm-3 col-form-label">Keterangan</label>
                         <div class="col-sm-9">
                           <div class="input-group">
-                            <textarea type="number" class="form-control mb-0" placeholder="Masukan Keterangan.." style="height: 80px;" name="ketMasuk" id="ketMasuk"><?= $barang_masuk['ket_masuk']; ?></textarea>
+                            <textarea type="number" class="form-control mb-0" placeholder="Masukan Keterangan.." style="height: 80px;" name="ketKeluar" id="ketKeluar"><?= $barang_keluar['ket_keluar']; ?></textarea>
                           </div>
                         </div>
                       </div>

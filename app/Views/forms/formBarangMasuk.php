@@ -25,7 +25,7 @@
 
                 <div class="card-body mb-0 pb-0">
 
-                  <a href="#" class="btn btn-secondary mb-2"><i class="fas fa-clipboard-list mx-1"></i>Tabel Barang Masuk</a>
+                  <a href="<?= base_url(); ?>/tblmasuk" class="btn btn-secondary mb-2"><i class="fas fa-clipboard-list mx-1"></i>Tabel Barang Masuk</a>
 
                   <div class="row justify-content-center pb-0 mb-0">
                     <div class="col-md-7">
@@ -106,6 +106,9 @@
                       <div class="form-group">
                         <label for="namaBarang">Nama Barang</label>
                         <input type="text" class="form-control" required="" placeholder="Masukan Nama Barang.." name="namaBarang" id="namaBarang" disabled>
+                        <div class="invalid-feedback">
+                          Masukan Nama Barang!.
+                        </div>
                       </div>
                     </div>
 
@@ -122,8 +125,10 @@
                     <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
                       <div class="form-group">
                         <label for="satuan">Satuan</label>
-
                         <input type="text" class="form-control" required="" placeholder="Masukan Satuan.." name="satuan" id="satuan" disabled>
+                        <div class="invalid-feedback">
+                          Masukan Satuan!.
+                        </div>
                       </div>
                     </div>
 
@@ -134,7 +139,7 @@
                     <div class="col-md-9 col-lg-9">
                       <div class="form-group">
                         <label for="ketMasuk">Keterangan</label>
-                        <textarea type="number" class="form-control mb-0" placeholder="Masukan Keterangan.." style="height: 80px;" name="ketMasuk" id="ketMasuk"></textarea>
+                        <textarea type="number" class="form-control" placeholder="Masukan Keterangan.." style="height: 80px;" name="ketMasuk" id="ketMasuk"></textarea>
                       </div>
                     </div>
                   </div>
