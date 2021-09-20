@@ -69,4 +69,31 @@ class TblMasuk extends BaseController
 		session()->setFlashdata('pesan', 'Data Berhasil Dihapus!');
 		return redirect()->to('/tblmasuk');
 	}
+
+	public function edit($id_masuk)
+	{
+		$data = [
+			'tittle' => 'Form Edit Barang &mdash; Sentiong',
+			'barang' => $this->barangModel->getId(),
+			'barang_masuk' => $this->barangMasukModel->getId($id_masuk),
+			'satuan' => $this->satuanModel->findAll()
+		];
+		// dd($data);
+		return view('forms/formEdtBarangMasuk', $data);
+	}
+
+	public function update($id_masuk)
+	{
+		$this->barangMasukModel->save([
+			'id_masuk' 		=> $id_masuk,
+			'bapb' 				=> $this->request->getVar('bapb'),
+			'tgl_masuk' 	=> $this->request->getVar('tglMasuk'),
+			// 'kode_barang' => $this->request->getVar('kodeBarang'),
+			'jml_masuk' 	=> $this->request->getVar('jmlMasuk'),
+			'ket_masuk' 	=> $this->request->getVar('ketMasuk')
+		]);
+
+		session()->setFlashdata('pesan', 'Data Berhasil Diubah!');
+		return redirect()->to('/tblmasuk');
+	}
 }

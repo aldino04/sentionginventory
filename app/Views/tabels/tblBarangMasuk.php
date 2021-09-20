@@ -63,7 +63,7 @@
                             <td><?= $msk['nama_satuan']; ?></td>
                             <td><?= $msk['ket_masuk']; ?></td>
                             <td>
-                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
+                              <a href="/tblmasuk/edit/<?= $msk['id_masuk']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
                             </td>
                             <td>
                               <form action="/tblmasuk/<?= $msk['id_masuk']; ?>" method="POST">

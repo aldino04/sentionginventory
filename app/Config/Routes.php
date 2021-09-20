@@ -49,7 +49,8 @@ $routes->get('/', 'Home::index');
 	
 	// tblbarangmasuk
 	$routes->get('/tblmasuk', 'TblMasuk::index');
-	// $routes->get('/tblmasuk/edit/(:segment)', 'TblMasuk::edit/$1');
+	$routes->get('/tblmasuk/form', 'TblMasuk::form');
+	$routes->get('/tblmasuk/edit/(:num)', 'TblMasuk::edit/$1');
 	$routes->delete('/tblmasuk/(:num)', 'TblMasuk::delete/$1');
 	$routes->get('/tblmasuk/(:any)', 'TblMasuk::delete/$1');
 	
