@@ -46,3 +46,6 @@ $("#table-user").dataTable({
 $("#table-barang").dataTable({
   columnDefs: [{ sortable: false, targets: [1, 4, 5, 6] }],
 });
+$("#table-barang2").dataTable({
+  columnDefs: [{ sortable: false, targets: [3, 4] }],
+});

@@ -92,14 +92,6 @@ class TblBarang extends BaseController
 	}
 // End Controller Tabel Barang
 
-	public function tblBarangMasuk()
-	{ 
-		$data = [
-			'tittle' => 'Tabel Barang Masuk &mdash; Sentiong'
-		];
-		return view('tabels/tblBarangMasuk', $data);
-	}
-
 	public function tblBarangKeluar()
 	{
 		$data = [

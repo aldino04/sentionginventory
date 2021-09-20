@@ -20,104 +20,62 @@
                 <div class="card">
 
                 <div class="p-3 ml-3">
-                  <a href="#" class="btn btn-primary btn-lg"><i class="fas fa-plus-square mr-1"></i>Barang Masuk</a>
+                  <a href="<?= base_url(); ?>/tblmasuk/form" class="btn btn-primary btn-lg"><i class="fas fa-plus-square mr-1"></i>Barang Masuk</a>
                 </div>
 
                   <div class="card-body">
+                    <?php if (session()->getFlashdata('pesan')) : ?>
+                      <div class="alert alert-success alert-has-icon alert-dismissible show fade">
+                          <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                          <div class="alert-body">
+                            <div class="alert-title">Success</div>
+                            <?= session()->getFlashData('pesan'); ?>
+                          </div>
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                    <?php endif; ?>
                     <div class="table-responsive">
                       <table class="table table-striped" id="table-1">
                         <thead class="bg-primary" style="color: white;">
                           <tr>
                             <th class="text-center">No</th>
                             <th class="text center">BAPB</th>
-                            <th>Tanggal</th>
-                            <th>Kode Barang</th>
+                            <th>Tanggal Masuk</th>
                             <th>Nama Barang</th>
                             <th>Jumlah</th>
                             <th>Satuan</th>
+                            <th>Keterangan</th>
                             <th>Update</th>
                             <th>Delete</th>
                           </tr>
                         </thead>
-                        <tbody>
 
+                        <tbody>
+                          <?php $i = 1 ; foreach($barang_masuk as $msk) : ?>
                           <tr>
-                            <td>1</td>
-                            <td>01-GD-PSP-09-21</td>
-                            <td>25-08-2021</td>
-                            <td>AA0030</td>
-                            <td>BBM Solar</td>
-                            <td>100</td>
-                            <td>Liter</td>
+                            <td><?= $i++; ?></td>
+                            <td><?= $msk['bapb']; ?></td>
+                            <td><?= $msk['tgl_masuk']; ?></td>
+                            <td><?= $msk['nama_barang']; ?></td>
+                            <td><?= $msk['jml_masuk']; ?></td>
+                            <td><?= $msk['nama_satuan']; ?></td>
+                            <td><?= $msk['ket_masuk']; ?></td>
                             <td>
                               <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
                             </td>
                             <td>
-                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                              <form action="/tblmasuk/<?= $msk['id_masuk']; ?>" method="POST">
+                              <?= csrf_field(); ?>
+                              <input type="hidden" name="_method" value="DELETE">
+                              <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin ?')"><i class="fas fa-trash-alt"></i></button>
+                              </form>
                             </td>
                           </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>02-GD-PSP-09-21</td>
-                            <td>26-08-2021</td>
-                            <td>AA0031</td>
-                            <td>Semen</td>
-                            <td>10</td>
-                            <td>Sak</td>
-                            <td>
-                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
-                            </td>
-                            <td>
-                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>03-GD-PSP-09-21</td>
-                            <td>26-08-2021</td>
-                            <td>AA0023</td>
-                            <td>Besi Ulir D 13</td>
-                            <td>364</td>
-                            <td>Batang</td>
-                            <td>
-                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
-                            </td>
-                            <td>
-                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>4</td>
-                            <td>04-GD-PSP-09-21</td>
-                            <td>25-09-2021</td>
-                            <td>AA0012</td>
-                            <td>Cat Besi</td>
-                            <td>30</td>
-                            <td>Kilo Gram</td>
-                            <td>
-                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
-                            </td>
-                            <td>
-                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>5</td>
-                            <td>01-GD-PSP-08-21</td>
-                            <td>21-08-2021</td>
-                            <td>AA0040</td>
-                            <td>Sika Separol</td>
-                            <td>20</td>
-                            <td>Kilo Gram</td>
-                            <td>
-                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
-                            </td>
-                            <td>
-                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                          </tr>
-                          
+                          <?php endforeach; ?>
                         </tbody>
+
                       </table>
                     </div>
                   </div>

@@ -37,9 +37,6 @@ $routes->get('/', 'Home::index');
 // Custom ku
 	// tblbarang
 	$routes->get('/tblbarang', 'TblBarang::index');
-	$routes->get('/tblbarang/tblbarangmasuk', 'TblBarang::tblbarangmasuk');
-	$routes->get('/tblbarang/tblbarangkeluar', 'TblBarang::tblbarangkeluar');
-
 	$routes->get('/tblbarang/edit/(:segment)', 'TblBarang::edit/$1');
 	$routes->delete('/tblbarang/(:any)', 'TblBarang::delete/$1');
 	$routes->get('/tblbarang/(:any)', 'TblBarang::delete/$1');
@@ -50,6 +47,14 @@ $routes->get('/', 'Home::index');
 	$routes->delete('/tblsatuan/(:num)', 'TblSatuan::delete/$1');
 	$routes->get('/tblsatuan/(:any)', 'TblSatuan::delete/$1');
 	
+	// tblbarangmasuk
+	$routes->get('/tblmasuk', 'TblMasuk::index');
+	// $routes->get('/tblmasuk/edit/(:segment)', 'TblMasuk::edit/$1');
+	$routes->delete('/tblmasuk/(:num)', 'TblMasuk::delete/$1');
+	$routes->get('/tblmasuk/(:any)', 'TblMasuk::delete/$1');
+	
+	// $routes->get('/tblbarang/tblbarangmasuk', 'TblBarang::tblbarangmasuk');
+	// $routes->get('/tblbarang/tblbarangkeluar', 'TblBarang::tblbarangkeluar');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

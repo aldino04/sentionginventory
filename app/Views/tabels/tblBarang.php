@@ -23,10 +23,6 @@
                   <button type="button" class="btn btn-success btn-lg mr-1" data-toggle="modal" data-target="#exampleModal">
                     <i class="fas fa-plus-square mr-1"></i>Tambah Barang
                   </button>
-                
-                  <!-- <a href="#" class="btn btn-primary btn-lg mr-1"><i class="fas fa-plus-square mr-1"></i>Barang Masuk</a>
-                
-                  <a href="#" class="btn btn-danger btn-lg mr-1"><i class="fas fa-plus-square mr-1"></i>Barang Keluar</a> -->
                 </div>
 
                 <div class="card-body">
@@ -156,10 +152,10 @@
                           <label for="satuan" class="col col-form-label ml-2 pt-3">Satuan</label>
                           <div class="col-8">
                             <select class="form-control selectric"  name="satuan" id="satuan">
-                            <?php foreach($satuan as $st) : ?>
-                            <option value="<?= $st['id_satuan']; ?>"><?= $st['nama_satuan']; ?></option>
-                            <?php endforeach; ?>
-                          </select>
+                              <?php foreach($satuan as $st) : ?>
+                              <option value="<?= $st['id_satuan']; ?>"><?= $st['nama_satuan']; ?></option>
+                              <?php endforeach; ?>
+                            </select>
                           </div>
                         </div>
 

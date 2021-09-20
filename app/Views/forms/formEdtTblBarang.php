@@ -76,14 +76,14 @@
                               <label for="satuan" class="col-sm-3 col-form-label">Satuan</label>
                               <div class="col-sm-9">
                                 <select class="form-control selectric" name="satuan" id="satuan">
-                                <?php foreach($satuan as $st) : ?>
-                                  <?php if($st['id_satuan'] == $barang['id_satuan']) : ?>
-                                    <option value="<?= $st['id_satuan']; ?>" selected><?= $st['nama_satuan']; ?></option>
-                                  <?php else : ?>
-                                    <option value="<?= $st['id_satuan']; ?>"><?= $st['nama_satuan']; ?></option>
-                                  <?php endif; ?>
-                                <?php endforeach; ?>
-                              </select>
+                                  <?php foreach($satuan as $st) : ?>
+                                    <?php if($st['id_satuan'] == $barang['id_satuan']) : ?>
+                                      <option value="<?= $st['id_satuan']; ?>" selected><?= $st['nama_satuan']; ?></option>
+                                    <?php else : ?>
+                                      <option value="<?= $st['id_satuan']; ?>"><?= $st['nama_satuan']; ?></option>
+                                    <?php endif; ?>
+                                  <?php endforeach; ?>
+                                </select>
                               </div>
                             </div>
 
