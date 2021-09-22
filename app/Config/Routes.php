@@ -37,6 +37,7 @@ $routes->get('/', 'Home::index');
 // Custom ku
 	// tblbarang
 	$routes->get('/tblbarang', 'TblBarang::index');
+	$routes->get('/tblbarang/detail/(:segment)', 'TblBarang::detail/$1');
 	$routes->get('/tblbarang/edit/(:segment)', 'TblBarang::edit/$1');
 	$routes->delete('/tblbarang/(:any)', 'TblBarang::delete/$1');
 	$routes->get('/tblbarang/(:any)', 'TblBarang::delete/$1');

@@ -39,16 +39,17 @@
                         </div>
                     <?php endif; ?>
                     <div class="table-responsive">
-                      <table class="table table-striped" id="table-barang">
+                      <table class="table table-hover" id="table-barang">
                         <thead class="bg-primary" style="color: white;">
                           <tr>
                             <th class="text-center">No</th>
                             <th>Kode Barang</th>
                             <th>Nama Barang</th>
                             <th>Stok</th>
-                            <th>Satuan</th>
+                            <!-- <th>Satuan</th> -->
                             <th>Update</th>
                             <th>Delete</th>
+                            <th>Details</th>
                           </tr>
                         </thead>
 
@@ -58,8 +59,8 @@
                             <td><?= $i++; ?></td>
                             <td><?= $br['kode_barang']; ?></td>
                             <td><?= $br['nama_barang']; ?></td>
-                            <td class="font-weight-bold"><?= $br['stok']; ?></td>
-                            <td><?= $br['nama_satuan']; ?></td>
+                            <td><h6 class="position-sticky d-inline"><?= $br['stok']; ?></h6>&nbsp;&nbsp;<?= $br['nama_satuan']; ?></td>
+                            <!-- <td></td> -->
                             <td>
                               <a href="/tblbarang/edit/<?= $br['kode_barang']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
                             </td>
@@ -69,6 +70,9 @@
                               <input type="hidden" name="_method" value="DELETE">
                               <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin ?')"><i class="fas fa-trash-alt"></i></button>
                               </form>
+                            </td>
+                            <td>
+                              <a href="/tblbarang/detail/<?= $br['kode_barang']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
                             </td>
                           </tr>
                           <?php endforeach; ?>

@@ -25,6 +25,7 @@ class TblBarang extends BaseController
 			'satuan' => $this->satuanModel->findAll()
 		];
 
+		// dd($data);
 		return view('tabels/tblBarang', $data);
 	}
 
@@ -88,5 +89,19 @@ class TblBarang extends BaseController
 
 		session()->setFlashdata('pesan', 'Data Berhasil Diubah!');
 		return redirect()->to('/tblbarang');
+	}
+
+	public function detail($kode_barang)
+	{
+		// $barang = $this->barangModel->getId($kode_barang);
+		// dd($barang);
+
+		$data = [
+			'tittle' => 'Detail Barang &mdash; Sentiong',
+			'barang' => $this->barangModel->getId($kode_barang)
+		];
+
+		// dd($data);
+		return view('detailBarang', $data);
 	}
 }
