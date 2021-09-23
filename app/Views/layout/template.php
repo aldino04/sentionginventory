@@ -86,13 +86,9 @@
     <?= $this->renderSection('jsform'); ?>
     <!-- end -->
     
-    <script>
-      function previewImg() {
-        const sampul = document.querySelector('#sampul');
-        const sampulLabel = document.querySelector('.custom-file-label');
-  
-        sampulLabel.textContent = sampul.files[0].name;
-      }
-    </script> 
+    <?= $this->renderSection('fotoBarang'); ?>
+    <?= $this->renderSection('fotoEdtBarang'); ?>
+    <?= $this->renderSection('fotoBarangKeluar'); ?>
+
 </body>
 </html>

@@ -182,6 +182,9 @@
                                 Pilih Gambar!.
                               </div>
                             </div>
+                            <div class="input-group justify-content-center mt-2">
+                              <img src="/template/assets/img/products/product-1.jpg" class="img-thumbnail img-preview" style="height: fit-content; width: 200px;">
+                            </div>
                           </div>
                         </div>
 
@@ -204,3 +207,22 @@
       </div>
 
 <?= $this->endSection(); ?>
+
+<?= $this->section('fotoBarang'); ?>
+<script>
+  function previewImg() {
+    const sampul = document.querySelector('#sampul');
+    const sampulLabel = document.querySelector('.custom-file-label');
+    const imgPreview = document.querySelector('.img-preview');
+
+    sampulLabel.textContent = sampul.files[0].name;
+
+    const fileSampul = new FileReader();
+    fileSampul.readAsDataURL(sampul.files[0]);
+
+    fileSampul.onload = function(e) {
+      imgPreview.src = e.target.result;
+    }
+  }
+</script>
+<?= $this->endSection('fotoBarang'); ?>

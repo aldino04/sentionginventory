@@ -18,7 +18,7 @@
               <div class="col">
 
                 <div class="card">
-                  <form action="save" method="POST" class="needs-validation" novalidate="">
+                  <form action="save" method="POST" class="needs-validation" novalidate="" enctype="multipart/form-data">
                     <div class="card-header text-center">
                       <h4 class="text-center">Bon Pemakaian Material/Suku Cadang [BPM]</h4>
                     </div>
@@ -97,6 +97,24 @@
                                 </div>
                               </div>
                             </div>
+
+                            <div class="form-group row">
+                              <label for="fotoKeluar" class="col-sm-3 col-form-label">Foto Barang Keluar</label>
+                              <div class="col-sm-9">
+                                <div class="input-group custom-file">
+                                  <input type="file" class="custom-file-input" id="fotoKeluar" required name="fotoKeluar" onchange="previewImg()">
+                                  <label class="custom-file-label" for="fotoKeluar">Pilih Gambar..</label>
+                                  <div class="invalid-feedback">
+                                  Masukan Gambar!
+                                  </div>
+                                </div>
+                              </div>
+                                
+                              <div class="input-group justify-content-center mt-2">
+                                <img src="/template/assets/img/products/product-1.jpg" class="img-thumbnail img-preview" style="height: fit-content; width: 200px;">
+                              </div>
+                            </div>
+
                           </div>
                         </div>
 
@@ -110,7 +128,7 @@
 
                           <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
                             <div class="form-group">
-                              <label for="jmlKeluar">Jumlah</label>
+                              <label for="jmlKeluar">Jumlah Keluar</label>
                               <input type="text" class="form-control jumlah-si" required="" placeholder="Masukan Jumlah.." id="jmlKeluar" name="jmlKeluar">
                               <div class="invalid-feedback">
                                 Masukan Jumlah!.
@@ -220,6 +238,7 @@
         <!-- End Modal -->
       </div>
 
+<!-- script tabel pada modal kode barang -->
 <script>
   $(document).ready(function () {
   $(document).on('click', '#select', function () {
@@ -233,8 +252,28 @@
   })
 })
 </script>
+<!-- End Script -->
 
 <?= $this->endSection(); ?>
+
+<?= $this->section('fotoBarangKeluar'); ?>
+<script>
+  function previewImg() {
+    const sampul = document.querySelector('#fotoKeluar');
+    const sampulLabel = document.querySelector('.custom-file-label');
+    const imgPreview = document.querySelector('.img-preview');
+
+    sampulLabel.textContent = sampul.files[0].name;
+
+    const fileSampul = new FileReader();
+    fileSampul.readAsDataURL(sampul.files[0]);
+
+    fileSampul.onload = function(e) {
+      imgPreview.src = e.target.result;
+    }
+  }
+</script>
+<?= $this->endSection('fotoBarangKeluar'); ?>
 
 <?= $this->section('jsform'); ?>
   <script src="<?= base_url(); ?>/template/assets/js/page/forms-advanced-forms.js"></script>

@@ -92,13 +92,17 @@
 
                             <div class="form-group row">
                               <label for="sampul" class="col-sm-3 col-form-label">Sampul</label>
-                              <div class="col-9">
+                              <div class="col-sm-9">
                                 <div class="input-group custom-file">
                                   <input type="file" class="custom-file-input" id="sampul" name="sampul" onchange="previewImg()">
                                   <label class="custom-file-label" for="sampul"><?= $barang['sampul']; ?></label>
                                   <div class="invalid-feedback mt-2">
                                     Pilih Gambar!.
                                   </div>
+                                </div>
+
+                                <div class="input-group justify-content-center mt-2">
+                                  <img src="/img/barang/<?= $barang['sampul']; ?>" class="img-thumbnail img-preview" style="height: fit-content; width: 200px;">
                                 </div>
                               </div>
                             </div>
@@ -129,3 +133,22 @@
       </div>
 
 <?= $this->endSection(); ?>
+
+<?= $this->section('fotoBarang'); ?>
+<script>
+  function previewImg() {
+    const sampul = document.querySelector('#sampul');
+    const sampulLabel = document.querySelector('.custom-file-label');
+    const imgPreview = document.querySelector('.img-preview');
+
+    sampulLabel.textContent = sampul.files[0].name;
+
+    const fileSampul = new FileReader();
+    fileSampul.readAsDataURL(sampul.files[0]);
+
+    fileSampul.onload = function(e) {
+      imgPreview.src = e.target.result;
+    }
+  }
+</script>
+<?= $this->endSection('fotoBarang'); ?>

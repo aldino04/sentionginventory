@@ -41,6 +41,13 @@ class TblKeluar extends BaseController
 
 	public function save()
 	{
+		//ambil file sampul
+		$fileSampul = $this->request->getFile('fotoKeluar');
+		//pindahkan file ke folder /img
+		$fileSampul->move('img/barangKeluar');
+		//ambil nama file
+		$namaSampul = $fileSampul->getName();
+
 		// dd($this->request->getVar());
 		$bpm = $this->request->getVar('bpm');
 		$tgl_keluar = $this->request->getVar('tglKeluar');
@@ -54,6 +61,7 @@ class TblKeluar extends BaseController
 			'kode_barang' => $kode_barang,
 			'jml_keluar' => $jml_keluar,
 			'ket_keluar' => $ket_keluar,
+			'fotoKeluar' => $namaSampul
 		];
 
 		// dd($data);
@@ -85,13 +93,24 @@ class TblKeluar extends BaseController
 
 	public function update($id_keluar)
 	{
+		$fileSampul = $this->request->getFile('fotoKeluar');
+
+		//cek gambar, apakah masih yang lama
+		if ($fileSampul->getError() == 4){
+			$namaSampul = $this->request->getVar('sampulLama');
+		} else {
+			$fileSampul->move('img/barang');
+			$namaSampul = $fileSampul->getName();
+		}
+
 		$this->barangKeluarModel->save([
-			'id_keluar' 		=> $id_keluar,
+			'id_keluar' 	=> $id_keluar,
 			'bapb' 				=> $this->request->getVar('bapb'),
 			'tgl_keluar' 	=> $this->request->getVar('tglKeluar'),
 			// 'kode_barang' => $this->request->getVar('kodeBarang'),
 			'jml_keluar' 	=> $this->request->getVar('jmlKeluar'),
-			'ket_keluar' 	=> $this->request->getVar('ketKeluar')
+			'ket_keluar' 	=> $this->request->getVar('ketKeluar'),
+			'fotoKeluar'  => $namaSampul
 		]);
 
 		session()->setFlashdata('pesan', 'Data Berhasil Diubah!');

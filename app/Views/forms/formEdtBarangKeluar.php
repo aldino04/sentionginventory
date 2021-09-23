@@ -18,7 +18,7 @@
         <div class="col">
 
           <div class="card">
-            <form action="/tblkeluar/update/<?= $barang_keluar['id_keluar']; ?>" method="POST" class="needs-validation" novalidate="">
+            <form action="/tblkeluar/update/<?= $barang_keluar['id_keluar']; ?>" method="POST" class="needs-validation" novalidate="" enctype="multipart/form-data">
               <div class="card-header text-center">
                 <h4 class="text-center">Berita Acara Penerimaan Barang [BAPB]</h4>
               </div>
@@ -123,6 +123,23 @@
                         </div>
                       </div>
 
+                      <div class="form-group row">
+                        <label for="fotoKeluar" class="col-sm-3 col-form-label">Foto Barang Keluar</label>
+                        <div class="col-sm-9">
+                          <div class="input-group custom-file">
+                            <input type="file" class="custom-file-input" id="fotoKeluar" required name="fotoKeluar" onchange="previewImg()">
+                            <label class="custom-file-label" for="fotoKeluar"><?= $barang_keluar['fotoKeluar']; ?></label>
+                            <div class="invalid-feedback">
+                            Masukan Gambar!
+                            </div>
+                          </div>
+                        </div>
+                          
+                        <div class="input-group justify-content-center mt-2">
+                          <img src="/img/barangKeluar/<?= $barang_keluar['fotoKeluar']; ?>" class="img-thumbnail img-preview" style="height: fit-content; width: 200px;">
+                        </div>
+                      </div>
+
                     </div>
                   </div>
 
@@ -187,6 +204,28 @@
 </div>
 
 <?= $this->endSection('content'); ?>
+
+
+
+<?= $this->section('fotoBarangKeluar'); ?>
+<script>
+  function previewImg() {
+    const sampul = document.querySelector('#fotoKeluar');
+    const sampulLabel = document.querySelector('.custom-file-label');
+    const imgPreview = document.querySelector('.img-preview');
+
+    sampulLabel.textContent = sampul.files[0].name;
+
+    const fileSampul = new FileReader();
+    fileSampul.readAsDataURL(sampul.files[0]);
+
+    fileSampul.onload = function(e) {
+      imgPreview.src = e.target.result;
+    }
+  }
+</script>
+<?= $this->endSection('fotoBarangKeluar'); ?>
+
 
 
 <?= $this->section('jsform'); ?>

@@ -42,7 +42,7 @@ class TblBarang extends BaseController
 		//ambil file sampul
 		$fileSampul = $this->request->getFile('sampul');
 		//pindahkan file ke folder /img
-		$fileSampul->move('img');
+		$fileSampul->move('img/barang');
 		//ambil nama file
 		$namaSampul = $fileSampul->getName();
 
@@ -92,7 +92,7 @@ class TblBarang extends BaseController
 		if ($fileSampul->getError() == 4){
 			$namaSampul = $this->request->getVar('sampulLama');
 		} else {
-			$fileSampul->move('img');
+			$fileSampul->move('img/barang');
 			$namaSampul = $fileSampul->getName();
 		}
 
