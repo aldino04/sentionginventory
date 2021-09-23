@@ -18,7 +18,7 @@
               <div class="col">
 
                 <div class="card">
-                  <form action="/tblbarang/update/<?= $barang['id_barang']; ?>" method="POST" class="needs-validation" novalidate="">
+                  <form action="/tblbarang/update/<?= $barang['id_barang']; ?>" method="POST" class="needs-validation" novalidate="" enctype="multipart/form-data">
                     <div class="card-header text-center">
                       <h4>Formulir Edit Barang</h4>
                     </div>
@@ -29,6 +29,9 @@
 
                         <div class="row justify-content-center pb-0 mb-0">
                           <div class="col-md-7">
+
+                            <?= csrf_field(); ?>
+                            <input type="hidden" name="sampulLama" value="<?= $barang['sampul']; ?>">
 
                             <div class="form-group row">
                               <label for="kodeBarang" class="col-sm-3 col-form-label">Kode Barang</label>
@@ -84,6 +87,19 @@
                                     <?php endif; ?>
                                   <?php endforeach; ?>
                                 </select>
+                              </div>
+                            </div>
+
+                            <div class="form-group row">
+                              <label for="sampul" class="col-sm-3 col-form-label">Sampul</label>
+                              <div class="col-9">
+                                <div class="input-group custom-file">
+                                  <input type="file" class="custom-file-input" id="sampul" name="sampul" onchange="previewImg()">
+                                  <label class="custom-file-label" for="sampul"><?= $barang['sampul']; ?></label>
+                                  <div class="invalid-feedback mt-2">
+                                    Pilih Gambar!.
+                                  </div>
+                                </div>
                               </div>
                             </div>
 

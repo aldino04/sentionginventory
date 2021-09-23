@@ -8,7 +8,7 @@ class BarangModel extends Model
 {
   protected $table = 'barang';
   protected $primaryKey = 'kode_barang';
-  protected $allowedFields = ['kode_barang', 'nama_barang', 'stok', 'id_satuan'];
+  protected $allowedFields = ['kode_barang', 'nama_barang', 'stok', 'id_satuan', 'sampul'];
 
   public function getId($kode_barang = false)
   {

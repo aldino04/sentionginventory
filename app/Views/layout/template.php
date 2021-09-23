@@ -85,6 +85,14 @@
     <!-- Kalau Mau Pakai Advance form {Currency, password strength} js ini aktifin -->
     <?= $this->renderSection('jsform'); ?>
     <!-- end -->
-
+    
+    <script>
+      function previewImg() {
+        const sampul = document.querySelector('#sampul');
+        const sampulLabel = document.querySelector('.custom-file-label');
+  
+        sampulLabel.textContent = sampul.files[0].name;
+      }
+    </script> 
 </body>
 </html>

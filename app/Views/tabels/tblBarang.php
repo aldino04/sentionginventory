@@ -104,7 +104,7 @@
               <div class="modal-body">
                 
                   <!-- Modal Body -->
-                  <form action="tblbarang/save" method="POST" class="needs-validation" novalidate="">
+                  <form action="tblbarang/save" method="POST" class="needs-validation" novalidate="" enctype="multipart/form-data">
                   <?= csrf_field(); ?>
 
                     <div class="row justify-content-center">
@@ -120,6 +120,9 @@
                                 </div>
                               </div>
                               <input type="text" class="form-control" required placeholder="Masukan Kode Barang.." name="kodeBarang" id="kodeBarang">
+                              <div class="invalid-feedback">
+                                Masukan Kode Barang!.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -134,6 +137,9 @@
                                 </div>
                               </div>
                               <input type="text" class="form-control" required placeholder="Masukan Nama Barang.." name="namaBarang" id="namaBarang">
+                              <div class="invalid-feedback">
+                                Masukan Nama Barang!.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -148,6 +154,9 @@
                                 </div>
                               </div>
                               <input type="number" class="form-control" required placeholder="Masukan Stok.." name="stok" id="stok">
+                              <div class="invalid-feedback">
+                                Masukan Stok!.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -160,6 +169,19 @@
                               <option value="<?= $st['id_satuan']; ?>"><?= $st['nama_satuan']; ?></option>
                               <?php endforeach; ?>
                             </select>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="sampul" class="col col-form-label ml-2 pt-3">Sampul</label>
+                          <div class="col-8">
+                            <div class="input-group custom-file">
+                              <input type="file" class="custom-file-input" id="sampul" required name="sampul" onchange="previewImg()">
+                              <label class="custom-file-label" for="sampul">Pilih Gambar..</label>
+                              <div class="invalid-feedback mt-2">
+                                Pilih Gambar!.
+                              </div>
+                            </div>
                           </div>
                         </div>
 

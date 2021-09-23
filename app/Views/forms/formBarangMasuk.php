@@ -148,7 +148,7 @@
 
               <div class="card-footer text-center">
                 
-                <a href="#" class="btn btn-success float-left"><i class="fas fa-arrow-circle-left mx-1"></i>Back</a>
+                <a href="/tblbarang" class="btn btn-success float-left"><i class="fas fa-arrow-circle-left mx-1"></i>Back</a>
 
                 <button class="btn btn-primary float-right mb-3" type="submit"><i class="fas fa-check-square mx-1"></i>Submit</button>
                 

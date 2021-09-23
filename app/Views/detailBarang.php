@@ -16,7 +16,7 @@
   <div class="card mb-3">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <img src="<?= base_url(); ?>/template/assets/img/products/product-1.jpg" class="card-img" alt="..." style="max-height: 350px; max-width: 350px;">
+        <img src="<?= base_url(); ?>/img/<?= $barang['sampul']; ?>" class="card-img img-thumbnail" alt="..." style="height: 350px; max-width: 350px;">
       </div>
       <div class="col-md-8">
         <div class="card-body">

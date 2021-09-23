@@ -39,6 +39,13 @@ class TblBarang extends BaseController
 		// 	'id_satuan' => $this->request->getVar('satuan')
 		// ]);
 
+		//ambil file sampul
+		$fileSampul = $this->request->getFile('sampul');
+		//pindahkan file ke folder /img
+		$fileSampul->move('img');
+		//ambil nama file
+		$namaSampul = $fileSampul->getName();
+
 		$kode_barang = $this->request->getVar('kodeBarang');
 		$nama_barang = $this->request->getVar('namaBarang');
 		$stok = $this->request->getVar('stok');
@@ -48,7 +55,8 @@ class TblBarang extends BaseController
 			'kode_barang' => $kode_barang,
 			'nama_barang' => $nama_barang,
 			'stok' 				=> $stok,
-			'id_satuan' 	=> $id_satuan
+			'id_satuan' 	=> $id_satuan,
+			'sampul'			=> $namaSampul
 		];
 
 		$this->barangModel->insert($data);
@@ -78,13 +86,23 @@ class TblBarang extends BaseController
 
 	public function update($kode_barang)
 	{
+		$fileSampul = $this->request->getFile('sampul');
+
+		//cek gambar, apakah masih yang lama
+		if ($fileSampul->getError() == 4){
+			$namaSampul = $this->request->getVar('sampulLama');
+		} else {
+			$fileSampul->move('img');
+			$namaSampul = $fileSampul->getName();
+		}
+
 		$this->barangModel->save([
-			// 'id_barang' => $id_barang,
 			'kode_barang' => $kode_barang,
 			'kode_barang' => $this->request->getVar('kodeBarang'),
 			'nama_barang' => $this->request->getVar('namaBarang'),
 			'stok' 				=> $this->request->getVar('stok'),
-			'id_satuan' 	=> $this->request->getVar('satuan')
+			'id_satuan' 	=> $this->request->getVar('satuan'),
+			'sampul'			=> $namaSampul
 		]);
 
 		session()->setFlashdata('pesan', 'Data Berhasil Diubah!');
