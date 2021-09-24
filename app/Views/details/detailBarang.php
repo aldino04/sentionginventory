@@ -16,9 +16,9 @@
   <div class="card mb-3">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <img src="<?= base_url(); ?>/img/barang/<?= $barang['sampul']; ?>" class="card-img img-thumbnail" alt="..." style="height: 350px; max-width: 350px;">
+        <img src="<?= base_url(); ?>/img/barang/<?= $barang['sampul']; ?>" class="card-img img-thumbnail" alt="..." style="height:350px; width:350px;">
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8">  
         <div class="card-body">
           <h5 class="card-tittle my-3 ml-4">Sentiong &mdash; Inventory</h5>
           <table class="table table-sm col-md-8">

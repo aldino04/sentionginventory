@@ -120,6 +120,6 @@ class TblBarang extends BaseController
 		];
 
 		// dd($data);
-		return view('detailBarang', $data);
+		return view('details/detailBarang', $data);
 	}
 }

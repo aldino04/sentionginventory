@@ -39,7 +39,7 @@
                         </div>
                     <?php endif; ?>
                     <div class="table-responsive">
-                      <table class="table table-hover" id="table-barang">
+                      <table class="table table-hover" id="tableNormal">
                         <thead class="bg-primary" style="color: white;">
                           <tr>
                             <th class="text-center">No</th>
@@ -47,7 +47,7 @@
                             <th>Nama Barang</th>
                             <th>Stok</th>
                             <!-- <th>Satuan</th> -->
-                            <th>Update</th>
+                            <!-- <th>Update</th> -->
                             <th>Delete</th>
                             <th>Details</th>
                           </tr>
@@ -56,14 +56,14 @@
                         <tbody>
                           <?php $i = 1; foreach($barang as $br) : ?>
                           <tr>
-                            <td><?= $i++; ?></td>
+                            <td class="text-center"><?= $i++; ?></td>
                             <td><?= $br['kode_barang']; ?></td>
                             <td><?= $br['nama_barang']; ?></td>
                             <td><h6 class="position-sticky d-inline"><?= $br['stok']; ?></h6>&nbsp;&nbsp;<?= $br['nama_satuan']; ?></td>
                             <!-- <td></td> -->
-                            <td>
+                            <!-- <td>
                               <a href="/tblbarang/edit/<?= $br['kode_barang']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
-                            </td>
+                            </td> -->
                             <td>
                               <form action="/tblbarang/<?= $br['kode_barang']; ?>" method="POST">
                               <?= csrf_field(); ?>

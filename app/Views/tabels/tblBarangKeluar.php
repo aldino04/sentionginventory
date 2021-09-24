@@ -37,21 +37,22 @@
                         </div>
                     <?php endif; ?>
                     <div class="table-responsive">
-                      <table class="table table-striped" id="table-1">
-                        <thead class="bg-primary" style="color: white;">
+                      <table class="table table-hover" id="tableNormal">
+                        <thead class="bg-primary text-center" style="color: white;">
                           <tr>
-                            <th class="text-center">No</th>
-                            <th class="text-center">BPM</th>
+                            <th>No</th>
+                            <th>BPM</th>
                             <th>Tanggal Keluar</th>
                             <th>Nama Barang</th>
                             <th>Keluar</th>
-                            <th>Satuan</th>
-                            <th>Keterangan</th>
-                            <th>Update</th>
+                            <!-- <th>Satuan</th> -->
+                            <!-- <th>Keterangan</th> -->
+                            <!-- <th>Update</th> -->
                             <th>Delete</th>
+                            <th>Details</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="text-center">
 
                         <?php $i = 1; foreach($barang_keluar as $klr) : ?>
                           <tr>
@@ -59,18 +60,21 @@
                             <td><?= $klr['bpm']; ?></td>
                             <td><?= $klr['tgl_keluar']; ?></td>
                             <td><?= $klr['nama_barang']; ?></td>
-                            <td><?= $klr['jml_keluar']; ?></td>
-                            <td><?= $klr['nama_satuan']; ?></td>
-                            <td><?= $klr['ket_keluar']; ?></td>
-                            <td>
+                            <td><?= $klr['jml_keluar']; ?> <?= $klr['nama_satuan']; ?></td>
+                            <!-- <td><?= $klr['nama_satuan']; ?></td> -->
+                            <!-- <td><?= $klr['ket_keluar']; ?></td> -->
+                            <!-- <td>
                               <a href="/tblkeluar/edit/<?= $klr['id_keluar']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
-                            </td>
+                            </td> -->
                             <td>
                               <form action="/tblkeluar/<?= $klr['id_keluar']; ?>" method="POST">
                               <?= csrf_field(); ?>
                               <input type="hidden" name="_method" value="DELETE">
                               <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin ?')"><i class="fas fa-trash-alt"></i></button>
                               </form>
+                            </td>
+                            <td>
+                              <a href="/tblkeluar/detail/<?= $klr['id_keluar']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
                             </td>
                           </tr>
                           <?php endforeach; ?>

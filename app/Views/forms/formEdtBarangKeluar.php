@@ -31,6 +31,8 @@
                     <div class="col-md-7">
                       <?= csrf_field(); ?>
 
+                      <input type="hidden" name="sampulLama" value="<?= $barang_keluar['fotoKeluar']; ?>">
+
                       <!-- <div class="form-group row">
                         <label class="col-sm-3 col-form-label">ID Transaksi</label>
                         <div class="col-sm-9">
@@ -127,17 +129,18 @@
                         <label for="fotoKeluar" class="col-sm-3 col-form-label">Foto Barang Keluar</label>
                         <div class="col-sm-9">
                           <div class="input-group custom-file">
-                            <input type="file" class="custom-file-input" id="fotoKeluar" required name="fotoKeluar" onchange="previewImg()">
+                            <input type="file" class="custom-file-input" id="fotoKeluar" name="fotoKeluar" onchange="previewImg()">
                             <label class="custom-file-label" for="fotoKeluar"><?= $barang_keluar['fotoKeluar']; ?></label>
                             <div class="invalid-feedback">
                             Masukan Gambar!
                             </div>
                           </div>
+                          <div class="input-group justify-content-center mt-2">
+                          <img src="/img/barangKeluar/<?= $barang_keluar['fotoKeluar']; ?>" class="img-thumbnail img-preview" style=" width:fit-content">
+                        </div>
                         </div>
                           
-                        <div class="input-group justify-content-center mt-2">
-                          <img src="/img/barangKeluar/<?= $barang_keluar['fotoKeluar']; ?>" class="img-thumbnail img-preview" style="height: fit-content; width: 200px;">
-                        </div>
+                        
                       </div>
 
                     </div>

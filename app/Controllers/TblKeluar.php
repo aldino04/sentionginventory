@@ -25,6 +25,7 @@ class TblKeluar extends BaseController
 			'tittle' => 'Tabel Barang Keluar &mdash; Sentiong',
 			'barang_keluar' => $this->barangKeluarModel->getId()
 		];
+		// dd($data);
 		return view('tabels/tblBarangKeluar', $data);
 	}
 
@@ -99,7 +100,7 @@ class TblKeluar extends BaseController
 		if ($fileSampul->getError() == 4){
 			$namaSampul = $this->request->getVar('sampulLama');
 		} else {
-			$fileSampul->move('img/barang');
+			$fileSampul->move('img/barangKeluar');
 			$namaSampul = $fileSampul->getName();
 		}
 
@@ -115,5 +116,16 @@ class TblKeluar extends BaseController
 
 		session()->setFlashdata('pesan', 'Data Berhasil Diubah!');
 		return redirect()->to('/tblkeluar');
+	}
+
+	public function detail($id_keluar)
+	{
+		$data = [
+			'tittle' => 'Detail Barang Keluar &mdash; Sentiong',
+			'barang_keluar' => $this->barangKeluarModel->getId($id_keluar)
+		];
+
+		// dd($data);
+		return view('details/detailBarangKeluar', $data);
 	}
 }
