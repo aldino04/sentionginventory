@@ -31,14 +31,6 @@ class TblBarang extends BaseController
 
 	public function save()
 	{
-		// dd($this->request->getVar());
-		// $this->barangModel->save([
-		// 	'kode_barang' => $this->request->getVar('kodeBarang'),
-		// 	'nama_barang' => $this->request->getVar('namaBarang'),
-		// 	'stok' => $this->request->getVar('stok'),
-		// 	'id_satuan' => $this->request->getVar('satuan')
-		// ]);
-
 		//ambil file sampul
 		$fileSampul = $this->request->getFile('sampul');
 		//pindahkan file ke folder /img
@@ -48,8 +40,8 @@ class TblBarang extends BaseController
 
 		$kode_barang = $this->request->getVar('kodeBarang');
 		$nama_barang = $this->request->getVar('namaBarang');
-		$stok = $this->request->getVar('stok');
-		$id_satuan = $this->request->getVar('satuan');
+		$stok 			 = $this->request->getVar('stok');
+		$id_satuan 	 = $this->request->getVar('satuan');
 		
 		$data = [
 			'kode_barang' => $kode_barang,

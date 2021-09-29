@@ -34,6 +34,13 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->get('/user', 'User::index', ['filter' => 'role:admin']);
+$routes->get('/user/index', 'User::index', ['filter' => 'role:admin']);
+$routes->get('/profile/(:num)', 'User::detail/$1');
+$routes->get('/register', 'User::index', ['filter' => 'role:admin']);
+$routes->delete('/user/(:any)', 'User::delete/$1');
+$routes->get('/user/(:any)', 'User::delete/$1');
+
 // Custom ku
 	// tblbarang
 	$routes->get('/tblbarang', 'TblBarang::index');

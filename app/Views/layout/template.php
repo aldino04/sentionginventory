@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/select2/dist/css/select2.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/selectric/public/selectric.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/summernote/dist/summernote-bs4.css">
     
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/css/style.css">
@@ -53,6 +55,8 @@
   <script src="<?= base_url(); ?>/template/assets/js/stisla.js"></script>
 
   <!-- JS Libraies -->
+  <script src="<?= base_url(); ?>/template/node_modules/summernote/dist/summernote-bs4.js"></script>
+
     <!-- Data Table -->
   <script src="<?= base_url(); ?>/template/node_modules/datatables/media/js/jquery.dataTables.min.js"></script>
   <script src="<?= base_url(); ?>/template/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -75,6 +79,7 @@
   <!-- Template JS File -->
   <script src="<?= base_url(); ?>/template/assets/js/scripts.js"></script>
   <script src="<?= base_url(); ?>/template/assets/js/custom.js"></script>
+  <script src="<?= base_url('/js/bootstrap-show-password.min.js'); ?>"></script>
   
 
   <!-- Page Specific JS File -->
@@ -89,6 +94,7 @@
     <?= $this->renderSection('fotoBarang'); ?>
     <?= $this->renderSection('fotoEdtBarang'); ?>
     <?= $this->renderSection('fotoBarangKeluar'); ?>
+    <?= $this->renderSection('fotoProfile'); ?>
 
 </body>
 </html>

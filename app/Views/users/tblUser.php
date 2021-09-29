@@ -7,6 +7,7 @@
 
           <!-- Header -->
           <div class="section-header">
+            <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
             <h1>Tabel User</h1>
           </div>
           <!-- End Header -->
@@ -20,69 +21,68 @@
                 <div class="card">
 
                 <div class="p-3 ml-3">
-                  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal">
+                  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalUser">
                     <i class="fas fa-plus-square mx-1"></i>Tambah User
                   </button>
                 </div>
 
+                <div class="row">
+                  <div class="col mx-4">
+                    <?= view('Myth\Auth\Views\_message_block') ?>
+                  </div>
+                </div>
+
                   <div class="card-body">
+
+                    <?php if (session()->getFlashdata('pesan')) : ?>
+                      <div class="alert alert-success alert-has-icon alert-dismissible show fade">
+                          <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                          <div class="alert-body">
+                            <div class="alert-title">Success</div>
+                            <?= session()->getFlashData('pesan'); ?>
+                          </div>
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                    <?php endif; ?>
+
                     <div class="table-responsive">
-                      <table class="table table-striped" id="table-user">
+                      <table class="table table-striped" id="tableNormal">
                         <thead class="bg-primary" style="color: white;">
                           <tr>
                             <th>No</th>
                             <th>Username</th>
+                            <th>Email</th>
                             <th>Role User</th>
-                            <th>Update</th>
                             <th>Delete</th>
+                            <th>Details</th>
                           </tr>
                         </thead>
                         <tbody>
 
+                        <?php $i = 1; foreach($users as $user) : ?>
                           <tr>
-                            <td>1</td>
-                            <td>Sentiong Project</td>
-                            <td>Administrator</td>
+                            <td><?= $i++; ?></td>
+                            <td><?= $user->username; ?></td>
+                            <td><?= $user->email; ?></td>
+                            <td><?= $user->description; ?></td>
+                            
+                            <?php if (in_groups('admin')) : ?>
                             <td>
-                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
+                              <form action="/user/<?= $user->userid; ?>" method="POST">
+                              <?= csrf_field(); ?>
+                              <input type="hidden" name="_method" value="DELETE">
+                              <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin ?')"><i class="fas fa-trash-alt"></i></button>
+                              </form>
                             </td>
+                            <?php endif; ?>
+
                             <td>
-                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                              <a href="<?= base_url('profile/' . $user->userid); ?>" class="btn btn-success"><i class="fas fa-pen-square"></i></a>
                             </td>
                           </tr>
-                          <tr>
-                            <td>2</td>
-                            <td>Satria Aldino</td>
-                            <td>Administrator</td>
-                            <td>
-                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
-                            </td>
-                            <td>
-                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>3</td>
-                            <td>Orang Keuangan</td>
-                            <td>User Biasa</td>
-                            <td>
-                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
-                            </td>
-                            <td>
-                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-                          <td>Orang Gudang</td>
-                          <td>User Biasa</td>
-                            <td>
-                              <a href="#" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
-                            </td>
-                            <td>
-                              <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                          </tr>
+                        <?php endforeach; ?>
                           
                         </tbody>
                       </table>
@@ -101,11 +101,11 @@
         </section>
 
         <!-- Modal -->
-        <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal">
+        <div class="modal fade" tabindex="-1" role="dialog" id="modalUser">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h4 class="modal-title">Formulir Tambah Satuan</h4>
+                <h4 class="modal-title"><?=lang('Auth.register')?></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -113,94 +113,52 @@
               <div class="modal-body">
                 
                 <!-- Modal Body -->
-                  <form class="needs-validation" novalidate="">
+                  <form action="<?= route_to('register') ?>" method="POST">
+                <?= csrf_field() ?>
 
-                    <div class="row text-left">
-                      <div class="col">
+                  <div class="form-group">
+                    <label for="username"><?=lang('Auth.username')?></label>
+                    <input id="username" type="text" class="form-control <?php if(session('errors.username')) : ?>is-invalid<?php endif ?>" name="username" placeholder="<?=lang('Auth.username')?>" value="<?= old('username') ?>" autocomplete="off">
+                  </div>
 
-                        <div class="form-group row">
-                          <label class="col col-form-label pt-3">ID User</label>
-                          <div class="col-8">
-                            <div class="input-group">
-                              <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                  <i class="fas fa-key"></i>
-                                </div>
-                              </div>
-                              <input type="text" class="form-control" disabled placeholder="SI-2108250010">
-                            </div>
-                          </div>
+                  <div class="form-group">
+                    <label for="email"><?=lang('Auth.email')?></label>
+                    <input id="email" type="email" class="form-control <?php if(session('errors.email')) : ?>is-invalid<?php endif ?>" name="email" aria-describedby="emailHelp" placeholder="<?=lang('Auth.email')?>" value="<?= old('email') ?>" autocomplete="off">
+                    <small id="emailHelp" class="form-text text-muted"><?=lang('Auth.weNeverShare')?></small>
+                  </div>
+
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label for="password" class="d-block"><?=lang('Auth.password')?></label>
+                      <div class="input-group">
+                      <input id="password" type="password" class="form-control pwstrength <?php if(session('errors.password')) : ?>is-invalid<?php endif ?>" name="password" placeholder="<?=lang('Auth.password')?>" autocomplete="off" data-toggle="password">
+                        <div class="input-group-append">
+                          <div class="input-group-text"><i class="fa fa-eye"></i></div>
                         </div>
-
-                        <div class="form-group row">
-                          <label class="col col-form-label pt-3">Username</label>
-                          <div class="col-8">
-                            <div class="input-group">
-                              <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                  <i class="fas fa-thumbtack"></i>
-                                </div>
-                              </div>
-                              <input type="text" class="form-control" required placeholder="Masukan Username..">
-                              <div class="invalid-feedback">
-                              Masukan User!
-                            </div>
-                            </div>
-                          </div>
+                      </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="pass_confirm" class="d-block"><?=lang('Auth.repeatPassword')?></label>
+                      <div class="input-group">
+                      <input id="pass_confirm" type="password" class="form-control <?php if(session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" name="pass_confirm" placeholder="<?=lang('Auth.repeatPassword')?>" autocomplete="off" data-toggle="password">
+                        <div class="input-group-append">
+                          <div class="input-group-text"><i class="fa fa-eye"></i></div>
                         </div>
-
-                        <div class="form-group row">
-                          <label class="col col-form-label pt-3">Password</label>
-                          <div class="col-8">
-                            <div class="input-group">
-                              <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                  <i class="fas fa-lock"></i>
-                                </div>
-                              </div>
-                              <input type="password" class="form-control" required placeholder="Masukan Password..">
-                              <div class="invalid-feedback">
-                              Masukan Password!
-                            </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="form-group row">
-                          <label class="col col-form-label pt-3">Konfirmasi Password</label>
-                          <div class="col-8">
-                            <div class="input-group">
-                              <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                  <i class="fas fa-lock"></i>
-                                </div>
-                              </div>
-                              <input type="password" class="form-control" required placeholder="Konfirmasi Password..">
-                              <div class="invalid-feedback">
-                              Masukan Password!
-                            </div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="form-group row">
-                          <label class="col col-form-label pt-3">Role User</label>
-                          <div class="col-8">
-                            <select class="form-control selectric">
-                            <option>Administrator</option>
-                            <option>User Biasa</option>
-                          </select>
-                          </div>
-                        </div>
-
                       </div>
                     </div>
                   </div>
-                  <!-- End Modal Body -->
-                  
-                  <div class="modal-footer bg-whitesmoke br">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Tambah User</button>
+
+                  <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" name="agree" class="custom-control-input" id="agree" required>
+                      <label class="custom-control-label" for="agree">I agree with the terms and conditions</label>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                      <?=lang('Auth.register')?>
+                    </button>
                   </div>
                 </form>
                 

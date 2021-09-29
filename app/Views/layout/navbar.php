@@ -196,19 +196,40 @@
             </div>
           </li> -->
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <img alt="image" src="<?= base_url() ?>/template/assets/img/avatar/sentiong.png" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block">Hi, Sentiong Project</div></a>
+            <img alt="image" src="<?= base_url('img/users/'. user()->user_image ); ?>" class="rounded-circle mr-1">
+            <div class="d-sm-none d-lg-inline-block">Hi, <?= user()->username; ?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <div class="dropdown-title">Hi, Sentiong Project</div>
-              <a href="<?= base_url(); ?>/user/profile" class="dropdown-item has-icon">
+              <a href="<?= base_url('profile/'. user()->id); ?>" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a>
               <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item has-icon text-danger">
+              <a href="#" data-toggle="modal" data-target="#exampleModal" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>
           </li>
         </ul>
       </nav>
+
+      <!-- Modal Logout -->
+      <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Ready to Leave?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Select "Logout" below if you are ready to Sign Out</p>
+              </div>
+              <div class="modal-footer bg-whitesmoke br">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="<?= base_url('logout'); ?>" type="button" class="btn btn-danger">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
 <!-- End Navbar -->

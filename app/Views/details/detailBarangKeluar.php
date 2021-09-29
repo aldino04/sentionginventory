@@ -42,9 +42,15 @@
               </tr>
               
               <tr>
-                <td>Stok barang</td>
+                <td>Jumlah Keluar</td>
                 <td class="font-weight-bold">:</td>
                 <td><h5 class="d-inline"><?= $barang_keluar['jml_keluar']; ?>&nbsp;</h5><?= $barang_keluar['nama_satuan']; ?></td>
+              </tr>
+
+              <tr>
+                <td>Petugas</td>
+                <td class="font-weight-bold">:</td>
+                <td><h6 class="font-weight-light mt-1"><?= $barang_keluar['fullname']; ?></h6></td>
               </tr>
 
               <tr>
@@ -56,7 +62,7 @@
           </table>
           <a href="/tblkeluar/edit/<?= $barang_keluar['id_keluar']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Update</a>
           <a href="#" class="btn btn-primary"><i class="fas fa-minus-square"></i> Keluar</a>
-          <a href="#" class="btn btn-success"><i class="fas fa-file"></i> Print BPM</a>
+          <a href="#" class="btn btn-success"><i class="fas fa-file"></i> Print</a>
           <p class="mt-3"><a href="<?= base_url(); ?>/tblkeluar">Kembali ke tabel barang keluar</a></p>
         </div>
       </div>

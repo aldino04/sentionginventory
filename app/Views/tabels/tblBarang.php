@@ -7,6 +7,7 @@
 
           <!-- Header -->
           <div class="section-header">
+            <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
             <h1>Tabel Barang</h1>
           </div>
           <!-- End Header -->
@@ -19,13 +20,16 @@
               <div class="col">
                 <div class="card">
 
+                <?php if( in_groups('admin') ) : ?>
                 <div class="p-3 ml-3">
                   <button type="button" class="btn btn-success btn-lg mr-1" data-toggle="modal" data-target="#exampleModal">
                     <i class="fas fa-plus-square mr-1"></i>Tambah Barang
                   </button>
                 </div>
+                <?php endif; ?>
 
                 <div class="card-body">
+
                     <?php if (session()->getFlashdata('pesan')) : ?>
                       <div class="alert alert-success alert-has-icon alert-dismissible show fade">
                           <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
@@ -38,17 +42,18 @@
                           </button>
                         </div>
                     <?php endif; ?>
+                    
                     <div class="table-responsive">
                       <table class="table table-hover" id="tableNormal">
-                        <thead class="bg-primary" style="color: white;">
+                        <thead class="bg-primary text-center" style="color: white;">
                           <tr>
                             <th class="text-center">No</th>
                             <th>Kode Barang</th>
                             <th>Nama Barang</th>
                             <th>Stok</th>
-                            <!-- <th>Satuan</th> -->
-                            <!-- <th>Update</th> -->
+                            <?php if (in_groups('admin')) : ?>
                             <th>Delete</th>
+                            <?php endif; ?>
                             <th>Details</th>
                           </tr>
                         </thead>
@@ -57,13 +62,11 @@
                           <?php $i = 1; foreach($barang as $br) : ?>
                           <tr>
                             <td class="text-center"><?= $i++; ?></td>
-                            <td><?= $br['kode_barang']; ?></td>
+                            <td class="text-center"><?= $br['kode_barang']; ?></td>
                             <td><?= $br['nama_barang']; ?></td>
                             <td><h6 class="position-sticky d-inline"><?= $br['stok']; ?></h6>&nbsp;&nbsp;<?= $br['nama_satuan']; ?></td>
-                            <!-- <td></td> -->
-                            <!-- <td>
-                              <a href="/tblbarang/edit/<?= $br['kode_barang']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
-                            </td> -->
+
+                            <?php if (in_groups('admin')) : ?>
                             <td>
                               <form action="/tblbarang/<?= $br['kode_barang']; ?>" method="POST">
                               <?= csrf_field(); ?>
@@ -71,6 +74,8 @@
                               <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin ?')"><i class="fas fa-trash-alt"></i></button>
                               </form>
                             </td>
+                            <?php endif; ?>
+
                             <td>
                               <a href="/tblbarang/detail/<?= $br['kode_barang']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
                             </td>

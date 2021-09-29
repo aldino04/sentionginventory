@@ -7,6 +7,7 @@
 
           <!-- Header -->
           <div class="section-header">
+            <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
             <h1>Tabel Barang Keluar</h1>
           </div>
           <!-- End Header -->
@@ -19,9 +20,11 @@
               <div class="col">
                 <div class="card">
 
+                <?php if (has_permission('transaksi')) : ?>
                 <div class="p-3 ml-3">
                   <a href="<?= base_url(); ?>/tblkeluar/form" class="btn btn-danger btn-lg"><i class="fas fa-minus-square mr-1"></i>Barang keluar</a>
                 </div>
+                <?php endif; ?>
 
                   <div class="card-body">
                     <?php if (session()->getFlashdata('pesan')) : ?>
@@ -45,9 +48,6 @@
                             <th>Tanggal Keluar</th>
                             <th>Nama Barang</th>
                             <th>Keluar</th>
-                            <!-- <th>Satuan</th> -->
-                            <!-- <th>Keterangan</th> -->
-                            <!-- <th>Update</th> -->
                             <th>Delete</th>
                             <th>Details</th>
                           </tr>
@@ -61,11 +61,6 @@
                             <td><?= $klr['tgl_keluar']; ?></td>
                             <td><?= $klr['nama_barang']; ?></td>
                             <td><?= $klr['jml_keluar']; ?> <?= $klr['nama_satuan']; ?></td>
-                            <!-- <td><?= $klr['nama_satuan']; ?></td> -->
-                            <!-- <td><?= $klr['ket_keluar']; ?></td> -->
-                            <!-- <td>
-                              <a href="/tblkeluar/edit/<?= $klr['id_keluar']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
-                            </td> -->
                             <td>
                               <form action="/tblkeluar/<?= $klr['id_keluar']; ?>" method="POST">
                               <?= csrf_field(); ?>

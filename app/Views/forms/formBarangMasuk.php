@@ -7,6 +7,7 @@
 
     <!-- Header -->
     <div class="section-header">
+      <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
       <h1>Formulir Barang Masuk</h1>
     </div>
     <!-- End Header -->
@@ -88,7 +89,7 @@
                                 <i class="fas fa-qrcode"></i>
                               </div>
                             </div>
-                            <input type="text" class="form-control" required placeholder="Masukan Kode Barang.." id="kodeBarang" name="kodeBarang">
+                            <input type="text" class="form-control" required placeholder="Masukan Kode Barang.." id="kodeBarang" name="kodeBarang" autocomplete="off">
                             <div class="invalid-feedback">
                             Masukan Kode Barang!
                           </div>
@@ -148,7 +149,7 @@
 
               <div class="card-footer text-center">
                 
-                <a href="/tblbarang" class="btn btn-success float-left"><i class="fas fa-arrow-circle-left mx-1"></i>Back</a>
+                <a href="javascript:window.history.go(-1);" class="btn btn-success float-left"><i class="fas fa-arrow-circle-left mx-1"></i>Back</a>
 
                 <button class="btn btn-primary float-right mb-3" type="submit"><i class="fas fa-check-square mx-1"></i>Submit</button>
                 

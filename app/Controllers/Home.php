@@ -7,8 +7,10 @@ class Home extends BaseController
 	public function index()
 	{
 		$data = [
-			'tittle' => 'Blank Page &mdash; Sentiong'
+			'tittle' => 'Dashboard &mdash; Sentiong',
+			'actDashboard' => 'active'
 		];
 		return view('blank_page', $data);
+
 	}
 }

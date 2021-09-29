@@ -7,6 +7,7 @@
 
           <!-- Header -->
           <div class="section-header">
+            <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
             <h1>Tabel Barang Masuk</h1>
           </div>
           <!-- End Header -->
@@ -19,9 +20,11 @@
               <div class="col">
                 <div class="card">
 
+            <?php if (has_permission('transaksi')) : ?>
                 <div class="p-3 ml-3">
                   <a href="<?= base_url(); ?>/tblmasuk/form" class="btn btn-primary btn-lg"><i class="fas fa-plus-square mr-1"></i>Barang Masuk</a>
                 </div>
+            <?php endif; ?>
 
                   <div class="card-body">
                     <?php if (session()->getFlashdata('pesan')) : ?>
@@ -37,22 +40,22 @@
                         </div>
                     <?php endif; ?>
                     <div class="table-responsive">
-                      <table class="table table-striped" id="table-1">
-                        <thead class="bg-primary" style="color: white;">
+                      <table class="table table-hover" id="tableNormal">
+                        <thead class="bg-primary text-center" style="color: white;">
                           <tr>
-                            <th class="text-center">No</th>
-                            <th class="text center">BAPB</th>
+                            <th>No</th>
+                            <th>BAPB</th>
                             <th>Tanggal Masuk</th>
                             <th>Nama Barang</th>
                             <th>Masuk</th>
                             <th>Satuan</th>
-                            <th>Keterangan</th>
+                            <!-- <th>Keterangan</th> -->
                             <th>Update</th>
                             <th>Delete</th>
                           </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody class="text-center">
                           <?php $i = 1 ; foreach($barang_masuk as $msk) : ?>
                           <tr>
                             <td><?= $i++; ?></td>
@@ -61,7 +64,7 @@
                             <td><?= $msk['nama_barang']; ?></td>
                             <td><?= $msk['jml_masuk']; ?></td>
                             <td><?= $msk['nama_satuan']; ?></td>
-                            <td><?= $msk['ket_masuk']; ?></td>
+                            <!-- <td><?= $msk['ket_masuk']; ?></td> -->
                             <td>
                               <a href="/tblmasuk/edit/<?= $msk['id_masuk']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
                             </td>

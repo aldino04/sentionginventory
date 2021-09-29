@@ -23,6 +23,7 @@ class TblMasuk extends BaseController
 	{
 		$data = [
 			'tittle' => 'Tabel Barang Masuk &mdash; Sentiong',
+			'actForm' => 'active',
 			'barang_masuk' => $this->barangMasukModel->getId()
 		];
 		return view('tabels/tblBarangMasuk', $data);
