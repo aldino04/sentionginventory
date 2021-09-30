@@ -7,6 +7,7 @@
 
           <!-- Header -->
           <div class="section-header">
+            <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
             <h1>Detail Barang Keluar &mdash; <?= $barang_keluar['nama_barang']; ?> [Stok : <?= $barang_keluar['stok']; ?>]</h1>
           </div>
           <!-- End Header -->

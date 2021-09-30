@@ -76,7 +76,7 @@
                             </td>
                             <?php endif; ?>
 
-                            <td>
+                            <td class="text-center">
                               <a href="/tblbarang/detail/<?= $br['kode_barang']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
                             </td>
                           </tr>

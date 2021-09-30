@@ -22,7 +22,7 @@
 
             <?php if (has_permission('transaksi')) : ?>
                 <div class="p-3 ml-3">
-                  <a href="<?= base_url(); ?>/tblmasuk/form" class="btn btn-primary btn-lg"><i class="fas fa-plus-square mr-1"></i>Barang Masuk</a>
+                  <a href="<?= base_url(); ?>/masuk" class="btn btn-primary btn-lg"><i class="fas fa-plus-square mr-1"></i>Barang Masuk</a>
                 </div>
             <?php endif; ?>
 
@@ -51,7 +51,9 @@
                             <th>Satuan</th>
                             <!-- <th>Keterangan</th> -->
                             <th>Update</th>
+                            <?php if(in_groups('admin')) : ?>
                             <th>Delete</th>
+                            <?php endif; ?>
                           </tr>
                         </thead>
 
@@ -68,6 +70,7 @@
                             <td>
                               <a href="/tblmasuk/edit/<?= $msk['id_masuk']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
                             </td>
+                            <?php if (in_groups('admin')) : ?>
                             <td>
                               <form action="/tblmasuk/<?= $msk['id_masuk']; ?>" method="POST">
                               <?= csrf_field(); ?>
@@ -75,6 +78,7 @@
                               <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin ?')"><i class="fas fa-trash-alt"></i></button>
                               </form>
                             </td>
+                            <?php endif; ?>
                           </tr>
                           <?php endforeach; ?>
                         </tbody>

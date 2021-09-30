@@ -4,13 +4,16 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
+
 	public function index()
 	{
 		$data = [
 			'tittle' => 'Dashboard &mdash; Sentiong',
-			'actDashboard' => 'active'
+			'actDashboard' => 'active',
+			'uricoba' => $this->request->uri->getSegment(1)
 		];
-		return view('blank_page', $data);
 
+		// dd($data);
+		return view('blank_page', $data);
 	}
 }

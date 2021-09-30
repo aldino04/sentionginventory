@@ -42,6 +42,8 @@ class TblKeluar extends BaseController
 
 	public function save()
 	{
+		// dd($this->request->getVar());
+
 		//ambil file sampul
 		$fileSampul = $this->request->getFile('fotoKeluar');
 		//pindahkan file ke folder /img
@@ -55,6 +57,7 @@ class TblKeluar extends BaseController
 		$kode_barang = $this->request->getVar('kodeBarang');
 		$jml_keluar = $this->request->getVar('jmlKeluar');
 		$ket_keluar = $this->request->getVar('ketKeluar');
+		$id_user = $this->request->getVar('idUser');
 		
 		$data = [
 			'bpm' => $bpm,
@@ -62,7 +65,8 @@ class TblKeluar extends BaseController
 			'kode_barang' => $kode_barang,
 			'jml_keluar' => $jml_keluar,
 			'ket_keluar' => $ket_keluar,
-			'fotoKeluar' => $namaSampul
+			'fotoKeluar' => $namaSampul,
+			'id_user'		 => $id_user
 		];
 
 		// dd($data);
@@ -74,9 +78,10 @@ class TblKeluar extends BaseController
 
 	public function delete($id_keluar)
 	{
-		$this->barangKeluarModel->delete($id_keluar);
+		if ($this->barangKeluarModel->delete($id_keluar)) {
+			session()->setFlashdata('pesan', 'Data Berhasil Dihapus!');
+		}
 
-		session()->setFlashdata('pesan', 'Data Berhasil Dihapus!');
 		return redirect()->to('/tblkeluar');
 	}
 

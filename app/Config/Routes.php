@@ -57,14 +57,14 @@ $routes->get('/user/(:any)', 'User::delete/$1');
 	
 	// tblbarangmasuk
 	$routes->get('/tblmasuk', 'TblMasuk::index');
-	$routes->get('/tblmasuk/form', 'TblMasuk::form');
+	$routes->get('/masuk', 'TblMasuk::form');
 	$routes->get('/tblmasuk/edit/(:num)', 'TblMasuk::edit/$1');
 	$routes->delete('/tblmasuk/(:num)', 'TblMasuk::delete/$1');
 	$routes->get('/tblmasuk/(:any)', 'TblMasuk::delete/$1');
 	
 	// tblbarangkeluar
 	$routes->get('/tblkeluar', 'TblKeluar::index');
-	$routes->get('/tblkeluar/form', 'TblKeluar::form');
+	$routes->get('/keluar', 'TblKeluar::form');
 	$routes->get('/tblkeluar/detail/(:segment)', 'TblKeluar::detail/$1');
 	$routes->get('/tblkeluar/edit/(:num)', 'TblKeluar::edit/$1');
 	$routes->delete('/tblkeluar/(:num)', 'TblKeluar::delete/$1');

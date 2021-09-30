@@ -22,7 +22,7 @@
 
                 <?php if (has_permission('transaksi')) : ?>
                 <div class="p-3 ml-3">
-                  <a href="<?= base_url(); ?>/tblkeluar/form" class="btn btn-danger btn-lg"><i class="fas fa-minus-square mr-1"></i>Barang keluar</a>
+                  <a href="<?= base_url(); ?>/keluar" class="btn btn-warning btn-lg"><i class="fas fa-minus-square mr-1"></i>Barang keluar</a>
                 </div>
                 <?php endif; ?>
 
@@ -48,7 +48,9 @@
                             <th>Tanggal Keluar</th>
                             <th>Nama Barang</th>
                             <th>Keluar</th>
+                            <?php if (in_groups('admin')) : ?>
                             <th>Delete</th>
+                            <?php endif; ?>
                             <th>Details</th>
                           </tr>
                         </thead>
@@ -61,6 +63,7 @@
                             <td><?= $klr['tgl_keluar']; ?></td>
                             <td><?= $klr['nama_barang']; ?></td>
                             <td><?= $klr['jml_keluar']; ?> <?= $klr['nama_satuan']; ?></td>
+                            <?php if (in_groups('admin')) : ?>
                             <td>
                               <form action="/tblkeluar/<?= $klr['id_keluar']; ?>" method="POST">
                               <?= csrf_field(); ?>
@@ -68,6 +71,7 @@
                               <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin ?')"><i class="fas fa-trash-alt"></i></button>
                               </form>
                             </td>
+                            <?php endif; ?>
                             <td>
                               <a href="/tblkeluar/detail/<?= $klr['id_keluar']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
                             </td>

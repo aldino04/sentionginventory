@@ -1247,7 +1247,7 @@ select.form-control:not([size]):not([multiple]) {
 }
 .table td,
 .table:not(.table-bordered) th {
-  border-top: none;
+  /* border-top: none; */
 }
 .table:not(.table-sm):not(.table-md):not(.dataTable) td,
 .table:not(.table-sm):not(.table-md):not(.dataTable) th {
@@ -1267,8 +1267,9 @@ select.form-control:not([size]):not([multiple]) {
   padding: 10px 15px;
 }
 .table.table-bordered td,
-.table.table-bordered th {
-  border-color: #f6f6f6;
+/* .table.table-bordered th { */
+.table.table-bordered {
+  border-color: #6777ef;
 }
 
 .table-links {

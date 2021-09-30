@@ -65,9 +65,10 @@ class TblMasuk extends BaseController
 
 	public function delete($id_masuk)
 	{
-		$this->barangMasukModel->delete($id_masuk);
+		if( $this->barangMasukModel->delete($id_masuk) ) {
+			session()->setFlashdata('pesan', 'Data Berhasil Dihapus!');
+		}
 
-		session()->setFlashdata('pesan', 'Data Berhasil Dihapus!');
 		return redirect()->to('/tblmasuk');
 	}
 

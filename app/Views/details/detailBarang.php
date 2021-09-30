@@ -7,6 +7,7 @@
 
           <!-- Header -->
           <div class="section-header">
+            <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
             <h1>Detail Barang &mdash; <?= $barang['nama_barang']; ?></h1>
           </div>
           <!-- End Header -->
@@ -50,6 +51,61 @@
       </div>
     </div>
   </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="text-center">Transaksi Terakhir</h5>
+          <div class="table-responsive">
+            <table class="table table-hover table-bordered" id="tableNormal">
+              <thead class="bg-primary text-center" style="color: white;">
+                <tr>
+                  <th class="text-center">No</th>
+                  <th>Tanggal</th>
+                  <th>BAPB</th>
+                  <th>BPM</th>
+                  <!-- <th>Kode Barang</th>
+                  <th>Nama Barang</th> -->
+                  <th>Masuk</th>
+                  <th>Keluar</th>
+                  <th>Keterangan</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <?php $i = 1; foreach($result as $apg) : ?>
+                <tr>
+                  <td class="text-center"><?= $i++; ?></td>
+                  <td class="text-center"><?= $apg['tanggal']; ?></td>
+                  <td class="text-center"><?= $apg['bapb']; ?></td>
+                  <td class="text-center"><?= $apg['bpm']; ?></td>
+                  <!-- <td class="text-center"><?= $apg['kode_barang']; ?></td>
+                  <td><?= $apg['nama_barang']; ?></td> -->
+                  <td class="text-center"><?= $apg['masuk']; ?>
+                  <?php if($apg['masuk'] != "") : ?>
+                    <?= $apg['satuan']; ?>
+                  <?php endif; ?>
+                  </td>
+                  <td class="text-center"><?= $apg['keluar']; ?>
+                  <?php if($apg['keluar'] != "") : ?>
+                    <?= $apg['satuan']; ?>
+                  <?php endif; ?>
+                  </td>
+                  <td><?= $apg['keterangan']; ?></td>
+                  <td class="text-center">
+                    <?php if ($apg['keluar'] != "") : ?>
+                      <a href="/tblkeluar/detail/<?= $apg['id_keluar']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
+                    <?php endif; ?>
+                  </td>
+                </tr>
+                <?php endforeach; ?>
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+  </div>
+
 </div>
 <!-- End Body -->
 

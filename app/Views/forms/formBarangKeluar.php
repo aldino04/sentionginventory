@@ -31,6 +31,9 @@
                         <div class="row justify-content-center pb-0 mb-0">
                           <div class="col-md-7">
 
+                          <?= csrf_field(); ?>
+                          <input type="hidden" name="idUser" value="<?= user_id(); ?>">
+
                             <!-- <div class="form-group row">
                               <label class="col-sm-3 col-form-label">ID Transaksi</label>
                               <div class="col-sm-9">
@@ -150,15 +153,6 @@
                             <div class="form-group">
                               <label for="ketMasuk">Keterangan</label>
                               <textarea type="number" class="form-control" placeholder="Masukan Keterangan.." style="height: 80px;" id="ketKeluar" name="ketKeluar"></textarea>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="form-group row justify-content-center mb-0 pb-0">
-                          <div class="col-md-9 col-lg-9">
-                            <div class="form-group">
-                              <label for="ketMasuk">Petugas</label>
-                              <input type="text" class="form-control" value="<?= user_id(); ?>">
                             </div>
                           </div>
                         </div>
