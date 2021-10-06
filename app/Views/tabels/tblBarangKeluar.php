@@ -58,13 +58,13 @@
 
                         <?php $i = 1; foreach($barang_keluar as $klr) : ?>
                           <tr>
-                            <td><?= $i++; ?></td>
-                            <td><?= $klr['bpm']; ?></td>
-                            <td><?= $klr['tgl_keluar']; ?></td>
-                            <td><?= $klr['nama_barang']; ?></td>
-                            <td><?= $klr['jml_keluar']; ?> <?= $klr['nama_satuan']; ?></td>
+                            <td class="align-middle"><?= $i++; ?></td>
+                            <td class="align-middle"><?= $klr['bpm']; ?></td>
+                            <td class="align-middle"><?= $klr['tgl_keluar']; ?></td>
+                            <td class="align-middle"><?= $klr['nama_barang']; ?></td>
+                            <td class="align-middle"><?= $klr['jml_keluar']; ?> <?= $klr['nama_satuan']; ?></td>
                             <?php if (in_groups('admin')) : ?>
-                            <td>
+                            <td class="align-middle">
                               <form action="/tblkeluar/<?= $klr['id_keluar']; ?>" method="POST">
                               <?= csrf_field(); ?>
                               <input type="hidden" name="_method" value="DELETE">
@@ -72,7 +72,7 @@
                               </form>
                             </td>
                             <?php endif; ?>
-                            <td>
+                            <td class="align-middle">
                               <a href="/tblkeluar/detail/<?= $klr['id_keluar']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
                             </td>
                           </tr>

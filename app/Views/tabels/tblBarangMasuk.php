@@ -60,18 +60,18 @@
                         <tbody class="text-center">
                           <?php $i = 1 ; foreach($barang_masuk as $msk) : ?>
                           <tr>
-                            <td><?= $i++; ?></td>
-                            <td><?= $msk['bapb']; ?></td>
-                            <td><?= $msk['tgl_masuk']; ?></td>
-                            <td><?= $msk['nama_barang']; ?></td>
-                            <td><?= $msk['jml_masuk']; ?></td>
-                            <td><?= $msk['nama_satuan']; ?></td>
+                            <td class="align-middle"><?= $i++; ?></td>
+                            <td class="align-middle"><?= $msk['bapb']; ?></td>
+                            <td class="align-middle"><?= $msk['tgl_masuk']; ?></td>
+                            <td class="align-middle"><?= $msk['nama_barang']; ?></td>
+                            <td class="align-middle"><?= $msk['jml_masuk']; ?></td>
+                            <td class="align-middle"><?= $msk['nama_satuan']; ?></td>
                             <!-- <td><?= $msk['ket_masuk']; ?></td> -->
-                            <td>
+                            <td class="align-middle">
                               <a href="/tblmasuk/edit/<?= $msk['id_masuk']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
                             </td>
                             <?php if (in_groups('admin')) : ?>
-                            <td>
+                            <td class="align-middle">
                               <form action="/tblmasuk/<?= $msk['id_masuk']; ?>" method="POST">
                               <?= csrf_field(); ?>
                               <input type="hidden" name="_method" value="DELETE">

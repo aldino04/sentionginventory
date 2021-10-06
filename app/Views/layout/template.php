@@ -19,6 +19,15 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/bootstrap-social/bootstrap-social.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/summernote/dist/summernote-bs4.css">
     
+    <!-- dashboard -->
+    <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/weathericons/css/weather-icons.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/weathericons/css/weather-icons-wind.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/summernote/dist/summernote-bs4.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/template/node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
+
+
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/css/components.css">
@@ -56,13 +65,19 @@
 
   <!-- JS Libraies -->
   <script src="<?= base_url(); ?>/template/node_modules/summernote/dist/summernote-bs4.js"></script>
+  <script src="<?= base_url(); ?>/template/node_modules/simpleweather/jquery.simpleWeather.min.js"></script>
+  <script src="<?= base_url(); ?>/template/node_modules/chart.js/dist/Chart.min.js"></script>
+  <script src="<?= base_url(); ?>/template/node_modules/jqvmap/dist/jquery.vmap.min.js"></script>
+  <script src="<?= base_url(); ?>/template/node_modules/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+  <script src="<?= base_url(); ?>/template/node_modules/summernote/dist/summernote-bs4.js"></script>
+  <script src="<?= base_url(); ?>/template/node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
+  <script src="<?= base_url(); ?>/template/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+  <script src="<?= base_url(); ?>/template/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
 
     <!-- Data Table -->
   <script src="<?= base_url(); ?>/template/node_modules/datatables/media/js/jquery.dataTables.min.js"></script>
   <script src="<?= base_url(); ?>/template/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
   <script src="<?= base_url(); ?>/template/node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js"></script>
-  <!-- <script src="<?= base_url(); ?>/template/node_modules/sweetalert/dist/sweetalert.min.js"></script> -->
-    <!-- End Data Table -->
 
     <!-- Form -->
   <script src="<?= base_url(); ?>/template/node_modules/cleave.js/dist/cleave.min.js"></script>
@@ -85,7 +100,8 @@
   <!-- Page Specific JS File -->
   <script src="<?= base_url(); ?>/template/assets/js/page/modules-datatables.js"></script>
   <script src="<?= base_url(); ?>/template/assets/js/page/bootstrap-modal.js"></script>
-  <!-- <script src="<?= base_url(); ?>/template/assets/js/page/modules-sweetalert.js"></script> -->
+
+  <?php $this->renderSection('dashboard') ?>
 
     <!-- Kalau Mau Pakai Advance form {Currency, password strength} js ini aktifin -->
     <?= $this->renderSection('jsform'); ?>

@@ -43,9 +43,18 @@
               </tr>
             </tbody>
           </table>
+
+          <?php if(has_permission('transaksi')) : ?>
           <a href="/tblbarang/edit/<?= $barang['kode_barang']; ?>" class="btn btn-success"><i class="fas fa-pen-square"></i> Update</a>
-          <a href="<?= base_url(); ?>/tblmasuk/form" class="btn btn-primary"><i class="fas fa-plus-square"></i> Masuk</a>
-          <a href="<?= base_url(); ?>/tblkeluar/form" class="btn btn-warning"><i class="fas fa-minus-square"></i> Keluar</a>
+          <a href="<?= base_url('masuk'); ?>" class="btn btn-primary"><i class="fas fa-plus-square"></i> Masuk</a>
+          <a href="<?= base_url('keluar'); ?>" class="btn btn-warning"><i class="fas fa-minus-square"></i> Keluar</a>
+          <?php endif; ?>
+          
+          <?php if(in_groups('user')) : ?>
+            <a href="<?= base_url('tblmasuk'); ?>" class="btn btn-primary"><i class="fas fa-plus-square"></i> Tabel Masuk</a>
+            <a href="<?= base_url('tblkeluar'); ?>" class="btn btn-warning"><i class="fas fa-minus-square"></i> Tabel Keluar</a>
+          <?php endif; ?>
+
           <p class="mt-3"><a href="<?= base_url(); ?>/tblbarang">Kembali ke tabel barang</a></p>
         </div>
       </div>
@@ -75,24 +84,24 @@
               <tbody>
                 <?php $i = 1; foreach($result as $apg) : ?>
                 <tr>
-                  <td class="text-center"><?= $i++; ?></td>
-                  <td class="text-center"><?= $apg['tanggal']; ?></td>
-                  <td class="text-center"><?= $apg['bapb']; ?></td>
-                  <td class="text-center"><?= $apg['bpm']; ?></td>
+                  <td class="text-center align-middle"><?= $i++; ?></td>
+                  <td class="text-center align-middle"><?= $apg['tanggal']; ?></td>
+                  <td class="text-center align-middle"><?= $apg['bapb']; ?></td>
+                  <td class="text-center align-middle"><?= $apg['bpm']; ?></td>
                   <!-- <td class="text-center"><?= $apg['kode_barang']; ?></td>
                   <td><?= $apg['nama_barang']; ?></td> -->
-                  <td class="text-center"><?= $apg['masuk']; ?>
+                  <td class="text-center align-middle"><?= $apg['masuk']; ?>
                   <?php if($apg['masuk'] != "") : ?>
                     <?= $apg['satuan']; ?>
                   <?php endif; ?>
                   </td>
-                  <td class="text-center"><?= $apg['keluar']; ?>
+                  <td class="text-center align-middle"><?= $apg['keluar']; ?>
                   <?php if($apg['keluar'] != "") : ?>
                     <?= $apg['satuan']; ?>
                   <?php endif; ?>
                   </td>
-                  <td><?= $apg['keterangan']; ?></td>
-                  <td class="text-center">
+                  <td class=" align-middle"><?= $apg['keterangan']; ?></td>
+                  <td class="text-center align-middle">
                     <?php if ($apg['keluar'] != "") : ?>
                       <a href="/tblkeluar/detail/<?= $apg['id_keluar']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
                     <?php endif; ?>

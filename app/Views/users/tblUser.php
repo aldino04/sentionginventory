@@ -48,7 +48,7 @@
                     <?php endif; ?>
 
                     <div class="table-responsive">
-                      <table class="table table-striped" id="tableNormal">
+                      <table class="table table-hover" id="tableNormal">
                         <thead class="bg-primary" style="color: white;">
                           <tr>
                             <th>No</th>
@@ -63,13 +63,13 @@
 
                         <?php $i = 1; foreach($users as $user) : ?>
                           <tr>
-                            <td><?= $i++; ?></td>
-                            <td><?= $user->username; ?></td>
-                            <td><?= $user->email; ?></td>
-                            <td><?= $user->description; ?></td>
+                            <td class="align-middle"><?= $i++; ?></td>
+                            <td class="align-middle"><?= $user->username; ?></td>
+                            <td class="align-middle"><?= $user->email; ?></td>
+                            <td class="align-middle"><?= $user->description; ?></td>
                             
                             <?php if (in_groups('admin')) : ?>
-                            <td>
+                            <td class="align-middle">
                               <form action="/user/<?= $user->userid; ?>" method="POST">
                               <?= csrf_field(); ?>
                               <input type="hidden" name="_method" value="DELETE">
@@ -78,7 +78,7 @@
                             </td>
                             <?php endif; ?>
 
-                            <td>
+                            <td class="align-middle">
                               <a href="<?= base_url('profile/' . $user->userid); ?>" class="btn btn-success"><i class="fas fa-pen-square"></i></a>
                             </td>
                           </tr>

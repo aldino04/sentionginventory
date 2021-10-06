@@ -42,7 +42,7 @@
                     <div class="table-responsive">
                       <table class="table table-striped" id="table-satuan">
                         <thead class="bg-primary" style="color: white;">
-                          <tr>
+                          <tr class="text-center">
                             <th>
                               No
                             </th>
@@ -54,13 +54,13 @@
 
                         <tbody>
                           <?php $i=1; foreach($satuan as $st) : ?>
-                          <tr>
-                            <td><?= $i++; ?></td>
-                            <td><?= $st['nama_satuan']; ?></td>
-                            <td>
+                          <tr class="text-center">
+                            <td class="align-middle"><?= $i++; ?></td>
+                            <td class="align-middle"><?= $st['nama_satuan']; ?></td>
+                            <td class="align-middle">
                               <a href="/tblsatuan/edit/<?= $st['id_satuan']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
                             </td>
-                            <td>
+                            <td class="align-middle">
                               <form action="/tblsatuan/<?= $st['id_satuan']; ?>" method="POST">
                               <?= csrf_field(); ?>
                               <input type="hidden" name="_method" value="DELETE">

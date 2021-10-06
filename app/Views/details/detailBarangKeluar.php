@@ -22,7 +22,7 @@
       <div class="col-md-8 float-left">  
         <div class="card-body">
           <h5 class="card-tittle my-3">Sentiong &mdash; Inventory</h5>
-          <table class="table table-sm col-md-8">
+          <table class="table table-sm col-md-9">
             <tbody>
               <tr>
                 <td>Bon Pemakaian material</td>
@@ -61,8 +61,10 @@
               </tr>
             </tbody>
           </table>
+          <?php if(has_permission('transaksi')) : ?>
           <a href="/tblkeluar/edit/<?= $barang_keluar['id_keluar']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Update</a>
-          <a href="#" class="btn btn-primary"><i class="fas fa-minus-square"></i> Keluar</a>
+          <?php endif; ?>
+          <!-- <a href="#" class="btn btn-primary"><i class="fas fa-minus-square"></i> Keluar</a> -->
           <a href="#" class="btn btn-success"><i class="fas fa-file"></i> Print</a>
           <p class="mt-3"><a href="<?= base_url(); ?>/tblkeluar">Kembali ke tabel barang keluar</a></p>
         </div>

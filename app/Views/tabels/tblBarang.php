@@ -61,13 +61,13 @@
                         <tbody>
                           <?php $i = 1; foreach($barang as $br) : ?>
                           <tr>
-                            <td class="text-center"><?= $i++; ?></td>
-                            <td class="text-center"><?= $br['kode_barang']; ?></td>
-                            <td><?= $br['nama_barang']; ?></td>
-                            <td><h6 class="position-sticky d-inline"><?= $br['stok']; ?></h6>&nbsp;&nbsp;<?= $br['nama_satuan']; ?></td>
+                            <td class="text-center align-middle"><?= $i++; ?></td>
+                            <td class="text-center align-middle"><?= $br['kode_barang']; ?></td>
+                            <td class=" align-middle"><?= $br['nama_barang']; ?></td>
+                            <td class=" align-middle"><h6 class="position-sticky d-inline"><?= $br['stok']; ?></h6>&nbsp;&nbsp;<?= $br['nama_satuan']; ?></td>
 
                             <?php if (in_groups('admin')) : ?>
-                            <td>
+                            <td class="text-center align-middle">
                               <form action="/tblbarang/<?= $br['kode_barang']; ?>" method="POST">
                               <?= csrf_field(); ?>
                               <input type="hidden" name="_method" value="DELETE">
@@ -76,7 +76,7 @@
                             </td>
                             <?php endif; ?>
 
-                            <td class="text-center">
+                            <td class="text-center align-middle">
                               <a href="/tblbarang/detail/<?= $br['kode_barang']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
                             </td>
                           </tr>
