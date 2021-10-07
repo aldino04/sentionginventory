@@ -7,7 +7,13 @@
 
     <!-- Header -->
     <div class="section-header">
+      <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
       <h1>Formulir Barang Masuk</h1>
+      <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a href="<?= base_url(); ?>">Dashboard</a></div>
+        <div class="breadcrumb-item"><a href="<?= base_url('tblmasuk'); ?>">Tabel&nbsp;Barang&nbsp;Masuk</a></div>
+        <div class="breadcrumb-item">Update</div>
+      </div>
     </div>
     <!-- End Header -->
 
@@ -126,48 +132,11 @@
                     </div>
                   </div>
 
-                  <!-- <div class="form-group row justify-content-center mb-0 pb-0">
-                    <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
-                      <div class="form-group">
-                        <label for="namaBarang">Nama Barang</label>
-                        <input type="text" class="form-control" required="" placeholder="Masukan Nama Barang.." name="namaBarang" id="namaBarang" disabled>
-                      </div>
-                    </div> -->
-
-                    <!-- <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
-                      <div class="form-group">
-                        <label for="jmlMasuk">Jumlah</label>
-                        <input type="text" class="form-control jumlah-si" required="" placeholder="Masukan Jumlah.." name="jmlMasuk" id="jmlMasuk">
-                        <div class="invalid-feedback">
-                          Masukan Jumlah!.
-                        </div>
-                      </div>
-                    </div> -->
-
-                    <!-- <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
-                      <div class="form-group">
-                        <label for="satuan">Satuan</label>
-
-                        <input type="text" class="form-control" required="" placeholder="Masukan Satuan.." name="satuan" id="satuan" disabled>
-                      </div>
-                    </div> -->
-                    
-                  <!-- </div> -->
-
-                  <!-- <div class="form-group row justify-content-center mb-0 pb-0">
-                    <div class="col-md-9 col-lg-9">
-                      <div class="form-group row">
-                        <label for="ketMasuk">Keterangan</label>
-                        <textarea type="number" class="form-control mb-0" placeholder="Masukan Keterangan.." style="height: 80px;" name="ketMasuk" id="ketMasuk"></textarea>
-                      </div>
-                    </div>
-                  </div> -->
-
                 </div>
 
               <div class="card-footer text-center">
                 
-                <a href="#" class="btn btn-success float-left"><i class="fas fa-arrow-circle-left mx-1"></i>Back</a>
+                <a href="javascript:window.history.go(-1);" class="btn btn-success float-left"><i class="fas fa-arrow-circle-left mx-1"></i>Back</a>
 
                 <button class="btn btn-primary float-right mb-3" type="submit"><i class="fas fa-check-square mx-1"></i>Submit</button>
                 

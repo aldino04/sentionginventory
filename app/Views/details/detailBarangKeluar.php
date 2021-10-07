@@ -8,7 +8,12 @@
           <!-- Header -->
           <div class="section-header">
             <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
-            <h1>Detail Barang Keluar &mdash; <?= $barang_keluar['nama_barang']; ?> [Stok : <?= $barang_keluar['stok']; ?>]</h1>
+            <h1>Keluar &mdash; <?= $barang_keluar['nama_barang']; ?> [Stok : <?= $barang_keluar['stok']; ?>]</h1>
+            <div class="section-header-breadcrumb">
+              <div class="breadcrumb-item active"><a href="<?= base_url(); ?>">Dashboard</a></div>
+              <div class="breadcrumb-item"><a href="<?= base_url('tblkeluar'); ?>">Tabel&nbsp;Barang&nbsp;Keluar</a></div>
+              <div class="breadcrumb-item">Detail</div>
+            </div>
           </div>
           <!-- End Header -->
 
@@ -21,7 +26,7 @@
       </div>
       <div class="col-md-8 float-left">  
         <div class="card-body">
-          <h5 class="card-tittle my-3">Sentiong &mdash; Inventory</h5>
+          <h5 class="card-tittle my-3">Material Keluar</h5>
           <table class="table table-sm col-md-9">
             <tbody>
               <tr>

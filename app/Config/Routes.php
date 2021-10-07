@@ -39,7 +39,7 @@ $routes->get('/user/index', 'User::index', ['filter' => 'role:admin']);
 $routes->get('/profile/(:num)', 'User::detail/$1');
 $routes->get('/register', 'User::index', ['filter' => 'role:admin']);
 $routes->delete('/user/(:any)', 'User::delete/$1');
-$routes->get('/user/(:any)', 'User::delete/$1');
+// $routes->get('/user/(:any)', 'User::delete/$1');
 
 // Custom ku
 	// tblbarang
@@ -47,20 +47,19 @@ $routes->get('/user/(:any)', 'User::delete/$1');
 	$routes->get('/tblbarang/detail/(:segment)', 'TblBarang::detail/$1');
 	$routes->get('/tblbarang/edit/(:segment)', 'TblBarang::edit/$1');
 	$routes->delete('/tblbarang/(:any)', 'TblBarang::delete/$1');
-	$routes->get('/tblbarang/(:any)', 'TblBarang::delete/$1');
+	// $routes->get('/tblbarang/(:any)', 'TblBarang::delete/$1');
 	
 	// tblsatuan
 	$routes->get('/tblsatuan', 'TblSatuan::index');
 	$routes->get('/tblsatuan/edit/(:segment)', 'TblSatuan::edit/$1');
 	$routes->delete('/tblsatuan/(:num)', 'TblSatuan::delete/$1');
-	$routes->get('/tblsatuan/(:any)', 'TblSatuan::delete/$1');
+	// $routes->get('/tblsatuan/(:any)', 'TblSatuan::delete/$1');
 	
 	// tblbarangmasuk
 	$routes->get('/tblmasuk', 'TblMasuk::index');
 	$routes->get('/masuk', 'TblMasuk::form');
 	$routes->get('/tblmasuk/edit/(:num)', 'TblMasuk::edit/$1');
 	$routes->delete('/tblmasuk/(:num)', 'TblMasuk::delete/$1');
-	$routes->get('/tblmasuk/(:any)', 'TblMasuk::delete/$1');
 	
 	// tblbarangkeluar
 	$routes->get('/tblkeluar', 'TblKeluar::index');
@@ -68,7 +67,7 @@ $routes->get('/user/(:any)', 'User::delete/$1');
 	$routes->get('/tblkeluar/detail/(:segment)', 'TblKeluar::detail/$1');
 	$routes->get('/tblkeluar/edit/(:num)', 'TblKeluar::edit/$1');
 	$routes->delete('/tblkeluar/(:num)', 'TblKeluar::delete/$1');
-	$routes->get('/tblkeluar/(:any)', 'TblKeluar::delete/$1');
+	// $routes->get('/tblkeluar/(:any)', 'TblKeluar::delete/$1');
 	
 	// $routes->get('/tblbarang/tblbarangmasuk', 'TblBarang::tblbarangmasuk');
 	// $routes->get('/tblbarang/tblbarangkeluar', 'TblBarang::tblbarangkeluar');

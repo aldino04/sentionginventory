@@ -8,7 +8,7 @@
     <!-- Header -->
     <div class="section-header">
       <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
-      <h1>Formulir Barang Masuk</h1>
+      <h1>Formulir Barang Masuk Multi</h1>
     </div>
     <!-- End Header -->
 
@@ -31,20 +31,6 @@
                   <div class="row justify-content-center pb-0 mb-0">
                     <div class="col-md-7">
                       <?= csrf_field(); ?>
-
-                      <!-- <div class="form-group row">
-                        <label class="col-sm-3 col-form-label">ID Transaksi</label>
-                        <div class="col-sm-9">
-                          <div class="input-group">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                                <i class="fas fa-key"></i>
-                              </div>
-                            </div>
-                            <input type="text" class="form-control" disabled value="SI-2108250010">
-                          </div>
-                        </div>
-                      </div> -->
 
                       <div class="form-group row">
                         <label for="bapb" class="col-sm-3 col-form-label">BAPB</label>
@@ -80,7 +66,7 @@
                         </div>
                       </div>
 
-                      <div class="form-group row">
+                      <!-- <div class="form-group row">
                         <label for="kodeBarang" class="col-sm-3 col-form-label">Kode Barang</label>
                         <div class="col-sm-9">
                           <div class="input-group">
@@ -98,54 +84,58 @@
                           </button>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
 
-                  <div class="form-group row justify-content-center mb-0 pb-0">
-                    <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
-                      <div class="form-group">
-                        <label for="namaBarang">Nama Barang</label>
-                        <input type="text" class="form-control" required="" placeholder="Masukan Nama Barang.." name="namaBarang" id="namaBarang" disabled>
-                        <div class="invalid-feedback">
-                          Masukan Nama Barang!.
-                        </div>
-                      </div>
-                    </div>
+                
 
-                    <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
-                      <div class="form-group">
-                        <label for="jmlMasuk">Jumlah</label>
-                        <input type="text" class="form-control jumlah-si" required="" placeholder="Masukan Jumlah.." name="jmlMasuk" id="jmlMasuk">
-                        <div class="invalid-feedback">
-                          Masukan Jumlah!.
-                        </div>
-                      </div>
-                    </div>
+                <div class="row justify-content-center">
+                  <div class="col-11">
+                    <table class="table table-sm table-striped table-responsive">
+                      <thead class="bg-primary text-center" style="color: white;">
+                        <th>Kode Barang</th>
+                        <th>Nama Barang</th>
+                        <th>Satuan</th>
+                        <th>Jumlah</th>
+                        <th>Keterangan</th>
+                        <th></th>
+                      </thead>
 
-                    <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
-                      <div class="form-group">
-                        <label for="satuan">Satuan</label>
-                        <input type="text" class="form-control" required="" placeholder="Masukan Satuan.." name="satuan" id="satuan" disabled>
-                        <div class="invalid-feedback">
-                          Masukan Satuan!.
-                        </div>
-                      </div>
-                    </div>
+                      <tbody class="formtambah">
+                        <tr>
+                          <td>
+                            <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Kode.." name="kodeBarang" id="kodeBarang" autocomplete="off">
+                              <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modal-item"><i class="fa fa-search"></i>
+                              </button>
+                            </div>
+                          </td>
+                          <td>
+                            <input type="text" class="form-control" placeholder="Nama.." disabled name="namaBarang" id="namaBarang">
+                          </td>
+                          <td>
+                            <input type="text" class="form-control" placeholder="Satuan.." disabled name="satuan" id="satuan">
+                          </td>
+                          <td>
+                            <input type="number" class="form-control" placeholder="Jumlah.." name="jmlMasuk" id="jmlMasuk" autocomplete="off">
+                          </td>
+                          <td>
+                            <input type="text" class="form-control" placeholder="Keterangan.." name="ketMasuk" id="ketMasuk" autocomplete="off">
+                          </td>
+                          <td>
+                            <button class="btn btn-success btnaddform">
+                              <i class="fa fa-plus"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
 
-                    
                   </div>
-
-                  <div class="form-group row justify-content-center mb-0 pb-0">
-                    <div class="col-md-9 col-lg-9">
-                      <div class="form-group">
-                        <label for="ketMasuk">Keterangan</label>
-                        <textarea type="number" class="form-control" placeholder="Masukan Keterangan.." style="height: 80px;" name="ketMasuk" id="ketMasuk"></textarea>
-                      </div>
-                    </div>
-                  </div>
-
                 </div>
+
+              </div>
 
               <div class="card-footer text-center">
                 
@@ -231,7 +221,50 @@
 </div>
 
 <script>
-    $(document).ready(function () {
+    
+
+  $(document).ready(function(e){
+    $('.btnaddform').click(function(e){
+      e.preventDefault();
+
+      $('.formtambah').append(`
+        <tr>
+          <td>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Kode.." name="kodeBarang" id="kodeBarang1" autocomplete="off">
+              <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modal-item"><i class="fa fa-search"></i>
+              </button>
+            </div>
+          </td>
+          <td>
+            <input type="text" class="form-control" placeholder="Nama.." disabled name="namaBarang" id="namaBarang1">
+          </td>
+          <td>
+            <input type="text" class="form-control" placeholder="Satuan.." disabled name="satuan" id="satuan1">
+          </td>
+          <td>
+            <input type="number" class="form-control" placeholder="Jumlah.." name="jmlMasuk" id="jmlMasuk1" autocomplete="off">
+          </td>
+          <td>
+            <input type="text" class="form-control" placeholder="Keterangan.." name="ketMasuk" id="ketMasuk1" autocomplete="off">
+          </td>
+          <td>
+            <button class="btn btn-danger btnhapusform">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      `);
+    })
+  })
+
+  $(document).on('click','.btnhapusform', function(e){
+    e.preventDefault();
+
+    $(this).parents('tr').remove();
+  })
+
+  $(document).ready(function () {
     $(document).on('click', '#select', function () {
       var kode_barang = $(this).data('kode');
       var nama_barang = $(this).data('nama');

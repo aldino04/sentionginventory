@@ -8,7 +8,12 @@
           <!-- Header -->
           <div class="section-header">
             <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
-            <h1>Detail Barang &mdash; <?= $barang['nama_barang']; ?></h1>
+            <h1>Detail &mdash; <?= $barang['nama_barang']; ?></h1>
+            <div class="section-header-breadcrumb">
+              <div class="breadcrumb-item active"><a href="<?= base_url(); ?>">Dashboard</a></div>
+              <div class="breadcrumb-item"><a href="<?= base_url('tblbarang'); ?>">Tabel&nbsp;Barang</a></div>
+              <div class="breadcrumb-item">Detail</div>
+            </div>
           </div>
           <!-- End Header -->
 

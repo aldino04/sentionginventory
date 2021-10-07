@@ -40,6 +40,17 @@ class TblMasuk extends BaseController
 		return view('forms/formBarangMasuk', $data);
 	}
 
+	public function form2()
+	{
+		$data = [
+			'tittle' => 'Form Barang Masuk &mdash; Sentiong',
+			'barang_masuk' => $this->barangMasukModel->getId(),
+			'barang' => $this->barangModel->getId(),
+			'satuan' => $this->satuanModel->findAll()
+		];
+		return view('forms/formMulMasuk', $data);
+	}
+
 	public function save()
 	{
 		// dd($this->request->getVar());
@@ -97,5 +108,23 @@ class TblMasuk extends BaseController
 
 		session()->setFlashdata('pesan', 'Data Berhasil Diubah!');
 		return redirect()->to('/tblmasuk');
+	}
+
+	public function detail($id_masuk, $bapb)
+	{
+		$db = \Config\Database::connect();
+		$query = $db->query("SELECT id_masuk, bapb, tgl_masuk, barang_masuk.kode_barang, nama_barang, nama_satuan, jml_masuk, ket_masuk FROM `barang_masuk`
+		INNER JOIN barang ON barang.kode_barang = barang_masuk.kode_barang
+		INNER JOIN satuan ON satuan.id_satuan = barang.id_satuan
+		WHERE bapb = '$bapb';");
+
+		$data = [
+			'tittle' => 'Detail Barang Masuk &mdash; Sentiong',
+			'barang_masuk' => $this->barangMasukModel->getId($id_masuk),
+			'result' => $query->getResultArray()
+		];
+
+		// dd($data);
+		return view('details/detailBarangMasuk', $data);
 	}
 }

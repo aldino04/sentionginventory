@@ -13,19 +13,19 @@ class BarangMasukModel extends Model
   public function getId($id_masuk = false)
   {
     $db = \Config\Database::connect();
-    $query = $db->query("SELECT barang_masuk.id_masuk, barang_masuk.bapb, barang_masuk.tgl_masuk, barang_masuk.kode_barang, barang.nama_barang, barang_masuk.jml_masuk, satuan.nama_satuan, barang_masuk.ket_masuk 
-                          FROM barang 
-                          INNER JOIN barang_masuk
-                          ON barang.kode_barang = barang_masuk.kode_barang
-                          INNER JOIN satuan
-                          ON satuan.id_satuan = barang.id_satuan;");
-    $results = $query->getResultArray();
+    $builder = $db->table('barang');
+
+    $builder->select('id_masuk, bapb, tgl_masuk, barang_masuk.kode_barang, nama_barang, jml_masuk, nama_satuan, ket_masuk');
+    $builder->join('barang_masuk', 'barang_masuk.kode_barang = barang.kode_barang', 'inner');
+    $builder->join('satuan', 'satuan.id_satuan = barang.id_satuan', 'inner');
+    $query = $builder->get()->getResultArray();
 
     if ($id_masuk == false) {
         // return $this->findAll();
-        return $results;
+        return $query;
     }
 
-    return $this->where(['id_masuk' => $id_masuk])->first();
+    // return $this->where(['id_masuk' => $id_masuk])->first();
+    return $this->select('*')->join('barang', 'barang.kode_barang = barang_masuk.kode_barang', 'inner')->join('satuan', 'satuan.id_satuan = barang.id_satuan', 'inner')->join('users', 'users.id = barang_masuk.id_user', 'inner')->where(['id_masuk' => $id_masuk])->first();
   }
 }

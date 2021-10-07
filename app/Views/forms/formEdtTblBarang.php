@@ -7,7 +7,13 @@
 
           <!-- Header -->
           <div class="section-header">
+            <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
             <h1>Formulir Edit Barang</h1>
+            <div class="section-header-breadcrumb">
+              <div class="breadcrumb-item active"><a href="<?= base_url(); ?>">Dashboard</a></div>
+              <div class="breadcrumb-item"><a href="<?= base_url('tblbarang'); ?>">Tabel&nbsp;Barang</a></div>
+              <div class="breadcrumb-item">Update</div>
+            </div>
           </div>
           <!-- End Header -->
 
@@ -113,7 +119,7 @@
 
                     <div class="card-footer text-center">
                       
-                      <a href="#" class="btn btn-success float-left"><i class="fas fa-arrow-circle-left mx-1"></i>Back</a>
+                      <a href="javascript:window.history.go(-1);" class="btn btn-success float-left"><i class="fas fa-arrow-circle-left mx-1"></i>Back</a>
 
                       <button class="btn btn-primary float-right mb-3" type="submit"><i class="fas fa-check-square mx-1"></i>Submit</button>
                       

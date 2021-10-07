@@ -9,6 +9,10 @@
           <div class="section-header">
             <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
             <h1>Profile</h1>
+            <div class="section-header-breadcrumb">
+              <div class="breadcrumb-item active"><a href="<?= base_url(); ?>">Dashboard</a></div>
+              <div class="breadcrumb-item">My&nbsp;Profile</div>
+            </div>
           </div>
           <!-- End Header -->
 
@@ -66,14 +70,10 @@
                             </tr>
 
                             <tr>
-                              <td>Status</td>
+                              <td>Role</td>
                               <td class="font-weight-bold">:</td>
                               <td><h7 class="font-weight-light">
-                                <?php if (logged_in() == 1) : ?>
-                                  <span class="badge badge-pill badge-success"><?= 'Online'; ?></span>
-                                <?php else : ?>
-                                  <span class="badge badge-pill badge-danger"><?= 'Offline'; ?></span>
-                                <?php endif; ?>
+                                <span class="badge badge-pill badge-success"><?= $user->description; ?></span>
                               </h7></td>
                             </tr>
                           </tbody>

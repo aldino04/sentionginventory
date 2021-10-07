@@ -28,7 +28,7 @@
 <?php if ($config->validFields === ['email']): ?>
                   <div class="form-group">
                     <label for="login"><?=lang('Auth.email')?></label>
-                    <input type="email" class="form-control <?php if(session('errors.login')) : ?>is-invalid<?php endif ?>" name="login" placeholder="<?=lang('Auth.email')?>">
+                    <input type="email" class="form-control <?php if(session('errors.login')) : ?>is-invalid<?php endif ?>" name="login" placeholder="<?=lang('Auth.email')?>" autofocus>
                     <div class="invalid-feedback">
                       <?= session('errors.login') ?>
                     </div>
@@ -36,7 +36,7 @@
 <?php else: ?>
                     <div class="form-group">
                       <label for="login"><?=lang('Auth.emailOrUsername')?></label>
-                      <input type="text" class="form-control <?php if(session('errors.login')) : ?>is-invalid<?php endif ?>" name="login" placeholder="<?=lang('Auth.emailOrUsername')?>">
+                      <input type="text" class="form-control <?php if(session('errors.login')) : ?>is-invalid<?php endif ?>" name="login" placeholder="<?=lang('Auth.emailOrUsername')?>" autofocus>
                       <div class="invalid-feedback">
                         <?= session('errors.login') ?>
                       </div>

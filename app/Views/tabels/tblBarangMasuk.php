@@ -9,6 +9,10 @@
           <div class="section-header">
             <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
             <h1>Tabel Barang Masuk</h1>
+            <div class="section-header-breadcrumb">
+              <div class="breadcrumb-item active"><a href="<?= base_url(); ?>">Dashboard</a></div>
+              <div class="breadcrumb-item">Tabel&nbsp;Barang&nbsp;Masuk</div>
+            </div>
           </div>
           <!-- End Header -->
 
@@ -49,11 +53,10 @@
                             <th>Nama Barang</th>
                             <th>Masuk</th>
                             <th>Satuan</th>
-                            <!-- <th>Keterangan</th> -->
-                            <th>Update</th>
                             <?php if(in_groups('admin')) : ?>
                             <th>Delete</th>
                             <?php endif; ?>
+                            <th>Details</th>
                           </tr>
                         </thead>
 
@@ -66,10 +69,7 @@
                             <td class="align-middle"><?= $msk['nama_barang']; ?></td>
                             <td class="align-middle"><?= $msk['jml_masuk']; ?></td>
                             <td class="align-middle"><?= $msk['nama_satuan']; ?></td>
-                            <!-- <td><?= $msk['ket_masuk']; ?></td> -->
-                            <td class="align-middle">
-                              <a href="/tblmasuk/edit/<?= $msk['id_masuk']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a>
-                            </td>
+
                             <?php if (in_groups('admin')) : ?>
                             <td class="align-middle">
                               <form action="/tblmasuk/<?= $msk['id_masuk']; ?>" method="POST">
@@ -79,6 +79,12 @@
                               </form>
                             </td>
                             <?php endif; ?>
+
+                            <td class="align-middle">
+                              <a href="/tblmasuk/detail/<?= $msk['id_masuk']; ?>/<?= $msk['bapb']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
+                              <!-- <a href="/tblmasuk/edit/<?= $msk['id_masuk']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a> -->
+                            </td>
+
                           </tr>
                           <?php endforeach; ?>
                         </tbody>

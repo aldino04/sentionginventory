@@ -9,6 +9,11 @@
           <div class="section-header">
             <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
             <h1>Formulir Barang Keluar</h1>
+            <div class="section-header-breadcrumb">
+              <div class="breadcrumb-item active"><a href="<?= base_url(); ?>">Dashboard</a></div>
+              <div class="breadcrumb-item"><a href="<?= base_url('keluar'); ?>">Tabel&nbsp;Barang&nbsp;Keluar</a></div>
+              <div class="breadcrumb-item">Formulir</div>
+            </div>
           </div>
           <!-- End Header -->
 
@@ -19,7 +24,7 @@
               <div class="col">
 
                 <div class="card">
-                  <form action="save" method="POST" class="needs-validation" novalidate="" enctype="multipart/form-data">
+                  <form action="tblkeluar/save" method="POST" class="needs-validation" novalidate="" enctype="multipart/form-data">
                     <div class="card-header text-center">
                       <h4 class="text-center">Bon Pemakaian Material/Suku Cadang [BPM]</h4>
                     </div>
