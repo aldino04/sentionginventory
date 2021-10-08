@@ -59,6 +59,7 @@ class TblMasuk extends BaseController
 		$kode_barang = $this->request->getVar('kodeBarang');
 		$jml_masuk = $this->request->getVar('jmlMasuk');
 		$ket_masuk = $this->request->getVar('ketMasuk');
+		$id_user = $this->request->getVar('idUser');
 		
 		$data = [
 			'bapb' => $bapb,
@@ -66,6 +67,7 @@ class TblMasuk extends BaseController
 			'kode_barang' => $kode_barang,
 			'jml_masuk' => $jml_masuk,
 			'ket_masuk' => $ket_masuk,
+			'id_user' => $id_user,
 		];
 
 		$this->barangMasukModel->insert($data);

@@ -39,7 +39,7 @@
                   <tr>
                     <td>Nama barang</td>
                     <td class="font-weight-bold">:</td>
-                    <td><h7 class="text-uppercase font-weight-bold"><?= $barang_masuk['nama_barang']; ?></h7></td>
+                    <td><h7 class="text-uppercase"><a class="font-weight-bold" href="<?= base_url(); ?>/tblbarang/detail/<?= $barang_masuk['kode_barang']; ?>"><?= $barang_masuk['nama_barang']; ?></a></h7></td>
                   </tr>
                   
                   <tr>
@@ -106,7 +106,7 @@
                     <?php foreach($result as $r) : ?>
                     <tr>
                       <td><?= $r['kode_barang']; ?></td>
-                      <td><?= $r['nama_barang']; ?></td>
+                      <td><a class="font-weight-bold" href="<?= base_url(); ?>/tblbarang/detail/<?= $r['kode_barang']; ?>"><?= $r['nama_barang']; ?></a></td>
                       <td><?= $r['jml_masuk']; ?></td>
                       <td><?= $r['nama_satuan']; ?></td>
                       <td><?= $r['ket_masuk']; ?></td>

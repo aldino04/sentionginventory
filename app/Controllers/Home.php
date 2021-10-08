@@ -17,7 +17,7 @@ class Home extends BaseController
 		INNER JOIN auth_groups_users ON auth_groups_users.user_id = users.id
 		INNER JOIN auth_groups ON auth_groups.id = auth_groups_users.group_id
 		ORDER BY tanggal DESC
-		LIMIT 3;");
+		LIMIT 4;");
 		
 		$masuk = $db->query("SELECT id_masuk, tgl_masuk AS tanggal, bapb, nama_barang as nama, jml_masuk AS masuk, nama_satuan AS satuan, ket_masuk as keterangan, user_image as gambar, fullname AS petugas, description as role
 		FROM barang_masuk 
@@ -27,7 +27,17 @@ class Home extends BaseController
 		INNER JOIN auth_groups_users ON auth_groups_users.user_id = users.id
 		INNER JOIN auth_groups ON auth_groups.id = auth_groups_users.group_id
 		ORDER BY tanggal DESC
-		LIMIT 3;");
+		LIMIT 4;");
+
+		$barangMax = $db->query("SELECT barang.kode_barang, nama_barang, stok, nama_satuan FROM `barang`
+		INNER JOIN satuan ON satuan.id_satuan = barang.id_satuan
+		ORDER BY stok DESC
+		LIMIT 10;");
+
+		$barangMin = $db->query("SELECT barang.kode_barang, nama_barang, stok, nama_satuan FROM `barang`
+		INNER JOIN satuan ON satuan.id_satuan = barang.id_satuan
+		ORDER BY stok ASC
+		LIMIT 10;");
 
 		$jmlMaterial = $db->query("SELECT COUNT(*) AS totalm FROM barang;");
 		$jmlMasuk = $db->query("SELECT SUM(jml_masuk) AS jml_masuk FROM barang_masuk;");
@@ -41,7 +51,9 @@ class Home extends BaseController
 			'jmlMaterial' => $jmlMaterial->getRow(),
 			'jmlMasuk' => $jmlMasuk->getRow(),
 			'jmlKeluar' => $jmlKeluar->getRow(),
-			'jmlUser' => $jmlUser->getRow()
+			'jmlUser' => $jmlUser->getRow(),
+			'barangMax' => $barangMax->getResultArray(),
+			'barangMin' => $barangMin->getResultArray()
 		];
 
 		// dd($data);

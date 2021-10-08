@@ -81,8 +81,7 @@
                             <?php endif; ?>
 
                             <td class="align-middle">
-                              <a href="/tblmasuk/detail/<?= $msk['id_masuk']; ?>/<?= $msk['bapb']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
-                              <!-- <a href="/tblmasuk/edit/<?= $msk['id_masuk']; ?>" class="btn btn-warning"><i class="fas fa-pen-square"></i></a> -->
+                              <a href="/tblmasuk/detail/<?= $msk['id_masuk']; ?>/<?= $msk['bapb']; ?>" class="btn btn-success"><i class="fas fa-bars"></i></a>
                             </td>
 
                           </tr>

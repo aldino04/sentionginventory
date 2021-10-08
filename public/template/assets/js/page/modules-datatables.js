@@ -34,7 +34,9 @@ $("[data-checkboxes]").each(function () {
   });
 });
 
-$("#tableNormal").dataTable({});
+$("#tableNormal").dataTable({
+  // order: [[3, "desc"]],
+});
 $("#table-1").dataTable({
   columnDefs: [{ sortable: false, targets: [3, 4, 5, 6, 7, 8] }],
 });

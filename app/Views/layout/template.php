@@ -31,11 +31,15 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/css/components.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/css/dataTables.dateTime.min.css">
   </head>
   <body>
 
   <!-- load jquery untuk form barang masuk & keluar -->
     <script src="<?= base_url(); ?>/template/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>/template/node_modules/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url(); ?>/template/node_modules/moment/min/moment.min.js"></script>
+    <script src="<?= base_url(); ?>/js/dataTables.dateTime.min.js"></script>
     
 <div id="app">
     <div class="main-wrapper">
@@ -60,7 +64,7 @@
   <script src="<?= base_url(); ?>/template/node_modules/popper.js/dist/umd/popper.min.js"></script>
   <script src="<?= base_url(); ?>/template/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="<?= base_url(); ?>/template/node_modules/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script>
-  <script src="<?= base_url(); ?>/template/node_modules/moment/min/moment.min.js"></script>
+  
   <script src="<?= base_url(); ?>/template/assets/js/stisla.js"></script>
 
   <!-- JS Libraies -->
@@ -75,7 +79,7 @@
   <script src="<?= base_url(); ?>/template/node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
 
     <!-- Data Table -->
-  <script src="<?= base_url(); ?>/template/node_modules/datatables/media/js/jquery.dataTables.min.js"></script>
+  
   <script src="<?= base_url(); ?>/template/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
   <script src="<?= base_url(); ?>/template/node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js"></script>
 

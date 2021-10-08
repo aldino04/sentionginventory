@@ -35,7 +35,9 @@
 
                   <div class="row justify-content-center pb-0 mb-0">
                     <div class="col-md-7">
+
                       <?= csrf_field(); ?>
+                      <input type="hidden" name="idUser" value="<?= user_id(); ?>">
 
                       <!-- <div class="form-group row">
                         <label class="col-sm-3 col-form-label">ID Transaksi</label>

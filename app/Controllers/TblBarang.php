@@ -105,28 +105,33 @@ class TblBarang extends BaseController
 
 	public function detail($kode_barang)
 	{
-		// $barang = $this->barangModel->getId($kode_barang);
-		// dd($barang);
 
 		$db = \Config\Database::connect();
-		$query = $db->query("SELECT '' AS id_keluar, tgl_masuk AS tanggal, bapb, '' as bpm, barang_masuk.kode_barang, nama_barang, jml_masuk AS masuk, '' AS keluar, nama_satuan AS satuan, ket_masuk AS keterangan
+		$apg = $db->query("SELECT '' AS id_keluar, id_masuk AS id_masuk, tgl_masuk AS tanggal, bapb, '' as bpm, barang_masuk.kode_barang, nama_barang, jml_masuk AS masuk, '' AS keluar, nama_satuan AS satuan, ket_masuk AS keterangan
 			FROM barang_masuk
 			JOIN barang ON barang.kode_barang = barang_masuk.kode_barang
 			JOIN satuan ON satuan.id_satuan = barang.id_satuan
 			WHERE barang_masuk.kode_barang = '$kode_barang'
 			UNION
-			SELECT id_keluar, tgl_keluar, '', bpm, barang_keluar.kode_barang, nama_barang, '', jml_keluar, nama_satuan AS satuan, 			ket_keluar AS keterangan
+			SELECT id_keluar, '', tgl_keluar, '', bpm, barang_keluar.kode_barang, nama_barang, '', jml_keluar, nama_satuan AS satuan, 			ket_keluar AS keterangan
 			FROM barang_keluar
 			JOIN barang ON barang.kode_barang = barang_keluar.kode_barang
 			JOIN satuan ON satuan.id_satuan = barang.id_satuan
 			WHERE barang_keluar.kode_barang = '$kode_barang'
-			ORDER BY tanggal ASC
-			LIMIT 5;");
+			ORDER BY tanggal DESC;");
+		
+		$totalMsk = $db->query("SELECT SUM(jml_masuk) AS jml_masuk FROM barang_masuk
+		WHERE kode_barang = '$kode_barang';");
+
+		$totalKlr = $db->query("SELECT SUM(jml_keluar) AS jml_keluar FROM barang_keluar
+		WHERE kode_barang = '$kode_barang';");
 
 		$data = [
 			'tittle' => 'Detail Barang &mdash; Sentiong',
 			'barang' => $this->barangModel->getId($kode_barang),
-			'result' => $query->getResultArray()
+			'result' => $apg->getResultArray(),
+			'totalMasuk' => $totalMsk->getRow(),
+			'totalKeluar' => $totalKlr->getRow()
 		];
 
 		// dd($result);

@@ -38,7 +38,7 @@
               <tr>
                 <td>Nama barang</td>
                 <td class="font-weight-bold">:</td>
-                <td><h6 class="text-uppercase"><?= $barang_keluar['nama_barang']; ?></h6></td>
+                <td><h6 class="text-uppercase"><a class="font-weight-bold" href="<?= base_url(); ?>/tblbarang/detail/<?= $barang_keluar['kode_barang']; ?>"><?= $barang_keluar['nama_barang']; ?></a></h6></td>
               </tr>
               
               <tr>

@@ -77,7 +77,7 @@
                             </td>
                             <?php endif; ?>
                             <td class="align-middle">
-                              <a href="/tblkeluar/detail/<?= $klr['id_keluar']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
+                              <a href="/tblkeluar/detail/<?= $klr['id_keluar']; ?>" class="btn btn-success"><i class="fas fa-bars"></i></a>
                             </td>
                           </tr>
                           <?php endforeach; ?>

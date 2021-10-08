@@ -5,7 +5,7 @@
             <a href="<?= base_url(); ?>">Sentiong Inventory</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="<?= base_url(); ?>">SeRi</a>
+            <a href="<?= base_url(); ?>">SERY</a>
           </div>
           <ul class="sidebar-menu">
 

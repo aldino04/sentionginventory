@@ -55,9 +55,12 @@
                             <th>Kode Barang</th>
                             <th>Nama Barang</th>
                             <th>Stok</th>
+                            <th>Satuan</th>
+
                             <?php if (in_groups('admin')) : ?>
                             <th>Delete</th>
                             <?php endif; ?>
+
                             <th>Details</th>
                           </tr>
                         </thead>
@@ -68,7 +71,8 @@
                             <td class="text-center align-middle"><?= $i++; ?></td>
                             <td class="text-center align-middle"><?= $br['kode_barang']; ?></td>
                             <td class=" align-middle"><?= $br['nama_barang']; ?></td>
-                            <td class=" align-middle"><h6 class="position-sticky d-inline"><?= $br['stok']; ?></h6>&nbsp;&nbsp;<?= $br['nama_satuan']; ?></td>
+                            <td class="text-center align-middle"><h6 class="position-sticky d-inline"><?= $br['stok']; ?></h6></td>
+                            <td class="text-center align-middle"><?= $br['nama_satuan']; ?></td>
 
                             <?php if (in_groups('admin')) : ?>
                             <td class="text-center align-middle">
@@ -81,7 +85,7 @@
                             <?php endif; ?>
 
                             <td class="text-center align-middle">
-                              <a href="/tblbarang/detail/<?= $br['kode_barang']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
+                              <a href="/tblbarang/detail/<?= $br['kode_barang']; ?>" class="btn btn-success"><i class="fas fa-bars"></i></a>
                             </td>
                           </tr>
                           <?php endforeach; ?>
