@@ -49,8 +49,11 @@
             </tbody>
           </table>
 
+          <?php if(in_groups('admin')) : ?>
+          <a href="/tblbarang/edit/<?= $barang['kode_barang']; ?>" class="btn btn-info"><i class="fas fa-pen-square"></i> Update</a>
+          <?php endif; ?>
+
           <?php if(has_permission('transaksi')) : ?>
-          <a href="/tblbarang/edit/<?= $barang['kode_barang']; ?>" class="btn btn-success"><i class="fas fa-pen-square"></i> Update</a>
           <a href="<?= base_url('masuk'); ?>" class="btn btn-primary"><i class="fas fa-plus-square"></i> Masuk</a>
           <a href="<?= base_url('keluar'); ?>" class="btn btn-warning"><i class="fas fa-minus-square"></i> Keluar</a>
           <?php endif; ?>
@@ -59,8 +62,10 @@
             <a href="<?= base_url('tblmasuk'); ?>" class="btn btn-primary"><i class="fas fa-plus-square"></i> Tabel Masuk</a>
             <a href="<?= base_url('tblkeluar'); ?>" class="btn btn-warning"><i class="fas fa-minus-square"></i> Tabel Keluar</a>
           <?php endif; ?>
-
-          <p class="mt-3"><a href="<?= base_url(); ?>/tblbarang">Kembali ke tabel barang</a></p>
+            
+          <a target="_blank" href="<?= base_url(); ?>/tblbarang/dompdf/<?= $barang['kode_barang']; ?>" class="btn btn-success"><i class="far fa-file-pdf"></i> Download APG</a>
+          
+          <p class="mt-3"><a href="<?= base_url(); ?>/tblbarang"><i class="fas fa-angle-double-left"></i> Kembali ke tabel barang</a></p>
         </div>
       </div>
     </div>
@@ -104,7 +109,7 @@
             </div>
           
             <div class="col-form-label">
-              <a href="<?= base_url(); ?>/tblbarang/detail/<?= $barang['kode_barang']; ?>" class="btn btn-dark"><i class="fas fa-redo-alt"></i></a>
+              <a href="<?= base_url(); ?>/tblbarang/detail/<?= $barang['kode_barang']; ?>" class="btn btn-dark"><i class="fas fa-redo-alt"></i> Reset</a>
             </div>
 
           </div>
@@ -129,14 +134,14 @@
               <tbody>
                 <?php $i = 1; foreach($result as $apg) : ?>
                 <tr>
-                  <td class="text-center align-middle"><?= $i++; ?></td>
-                  <td class="text-center align-middle"><?= $apg['tanggal']; ?></td>
-                  <td class="text-center align-middle"><?= $apg['bapb']; ?></td>
-                  <td class="text-center align-middle"><?= $apg['bpm']; ?></td>
+                  <td class="text-center align-middle" style="white-space: nowrap;"><?= $i++; ?></td>
+                  <td class="text-center align-middle" style="white-space: nowrap;"><?= $apg['tanggal']; ?></td>
+                  <td class="text-center align-middle" style="white-space: nowrap;"><?= $apg['bapb']; ?></td>
+                  <td class="text-center align-middle" style="white-space: nowrap;"><?= $apg['bpm']; ?></td>
                   <td class="text-center align-middle"><?= $apg['masuk']; ?>
                   <?php if($apg['masuk'] != "") : ?>
                     
-                    <?php endif; ?>
+                  <?php endif; ?>
                   </td>
                   <td class="text-center align-middle"><?= $apg['keluar']; ?>
                   <?php if($apg['keluar'] != "") : ?>
@@ -164,8 +169,20 @@
                 </tr>
                 <tr class="table-warning text-center font-weight-bold">
                   <th colspan="4">Total Keseluruhan</th>
-                  <th><?= $totalMasuk->jml_masuk; ?> <?= $barang['nama_satuan']; ?></th>
-                  <th><?= $totalKeluar->jml_keluar; ?> <?= $barang['nama_satuan']; ?></th>
+                  <th><?= $totalMasuk->jml_masuk; ?> 
+                    <?php if($totalMasuk->jml_masuk != ''){
+                      echo ($barang['nama_satuan']);
+                    }else{
+                      echo ('0 ' . $barang['nama_satuan']);
+                    } ?>
+                  </th>
+                  <th><?= $totalKeluar->jml_keluar; ?> 
+                    <?php if($totalKeluar->jml_keluar != ''){
+                      echo ($barang['nama_satuan']);
+                    }else{
+                      echo ('0 ' . $barang['nama_satuan']);
+                    } ?>
+                  </th>
                   <th colspan="2">Stok : <?= intval($totalMasuk->jml_masuk) - intval($totalKeluar->jml_keluar) ?> <?= $barang['nama_satuan']; ?></th>
                 </tr>
               </tfoot>

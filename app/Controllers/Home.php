@@ -16,7 +16,7 @@ class Home extends BaseController
 		INNER JOIN users ON users.id = barang_keluar.id_user
 		INNER JOIN auth_groups_users ON auth_groups_users.user_id = users.id
 		INNER JOIN auth_groups ON auth_groups.id = auth_groups_users.group_id
-		ORDER BY tanggal DESC
+		ORDER BY id_keluar DESC
 		LIMIT 4;");
 		
 		$masuk = $db->query("SELECT id_masuk, tgl_masuk AS tanggal, bapb, nama_barang as nama, jml_masuk AS masuk, nama_satuan AS satuan, ket_masuk as keterangan, user_image as gambar, fullname AS petugas, description as role
@@ -26,7 +26,7 @@ class Home extends BaseController
 		INNER JOIN users ON users.id = barang_masuk.id_user
 		INNER JOIN auth_groups_users ON auth_groups_users.user_id = users.id
 		INNER JOIN auth_groups ON auth_groups.id = auth_groups_users.group_id
-		ORDER BY tanggal DESC
+		ORDER BY id_masuk DESC
 		LIMIT 4;");
 
 		$barangMax = $db->query("SELECT barang.kode_barang, nama_barang, stok, nama_satuan FROM `barang`

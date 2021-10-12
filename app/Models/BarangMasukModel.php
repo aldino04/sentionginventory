@@ -18,6 +18,7 @@ class BarangMasukModel extends Model
     $builder->select('id_masuk, bapb, tgl_masuk, barang_masuk.kode_barang, nama_barang, jml_masuk, nama_satuan, ket_masuk');
     $builder->join('barang_masuk', 'barang_masuk.kode_barang = barang.kode_barang', 'inner');
     $builder->join('satuan', 'satuan.id_satuan = barang.id_satuan', 'inner');
+    $builder->orderBy('id_masuk', 'DESC');
     $query = $builder->get()->getResultArray();
 
     if ($id_masuk == false) {

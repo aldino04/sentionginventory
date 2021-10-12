@@ -19,6 +19,7 @@ class BarangKeluarModel extends Model
     $builder->join('barang_keluar', 'barang_keluar.kode_barang = barang.kode_barang', 'inner');
     $builder->join('satuan', 'satuan.id_satuan = barang.id_satuan', 'inner');
     $builder->join('users', 'users.id = barang_keluar.id_user', 'inner');
+    $builder->orderBy('id_keluar', 'DESC');
     $query = $builder->get()->getResultArray();
 
     if ($id_keluar == false) {

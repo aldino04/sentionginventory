@@ -134,7 +134,7 @@
                 <div class="card-header">
                   <h4>Tabel Stok 5 Material Ter</h4>
                   <div class="card-header-action">
-                    <a href="#barangMax" data-tab="summary-tab" class="btn active">Terbanyak</a>
+                    <a href="#barangMax" data-tab="summary-tab" class="btn active">Tertinggi</a>
                     <a href="#barangMin" data-tab="summary-tab" class="btn">Terendah</a>
                   </div>
                 </div>
