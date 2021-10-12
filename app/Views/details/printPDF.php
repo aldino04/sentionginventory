@@ -36,15 +36,9 @@
 /* TCPDF */
 
     table{
-      /* border-collapse: collapse; */
-      width: 100%;
       border-collapse: collapse;
       font-size: smaller;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
-
-    td, th{
-      text-align: center;
     }
 
     .text-center{
@@ -55,26 +49,35 @@
       vertical-align: middle;
     }
   
+    #judul{
+      font-size: 14;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
   </style>
 </head>
 
 <body>
 
-<!-- <img src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80" alt=""> -->
+<!-- <img src="http://localhost:8080/img/logo.png" alt="logo"> -->
+
+  <p class="text-center" id="judul"><strong>ADMINISTRASI PERSEDIAAN GUDANG</strong></p>
+
+  <table cellpadding="5">
+    <tr>
+      <td>Material</td>
+      <td>:</td>
+      <td><strong><?= $barang['nama_barang']; ?></strong></td>
+    </tr>
+    <tr>
+      <td>Satuan</td>
+      <td>:</td>
+      <td><strong><?= $barang['nama_satuan']; ?></strong></td>
+    </tr>
+  </table>
 
 
-  <!-- <p><strong>PT. WIKA - JAYA KONTRUKSI KSO</strong>
-  <br>
-  Proyek : Pembangunan Stasiun Pompa Ancol Sentiong</p> -->
-
-  <p class="text-center"><strong>ADMINISTRASI PERSEDIAAN GUDANG</strong></p>
-
-  <p>
-  Material&nbsp;&nbsp;: <?= $barang['nama_barang']; ?> <br>
-  Satuan&nbsp;&nbsp;: <?= $barang['nama_satuan']; ?> </p>
-
-
-  <table border="1px" cellpadding="4">
+  <table border="1px" cellpadding="4" style="width: 100%;">
     <tr style="background: #87cbff;">
       <th rowspan="2">No</th>
       <th rowspan="2">Tanggal</th>
@@ -91,7 +94,10 @@
     <?php $i = 1; foreach($result as $apg) : ?>
     <tr>
       <td class="text-center align-middle"><?= $i++; ?></td>
-      <td class="text-center align-middle" style="white-space: nowrap;"><?= $apg['tanggal']; ?></td>
+      <td class="text-center align-middle" style="white-space: nowrap;">
+        <?php $convertDate = date("F j, Y", strtotime($apg['tanggal'])) ?>
+        <?= $convertDate; ?>
+      </td>
       <td class="text-center align-middle" style="white-space: nowrap;"><?= $apg['bapb']; ?></td>
       <td class="text-center align-middle" style="white-space: nowrap;"><?= $apg['bpm']; ?></td>
       <td class="text-center align-middle"><?= $apg['masuk']; ?>

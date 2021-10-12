@@ -178,7 +178,7 @@ class TblBarang extends BaseController
 		$options = new Options();
 		$options->set('defaultFont', 'times');
 		$options->set('isRemoteEnabled', TRUE);
-		// $options->setIsRemoteEnabled(true);
+		$options->setIsRemoteEnabled(true);
 		$options->set('debugKeepTemp', TRUE);
 		$options->set('isHtml5ParserEnabled', true);
 		$dompdf = new Dompdf($options);
@@ -195,7 +195,7 @@ class TblBarang extends BaseController
 		$dompdf->render();
 
 		// Output the generated PDF to Browser
-		$dompdf->stream('document', ['Attachment'=>false]);
+		$dompdf->stream('APG', ['Attachment'=>false]);
 
 	}
 

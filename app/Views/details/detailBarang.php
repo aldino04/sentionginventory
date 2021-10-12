@@ -73,7 +73,7 @@
 
   <div class="card">
     <div class="card-body">
-      <h5 class="text-center">Transaksi Terakhir</h5>
+      <h5 class="text-center">Administrasi Persediaan Gudang</h5>
         <ul class="list-group list-group-flush mb-3 text-center">
           <li class="list-group-item py-0">Kode Material &mdash; <p class="font-weight-bold d-inline"><?= $barang['kode_barang']; ?></p></li>
           <li class="list-group-item py-0">Nama Material &mdash; <p class="font-weight-bold d-inline"><?= $barang['nama_barang']; ?></p></li>
