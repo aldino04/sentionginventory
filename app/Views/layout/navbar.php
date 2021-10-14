@@ -204,7 +204,7 @@
                 <i class="far fa-user"></i> Profile
               </a>
               <div class="dropdown-divider"></div>
-              <a href="#" data-toggle="modal" data-target="#exampleModal" class="dropdown-item has-icon text-danger">
+              <a href="#" data-toggle="modal" data-target="#logout" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>
@@ -213,7 +213,7 @@
       </nav>
 
       <!-- Modal Logout -->
-      <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal">
+      <div class="modal fade" tabindex="-1" role="dialog" id="logout">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -232,4 +232,6 @@
             </div>
           </div>
         </div>
+        <!-- End Modal Logout -->
+
 <!-- End Navbar -->

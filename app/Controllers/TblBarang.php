@@ -26,7 +26,8 @@ class TblBarang extends BaseController
 		$data = [
 			'tittle' => 'Tabel Barang &mdash; Sentiong',
 			'barang' => $this->barangModel->getId(),
-			'satuan' => $this->satuanModel->findAll()
+			'satuan' => $this->satuanModel->findAll(),
+			'validation' => \Config\Services::validation()
 		];
 
 		// dd($data);
@@ -35,6 +36,13 @@ class TblBarang extends BaseController
 
 	public function save()
 	{
+		// validasi
+		if(!$this->validate([
+			'kodeBarang' => 'required|is_unique[barang.kode_barang]'
+		])){
+			// $validation = \Config\Services::validation();
+			return redirect()->to('tblbarang')->withInput();
+		}
 
 		//ambil file sampul
 		$fileSampul = $this->request->getFile('sampul');
@@ -169,12 +177,12 @@ class TblBarang extends BaseController
 			'barang' => $this->barangModel->getId($kode_barang),
 			'result' => $apg->getResultArray(),
 			'totalMasuk' => $totalMsk->getRow(),
-			'totalKeluar' => $totalKlr->getRow()
+			'totalKeluar' => $totalKlr->getRow(),
+			'periodeAwal' => $apg->getFirstRow(),
+			'periodeAkhir' => $apg->getLastRow()
 		];
 
 		// $dompdf = new Dompdf();
-
-		
 		$options = new Options();
 		$options->set('defaultFont', 'times');
 		$options->set('isRemoteEnabled', TRUE);
@@ -199,20 +207,27 @@ class TblBarang extends BaseController
 
 	}
 
-	public function tcpdf($kode_barang)
+	public function sorting($kode_barang)
 	{
+		// dd($this->request->getVar());
+		// $kode_barang = $this->request->getVar('kodeBarang');
+		$min = $this->request->getVar('tglMin');
+		$max = $this->request->getVar('tglMax');
+
 		$db = \Config\Database::connect();
 		$apg = $db->query("SELECT '' AS id_keluar, id_masuk AS id_masuk, tgl_masuk AS tanggal, bapb, '' as bpm, barang_masuk.kode_barang, nama_barang, jml_masuk AS masuk, '' AS keluar, nama_satuan AS satuan, ket_masuk AS keterangan
 			FROM barang_masuk
 			JOIN barang ON barang.kode_barang = barang_masuk.kode_barang
 			JOIN satuan ON satuan.id_satuan = barang.id_satuan
 			WHERE barang_masuk.kode_barang = '$kode_barang'
+			HAVING tanggal BETWEEN '$min' AND '$max'
 			UNION
 			SELECT id_keluar, '', tgl_keluar, '', bpm, barang_keluar.kode_barang, nama_barang, '', jml_keluar, nama_satuan AS satuan, 			ket_keluar AS keterangan
 			FROM barang_keluar
 			JOIN barang ON barang.kode_barang = barang_keluar.kode_barang
 			JOIN satuan ON satuan.id_satuan = barang.id_satuan
 			WHERE barang_keluar.kode_barang = '$kode_barang'
+			HAVING tgl_keluar BETWEEN '$min' AND '$max'
 			ORDER BY tanggal DESC;");
 		
 		$totalMsk = $db->query("SELECT SUM(jml_masuk) AS jml_masuk FROM barang_masuk
@@ -221,33 +236,79 @@ class TblBarang extends BaseController
 		$totalKlr = $db->query("SELECT SUM(jml_keluar) AS jml_keluar FROM barang_keluar
 		WHERE kode_barang = '$kode_barang';");
 
+		$sortingMsk = $db->query("SELECT SUM(jml_masuk) AS jml_masuk FROM barang_masuk
+		WHERE kode_barang = '$kode_barang' AND tgl_masuk BETWEEN '$min' AND '$max';");
+
+		$sortingKlr = $db->query("SELECT SUM(jml_keluar) AS jml_keluar FROM barang_keluar
+		WHERE kode_barang = '$kode_barang' AND tgl_keluar BETWEEN '$min' AND '$max';");
+
 		$data = [
 			'tittle' => 'Detail Barang &mdash; Sentiong',
 			'barang' => $this->barangModel->getId($kode_barang),
 			'result' => $apg->getResultArray(),
 			'totalMasuk' => $totalMsk->getRow(),
-			'totalKeluar' => $totalKlr->getRow()
+			'totalKeluar' => $totalKlr->getRow(),
+			'sortingMasuk' => $sortingMsk->getRow(),
+			'sortingKeluar' => $sortingKlr->getRow(),
+			'min' => $min,
+			'max' => $max
 		];
 
-		$html =  view('details/printPDF', $data);
+		return view('details/detailBarang', $data);
+	}
 
-		$pdf = new TCPDF('L', PDF_UNIT, 'A4', true, 'UTF-8', false);
+	public function dompdfRange($kode_barang, $min, $max)
+	{
 
-		$pdf->SetAuthor('Satria Aldino');
-		$pdf->SetTitle('APG');
-		$pdf->SetSubject('APG');
+		$db = \Config\Database::connect();
+		$apg = $db->query("SELECT '' AS id_keluar, id_masuk AS id_masuk, tgl_masuk AS tanggal, bapb, '' as bpm, barang_masuk.kode_barang, nama_barang, jml_masuk AS masuk, '' AS keluar, nama_satuan AS satuan, ket_masuk AS keterangan
+			FROM barang_masuk
+			JOIN barang ON barang.kode_barang = barang_masuk.kode_barang
+			JOIN satuan ON satuan.id_satuan = barang.id_satuan
+			WHERE barang_masuk.kode_barang = '$kode_barang'
+			HAVING tanggal BETWEEN '$min' AND '$max'
+			UNION
+			SELECT id_keluar, '', tgl_keluar, '', bpm, barang_keluar.kode_barang, nama_barang, '', jml_keluar, nama_satuan AS satuan, 			ket_keluar AS keterangan
+			FROM barang_keluar
+			JOIN barang ON barang.kode_barang = barang_keluar.kode_barang
+			JOIN satuan ON satuan.id_satuan = barang.id_satuan
+			WHERE barang_keluar.kode_barang = '$kode_barang'
+			HAVING tgl_keluar BETWEEN '$min' AND '$max'
+			ORDER BY tanggal DESC;");
+		
+		$totalMsk = $db->query("SELECT SUM(jml_masuk) AS jml_masuk FROM barang_masuk
+		WHERE kode_barang = '$kode_barang' AND tgl_masuk BETWEEN '$min' AND '$max';");
 
-		$pdf->setPrintHeader(false);
-		$pdf->setPrintFooter(false);
+		$totalKlr = $db->query("SELECT SUM(jml_keluar) AS jml_keluar FROM barang_keluar
+		WHERE kode_barang = '$kode_barang' AND tgl_keluar BETWEEN '$min' AND '$max';");
 
-		$pdf->SetFont('times', '', 11, '', true);
-		$pdf->addPage();
+		$data = [
+			'tittle' => 'Detail Barang &mdash; Sentiong',
+			'barang' => $this->barangModel->getId($kode_barang),
+			'result' => $apg->getResultArray(),
+			'totalMasuk' => $totalMsk->getRow(),
+			'totalKeluar' => $totalKlr->getRow(),
+			'min' => $min,
+			'max' => $max
+		];
 
-		// output the HTML content
-		$pdf->writeHTML($html, true, false, true, false, '');
-		//line ini penting
-		$this->response->setContentType('application/pdf');
-		//Close and output PDF document
-		$pdf->Output('APG.pdf', 'I');
+		// $dompdf = new Dompdf();
+		$options = new Options();
+		$options->set('defaultFont', 'times');
+		$dompdf = new Dompdf($options);
+
+		// instantiate and use the dompdf class
+		$html	= view('details/printRangePDF', $data);
+		$dompdf->loadHtml($html);
+
+		// (Optional) Setup the paper size and orientation
+		$dompdf->setPaper('A4', 'landscape');
+		// $dompdf->set_option('isRemoteEnabled', true);
+
+		// Render the HTML as PDF
+		$dompdf->render();
+
+		// Output the generated PDF to Browser
+		$dompdf->stream('APG', ['Attachment'=>false]);
 	}
 }

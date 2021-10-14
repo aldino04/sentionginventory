@@ -63,7 +63,7 @@
               <!-- End Sidebar profile -->
               
               <!-- Sidebar logout -->
-              <li><a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal" class="dropdown-item has-icon text-danger"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
+              <li><a class="nav-link" href="#" data-toggle="modal" data-target="#logout" class="dropdown-item has-icon text-danger"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
               <!-- End Sidebar Logout -->
         </aside>
       </div>

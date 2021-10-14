@@ -32,12 +32,26 @@ class Home extends BaseController
 		$barangMax = $db->query("SELECT barang.kode_barang, nama_barang, stok, nama_satuan FROM `barang`
 		INNER JOIN satuan ON satuan.id_satuan = barang.id_satuan
 		ORDER BY stok DESC
-		LIMIT 10;");
+		LIMIT 5;");
 
 		$barangMin = $db->query("SELECT barang.kode_barang, nama_barang, stok, nama_satuan FROM `barang`
 		INNER JOIN satuan ON satuan.id_satuan = barang.id_satuan
 		ORDER BY stok ASC
-		LIMIT 10;");
+		LIMIT 5;");
+
+		$chartMasuk = $db->query("SELECT barang_masuk.kode_barang, nama_barang, SUM(jml_masuk) as masuk, stok
+		FROM barang_masuk
+		JOIN barang USING (kode_barang)
+		GROUP BY kode_barang
+		ORDER BY stok DESC
+		LIMIT 5;");
+
+		$chartKeluar = $db->query("SELECT barang_keluar.kode_barang, nama_barang, SUM(jml_keluar) as keluar, stok
+		FROM barang_keluar
+		JOIN barang USING (kode_barang)
+		GROUP BY kode_barang
+		ORDER BY stok DESC
+		LIMIT 5;");
 
 		$jmlMaterial = $db->query("SELECT COUNT(*) AS totalm FROM barang;");
 		$jmlMasuk = $db->query("SELECT SUM(jml_masuk) AS jml_masuk FROM barang_masuk;");
@@ -53,7 +67,9 @@ class Home extends BaseController
 			'jmlKeluar' => $jmlKeluar->getRow(),
 			'jmlUser' => $jmlUser->getRow(),
 			'barangMax' => $barangMax->getResultArray(),
-			'barangMin' => $barangMin->getResultArray()
+			'barangMin' => $barangMin->getResultArray(),
+			'chartMasuk' => $chartMasuk->getResultArray(),
+			'chartKeluar' => $chartKeluar->getResultArray()
 		];
 
 		// dd($data);

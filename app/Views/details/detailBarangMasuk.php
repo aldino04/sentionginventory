@@ -37,7 +37,7 @@
                   </tr>
 
                   <tr>
-                    <td>Nama barang</td>
+                    <td>Nama&nbsp;barang</td>
                     <td class="font-weight-bold">:</td>
                     <td><h7 class="text-uppercase"><a class="font-weight-bold" href="<?= base_url(); ?>/tblbarang/detail/<?= $barang_masuk['kode_barang']; ?>"><?= $barang_masuk['nama_barang']; ?></a></h7></td>
                   </tr>
@@ -63,7 +63,7 @@
                   <tr>
                     <td>Keterangan masuk</td>
                     <td class="font-weight-bold">:</td>
-                    <td><h6 class="font-weight-light"><?= $barang_masuk['ket_masuk']; ?></h6></td>
+                    <td><h7 class="font-weight-light"><?= $barang_masuk['ket_masuk']; ?></h7></td>
                   </tr>
                 </tbody>
               </table>

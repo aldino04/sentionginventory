@@ -17,13 +17,22 @@ class TblSatuan extends BaseController
 	{
 		$data = [
 			'tittle' => 'Tabel Satuan &mdash; Sentiong',
-      'satuan' => $this->satuanModel->getId()
+      'satuan' => $this->satuanModel->getId(),
+			'validation' => \Config\Services::validation()
 		];
 		return view('tabels/tblSatuan', $data);
 	}
 
   public function save()
 	{
+		// validasi
+		if(!$this->validate([
+			'namaSatuan' => 'required|is_unique[satuan.nama_satuan]'
+		])){
+			// $validation = \Config\Services::validation();
+			return redirect()->to('tblsatuan')->withInput();
+		}
+
 		$this->satuanModel->save([
 			'id_satuan' => $this->request->getVar('idSatuan'),
 			'nama_satuan' => $this->request->getVar('namaSatuan')

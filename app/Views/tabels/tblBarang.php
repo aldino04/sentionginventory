@@ -26,13 +26,14 @@
 
                 <?php if( in_groups('admin') ) : ?>
                 <div class="p-3 ml-3">
-                  <button type="button" class="btn btn-success btn-lg mr-1" data-toggle="modal" data-target="#exampleModal">
+                  <button type="button" class="btn btn-success btn-lg mr-1" data-toggle="modal" data-target="#tambahBarang">
                     <i class="fas fa-plus-square mr-1"></i>Tambah Barang
                   </button>
                 </div>
                 <?php endif; ?>
 
                 <div class="card-body">
+                  <?= $validation->listErrors(); ?>
 
                     <?php if (session()->getFlashdata('pesan')) : ?>
                       <div class="alert alert-success alert-has-icon alert-dismissible show fade">
@@ -105,7 +106,7 @@
         </section>
 
         <!-- Modal -->
-        <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal">
+        <div class="modal fade" tabindex="-1" role="dialog" id="tambahBarang">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">

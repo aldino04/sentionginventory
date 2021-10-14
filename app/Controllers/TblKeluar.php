@@ -35,15 +35,21 @@ class TblKeluar extends BaseController
 			'tittle' => 'Form Barang Keluar &mdash; Sentiong',
 			'barang_keluar' => $this->barangModel->getId(),
 			'barang' => $this->barangModel->getId(),
-			'satuan' => $this->satuanModel->findAll()
+			'satuan' => $this->satuanModel->findAll(),
+			'validation' => \Config\Services::validation()
 		];
 		return view('forms/formBarangkeluar', $data);
 	}
 
 	public function save()
 	{
-		// dd($this->request->getVar());
-
+		if (!$this->validate([
+			'fotoKeluar' => 'is_image[fotoKeluar]'
+		])){
+			return redirect()->to('keluar')->withInput();
+		}
+		// dd('berhasil');
+		
 		//ambil file sampul
 		$fileSampul = $this->request->getFile('fotoKeluar');
 		//pindahkan file ke folder /img

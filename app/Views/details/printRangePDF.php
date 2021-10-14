@@ -8,33 +8,6 @@
 
   <style type="text/css">
 
-/* DOMPDF */
-  /* .table{
-      width: 100%;
-      border-spacing: 0;
-      font-size: x-small;
-    }
-
-    .table tr:first-child th,
-    .table tr:first-child td{
-      border: 1px solid #000;
-    }
-
-    .table tr th:first-child,
-    .table tr td:first-child{
-      border: 1px solid #000;
-    }
-
-    .table tr th,
-    .table tr td{
-      border: 1px solid #000;
-      padding: 4px;
-      white-space: nowrap;
-      border: 1px solid #000;
-    } */
-
-/* TCPDF */
-
     table{
       border-collapse: collapse;
       font-size: smaller;
@@ -62,13 +35,9 @@
 <!-- <img src="http://localhost:8080/img/logo.png" alt="logo"> -->
 
   <p class="text-center" id="judul"><strong>ADMINISTRASI PERSEDIAAN GUDANG</strong></p>
-  <?php $tglMin = date("F Y", strtotime($periodeAkhir->tanggal)) ?>
-  <?php $tglMax = date("F Y", strtotime($periodeAwal->tanggal)) ?>
-  <p class="text-center">Periode : <strong><?= $tglMin; ?></strong> 
-  <?php if($tglMin != $tglMax) : ?>
-  &mdash; <strong><?= $tglMax; ?></strong>
-  <?php endif; ?>
-  </p>
+  <?php $tglMin = date("j F, Y", strtotime($min)) ?>
+  <?php $tglMax = date("j F, Y", strtotime($max)) ?>
+  <p class="text-center">Periode : <strong><?= $tglMin; ?></strong> &mdash; <strong><?= $tglMax; ?></strong></p>
   <table cellpadding="5">
     <tr>
       <td>Material</td>

@@ -25,12 +25,14 @@
                 <div class="card">
 
                 <div class="p-3 ml-3">
-                  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal">
+                  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#tambahSatuan">
                     <i class="fas fa-plus-square mx-1"></i>Tambah Satuan
                   </button>
                 </div>
 
                   <div class="card-body">
+                    <?= $validation->listErrors(); ?>
+                    
                     <?php if (session()->getFlashdata('pesan')) : ?>
                       <div class="alert alert-success alert-has-icon alert-dismissible show fade">
                           <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
@@ -91,7 +93,7 @@
         </section>
 
         <!-- Modal -->
-        <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal">
+        <div class="modal fade" tabindex="-1" role="dialog" id="tambahSatuan">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -109,6 +111,7 @@
                     <div class="row justify-content-center">
                       <div class="col">
 
+                      <!-- <input type="hidden" name="idSatuan" value="<?= $st['id_satuan']+1; ?>"> -->
                         <div class="form-group row">
                           <label class="col col-form-label text-center tengah pt-3" for="idSatuan">ID Satuan</label>
                           <div class="col-8">
@@ -132,7 +135,7 @@
                                   <i class="fas fa-thumbtack"></i>
                                 </div>
                               </div>
-                              <input type="text" class="form-control" required placeholder="Masukan Satuan.." name="namaSatuan" id="namaSatuan">
+                              <input type="text" class="form-control" placeholder="Masukan Satuan.." name="namaSatuan" id="namaSatuan" required>
                               <div class="invalid-feedback">
                               Masukan Satuan!
                             </div>

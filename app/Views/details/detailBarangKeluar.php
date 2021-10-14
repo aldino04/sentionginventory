@@ -30,13 +30,13 @@
           <table class="table table-sm col-md-9">
             <tbody>
               <tr>
-                <td>Bon Pemakaian material</td>
+                <td>BPM</td>
                 <td class="font-weight-bold">:</td>
                 <td><h6 class="font-weight-light"><?= $barang_keluar['bpm']; ?></h6></td>
               </tr>
 
               <tr>
-                <td>Nama barang</td>
+                <td>Nama&nbsp;barang</td>
                 <td class="font-weight-bold">:</td>
                 <td><h6 class="text-uppercase"><a class="font-weight-bold" href="<?= base_url(); ?>/tblbarang/detail/<?= $barang_keluar['kode_barang']; ?>"><?= $barang_keluar['nama_barang']; ?></a></h6></td>
               </tr>
@@ -62,7 +62,7 @@
               <tr>
                 <td>Keterangan Keluar</td>
                 <td class="font-weight-bold">:</td>
-                <td><h6 class="font-weight-light"><?= $barang_keluar['ket_keluar']; ?></h6></td>
+                <td><h7 class="font-weight-light"><?= $barang_keluar['ket_keluar']; ?></h6></td>
               </tr>
             </tbody>
           </table>

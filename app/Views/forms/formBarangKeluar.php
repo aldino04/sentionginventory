@@ -30,6 +30,7 @@
                     </div>
 
                       <div class="card-body mb-0 pb-0">
+                        <?= $validation->listErrors(); ?>
                       
                         <a href="<?= base_url(); ?>/tblkeluar" class="btn btn-secondary mb-2"><i class="fas fa-clipboard-list mx-1"></i>Tabel Barang Keluar</a>
 

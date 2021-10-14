@@ -1,5 +1,6 @@
 <?= $this->extend('layout/template'); ?>
 <?= $this->section('content'); ?>
+<?php $request = \Config\Services::request(); ?>
 
       <!-- Main Content -->
       <div class="main-content">
@@ -59,8 +60,8 @@
           <?php endif; ?>
           
           <?php if(in_groups('user')) : ?>
-            <a href="<?= base_url('tblmasuk'); ?>" class="btn btn-primary"><i class="fas fa-plus-square"></i> Tabel Masuk</a>
-            <a href="<?= base_url('tblkeluar'); ?>" class="btn btn-warning"><i class="fas fa-minus-square"></i> Tabel Keluar</a>
+            <a href="<?= base_url('tblmasuk'); ?>" class="btn btn-primary"><i class="fas fa-clipboard"></i> Tabel Masuk</a>
+            <a href="<?= base_url('tblkeluar'); ?>" class="btn btn-warning"><i class="fas fa-clipboard"></i> Tabel Keluar</a>
           <?php endif; ?>
             
           <a target="_blank" href="<?= base_url(); ?>/tblbarang/dompdf/<?= $barang['kode_barang']; ?>" class="btn btn-success"><i class="far fa-file-pdf"></i> Download APG</a>
@@ -74,17 +75,23 @@
   <div class="card">
     <div class="card-body">
       <h5 class="text-center">Administrasi Persediaan Gudang</h5>
-        <ul class="list-group list-group-flush mb-3 text-center">
-          <li class="list-group-item py-0">Kode Material &mdash; <p class="font-weight-bold d-inline"><?= $barang['kode_barang']; ?></p></li>
-          <li class="list-group-item py-0">Nama Material &mdash; <p class="font-weight-bold d-inline"><?= $barang['nama_barang']; ?></p></li>
-          <li class="list-group-item py-0">Satuan &mdash; <p class="font-weight-bold d-inline"><?= $barang['nama_satuan']; ?></p></li>
-        </ul>
+        <div class="row justify-content-center">
+          <div class="col-md-5 col-12">
+            <ul class="list-group list-group-flush mb-3">
+              <li class="list-group-item py-0">Kode Material &mdash; <p class="font-weight-bold d-inline"><?= $barang['kode_barang']; ?></p></li>
+              <li class="list-group-item py-0">Nama Material &mdash; <p class="font-weight-bold d-inline"><?= $barang['nama_barang']; ?></p></li>
+              <li class="list-group-item py-0">Satuan &mdash; <p class="font-weight-bold d-inline"><?= $barang['nama_satuan']; ?></p></li>
+            </ul>
+          </div>
+        </div>
 
         <!-- Sorting By Date Range -->
         <h6 class="text-center">Sort By Date Range</h6>
-        <form>
+        <form action="../../tblbarang/sorting/<?= $barang['kode_barang']; ?>" method="POST">
           <div class="row justify-content-center mb-3">
-            <div class="col-md-4 col-12">
+
+            <input type="hidden" name="kodeBarang" value="<?= $barang['kode_barang']; ?>">
+            <div class="col-md-4 col-12 mb-2">
               <!-- <label for="min" class="col-form-label">Tanggal Awal</label> -->
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -92,7 +99,7 @@
                     <i class="fas fa-clock"></i>
                   </div>
                 </div>
-                <input type="text" class="form-control" id="min" name="min" placeholder="Tanggal Awal..">
+                <input type="text" class="form-control" id="min" name="tglMin" placeholder="Tanggal Awal..">
               </div>
             </div>
 
@@ -104,11 +111,13 @@
                     <i class="fas fa-clock"></i>
                   </div>
                 </div>
-                <input type="text" class="form-control" id="max" name="max"  placeholder="Tanggal Akhir..">
+                <input type="text" class="form-control" id="max" name="tglMax"  placeholder="Tanggal Akhir..">
               </div>
             </div>
           
             <div class="col-form-label">
+              <button type="submit" class="btn btn-primary mr-2"><i class="fas fa-search"></i> Sorting</button>
+
               <a href="<?= base_url(); ?>/tblbarang/detail/<?= $barang['kode_barang']; ?>" class="btn btn-dark"><i class="fas fa-redo-alt"></i> Reset</a>
             </div>
 
@@ -116,8 +125,22 @@
         </form>
         <!-- End Sorting By Date Range -->
 
+        <!-- PEriode -->
+        <?php if($request->uri->getSegment(2) == 'sorting' ) : ?>
+        <?php $tglMin = date("j F, Y", strtotime($min)) ?>
+        <?php $tglMax = date("j F, Y", strtotime($max)) ?>
+        <p class="mr-2 text-center">Periode : <strong class="text-primary"><?= $tglMin; ?></strong>&nbsp;&mdash;&nbsp;<strong class="text-primary"><?= $tglMax; ?></strong></p>
+
+        <div class="row">
+          <div class="col text-center">
+            <a target="_blank" href="<?= base_url(); ?>/tblbarang/dompdfrange/<?= $barang['kode_barang']; ?>/<?= $min; ?>/<?= $max; ?>" class="btn btn-success"><i class="far fa-file-pdf"></i> Download APG</a>
+          </div>
+        </div>
+        <?php endif; ?>
+        <!-- End Periode -->
+
           <div class="table-responsive">
-            <table class="table table-hover table-bordered" id="example">
+            <table class="table table-hover table-bordered" id="tableNormal">
               <thead class="bg-primary text-center" style="color: white;">
                 <tr>
                   <th class="text-center">No</th>
@@ -140,13 +163,13 @@
                   <td class="text-center align-middle" style="white-space: nowrap;"><?= $apg['bpm']; ?></td>
                   <td class="text-center align-middle"><?= $apg['masuk']; ?>
                   <?php if($apg['masuk'] != "") : ?>
-                    
+                    <?= $apg['satuan']; ?>
                   <?php endif; ?>
                   </td>
                   <td class="text-center align-middle"><?= $apg['keluar']; ?>
                   <?php if($apg['keluar'] != "") : ?>
-                    
-                    <?php endif; ?>
+                    <?= $apg['satuan']; ?>
+                  <?php endif; ?>
                   </td>
                   <td class=" align-middle"><?= $apg['keterangan']; ?></td>
                   <td class="text-center align-middle">
@@ -161,14 +184,19 @@
               </tbody>
 
               <tfoot>
-                <tr class="table-primary text-center font-weight-bold">
+
+              <!-- total per page -->
+                <!-- <tr class="table-primary text-center font-weight-bold">
                   <th colspan="4">Total</th>
                   <th></th>
                   <th></th>
                   <th colspan="2"></th>
-                </tr>
-                <tr class="table-warning text-center font-weight-bold">
-                  <th colspan="4">Total Keseluruhan</th>
+                </tr> -->
+              <!-- End total per page -->
+
+              <?php if($request->uri->getSegment(2) == 'detail') : ?>
+                <tr class="table-primary text-center font-weight-bold">
+                  <th colspan="4" class="align-middle">Total Keseluruhan</th>
                   <th><?= $totalMasuk->jml_masuk; ?> 
                     <?php if($totalMasuk->jml_masuk != ''){
                       echo ($barang['nama_satuan']);
@@ -176,15 +204,38 @@
                       echo ('0 ' . $barang['nama_satuan']);
                     } ?>
                   </th>
-                  <th><?= $totalKeluar->jml_keluar; ?> 
+                  <th><?= $totalKeluar->jml_keluar; ?>
                     <?php if($totalKeluar->jml_keluar != ''){
                       echo ($barang['nama_satuan']);
                     }else{
                       echo ('0 ' . $barang['nama_satuan']);
                     } ?>
                   </th>
-                  <th colspan="2">Stok : <?= intval($totalMasuk->jml_masuk) - intval($totalKeluar->jml_keluar) ?> <?= $barang['nama_satuan']; ?></th>
+                  <th colspan="2" class="align-middle">Saldo : <?= intval($totalMasuk->jml_masuk) - intval($totalKeluar->jml_keluar) ?> <?= $barang['nama_satuan']; ?></th>
                 </tr>
+              <?php endif; ?>
+
+              <?php if($request->uri->getSegment(2) == 'sorting') : ?>
+                <tr class="table-primary text-center font-weight-bold">
+                  <th colspan="4" class="align-middle">Total Keseluruhan</th>
+                  <th><?= $sortingMasuk->jml_masuk; ?> 
+                    <?php if($sortingMasuk->jml_masuk != ''){
+                      echo ($barang['nama_satuan']);
+                    }else{
+                      echo ('0 ' . $barang['nama_satuan']);
+                    } ?>
+                  </th>
+                  <th><?= $sortingKeluar->jml_keluar; ?> 
+                    <?php if($sortingKeluar->jml_keluar != ''){
+                      echo ($barang['nama_satuan']);
+                    }else{
+                      echo ('0 ' . $barang['nama_satuan']);
+                    } ?>
+                  </th>
+                  <th colspan="2" class="align-middle">Saldo : <?= intval($sortingMasuk->jml_masuk) - intval($sortingKeluar->jml_keluar) ?> <?= $barang['nama_satuan']; ?></th>
+                </tr>
+              <?php endif; ?>
+
               </tfoot>
 
             </table>
@@ -198,102 +249,103 @@
         </section>
       </div>
 
+<!-- Script footer jquery total per pages -->
 <script>
  var minDate, maxDate;
  
 // Custom filtering function which will search data in column four between two values
-$.fn.dataTable.ext.search.push(
-    function( settings, data, dataIndex ) {
-        var min = minDate.val();
-        var max = maxDate.val();
-        var date = new Date( data[1] );
+// $.fn.dataTable.ext.search.push(
+//     function( settings, data, dataIndex ) {
+//         var min = minDate.val();
+//         var max = maxDate.val();
+//         var date = new Date( data[1] );
  
-        if (
-            ( min === null && max === null ) ||
-            ( min === null && date <= max ) ||
-            ( min <= date   && max === null ) ||
-            ( min <= date   && date <= max )
-        ) {
-            return true;
-        }
-        return false;
-    }
-);
+//         if (
+//             ( min === null && max === null ) ||
+//             ( min === null && date <= max ) ||
+//             ( min <= date   && max === null ) ||
+//             ( min <= date   && date <= max )
+//         ) {
+//             return true;
+//         }
+//         return false;
+//     }
+// );
  
 $(document).ready(function() {
     // Create date inputs
     minDate = new DateTime($('#min'), {
-        format: 'MMMM Do YYYY'
+        format: 'YYYY-MM-DD'
     });
     maxDate = new DateTime($('#max'), {
-        format: 'MMMM Do YYYY'
+        format: 'YYYY-MM-DD'
     });
  
     // DataTables initialisation
-    var table = $('#example').DataTable({
-      "footerCallback": function ( row, data, start, end, display ) {
-            var api = this.api(), data;
+    // var table = $('#example').DataTable({
+    //   "footerCallback": function ( row, data, start, end, display ) {
+    //         var api = this.api(), data;
  
-            // Remove the formatting to get integer data for summation
-            var intVal = function ( i ) {
-                return typeof i === 'string' ?
-                    i.replace(/[\$,]/g, '')*1 :
-                    typeof i === 'number' ?
-                        i : 0;
-            };
+    //         // Remove the formatting to get integer data for summation
+    //         var intVal = function ( i ) {
+    //             return typeof i === 'string' ?
+    //                 i.replace(/[\$,]/g, '')*1 :
+    //                 typeof i === 'number' ?
+    //                     i : 0;
+    //         };
  
-            // Total over all pages
-            masuk = api
-                .column( 4 )
-                .data()
-                .reduce( function (a, b) {
-                    return intVal(a) + intVal(b);
-                }, 0 );
+    //         // Total over all pages
+    //         masuk = api
+    //             .column( 4 )
+    //             .data()
+    //             .reduce( function (a, b) {
+    //                 return intVal(a) + intVal(b);
+    //             }, 0 );
 
-            keluar = api
-                .column( 5 )
-                .data()
-                .reduce( function (a, b) {
-                    return intVal(a) + intVal(b);
-                }, 0 );
+    //         keluar = api
+    //             .column( 5 )
+    //             .data()
+    //             .reduce( function (a, b) {
+    //                 return intVal(a) + intVal(b);
+    //             }, 0 );
  
-            // Total over this page
-            pageMasuk = api
-                .column( 4, { page: 'current'} )
-                .data()
-                .reduce( function (a, b) {
-                    return intVal(a) + intVal(b);
-                }, 0 );
+    //         // Total over this page
+    //         pageMasuk = api
+    //             .column( 4, { page: 'current'} )
+    //             .data()
+    //             .reduce( function (a, b) {
+    //                 return intVal(a) + intVal(b);
+    //             }, 0 );
 
-            pageKeluar = api
-                .column( 5, { page: 'current'} )
-                .data()
-                .reduce( function (a, b) {
-                    return intVal(a) + intVal(b);
-                }, 0 );
+    //         pageKeluar = api
+    //             .column( 5, { page: 'current'} )
+    //             .data()
+    //             .reduce( function (a, b) {
+    //                 return intVal(a) + intVal(b);
+    //             }, 0 );
  
-              totalStok = masuk - keluar
-              pageStok = pageMasuk - pageKeluar
+    //           totalStok = masuk - keluar
+    //           pageStok = pageMasuk - pageKeluar
             
-            // Update footer
-            $( api.column( 4 ).footer() ).html(
-                pageMasuk + ' <?= $barang['nama_satuan']; ?>'
-            );
+    //         // Update footer
+    //         $( api.column( 4 ).footer() ).html(
+    //             pageMasuk + ' <?= $barang['nama_satuan']; ?>'
+    //         );
 
-            $( api.column( 5 ).footer() ).html(
-                pageKeluar + ' <?= $barang['nama_satuan']; ?>'
-            );
+    //         $( api.column( 5 ).footer() ).html(
+    //             pageKeluar + ' <?= $barang['nama_satuan']; ?>'
+    //         );
 
-            $( api.column( 6 ).footer() ).html(
-                'Stok : ' + pageStok + ' <?= $barang['nama_satuan']; ?>' 
-            );
-        }
-    });
+    //         $( api.column( 6 ).footer() ).html(
+    //             'Stok : ' + pageStok + ' <?= $barang['nama_satuan']; ?>' 
+    //         );
+    //     }
+    // });
  
     // Refilter the table
-    $('#min, #max').on('change', function () {
-        table.draw();
-    });
+    // $('#min, #max').on('change', function () {
+    //     table.draw();
+    // });
 });
 </script>
 
