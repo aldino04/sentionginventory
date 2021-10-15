@@ -33,7 +33,20 @@
                 <?php endif; ?>
 
                 <div class="card-body">
-                  <?= $validation->listErrors(); ?>
+
+                  <?php if (session()->getFlashdata('unique')) : ?>
+                      <div class="alert alert-danger alert-has-icon alert-dismissible show fade">
+                          <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                          <div class="alert-body">
+                            <div class="alert-title">Failed</div>
+                            <?= session()->getFlashData('unique'); ?>
+                            <?= $validation->listErrors(); ?>
+                          </div>
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                    <?php endif; ?>
 
                     <?php if (session()->getFlashdata('pesan')) : ?>
                       <div class="alert alert-success alert-has-icon alert-dismissible show fade">

@@ -73,7 +73,7 @@ class TblMasuk extends BaseController
 		$this->barangMasukModel->insert($data);
 
 		session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!');
-		return redirect()->to('/tblmasuk');
+		return redirect()->to('/tblbarang/detail/'.$kode_barang);
 	}
 
 	public function delete($id_masuk)

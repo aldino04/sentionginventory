@@ -30,7 +30,20 @@
                     </div>
 
                       <div class="card-body mb-0 pb-0">
-                        <?= $validation->listErrors(); ?>
+                        
+                        <?php if (session()->getFlashdata('unique')) : ?>
+                          <div class="alert alert-danger alert-has-icon alert-dismissible show fade">
+                              <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                              <div class="alert-body">
+                                <div class="alert-title">Failed</div>
+                                <?= session()->getFlashData('unique'); ?>
+                                <?= $validation->listErrors(); ?>
+                              </div>
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                        <?php endif; ?>
                       
                         <a href="<?= base_url(); ?>/tblkeluar" class="btn btn-secondary mb-2"><i class="fas fa-clipboard-list mx-1"></i>Tabel Barang Keluar</a>
 

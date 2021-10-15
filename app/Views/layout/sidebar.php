@@ -17,33 +17,33 @@
               
             <?php if (has_permission('transaksi')) : ?>
               <!-- Sidebar Formulir -->
-              <li class="menu-header">Formulir</li>
+              <li class="menu-header">Transaksi</li>
               <li class="nav-item dropdown
               <?php if($request->uri->getSegment(1) == 'masuk' || $request->uri->getSegment(1) == 'keluar')  : ?>
               active
               <?php endif; ?>
               ">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fab fa-wpforms"></i> <span>Formulir</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fab fa-wpforms"></i> <span>Form Transaksi</span></a>
                 <ul class="dropdown-menu">
-                  <li class="<?=($request->uri->getSegment(1)==='masuk')?'active':''?>"><a class="nav-link" href="<?= base_url(); ?>/masuk"> <i class="fab fa-wpforms mx-0"></i>Barang Masuk</a></li>
-                  <li class="<?=($request->uri->getSegment(1)==='keluar')?'active':''?>"><a class="nav-link" href="<?= base_url(); ?>/keluar"> <i class="fab fa-wpforms mx-0"></i>Barang Keluar</a></li>
+                  <li class="<?=($request->uri->getSegment(1)==='masuk')?'active':''?>"><a class="nav-link" href="<?= base_url(); ?>/masuk"> <i class="fab fa-wpforms mx-0"></i>Material Masuk</a></li>
+                  <li class="<?=($request->uri->getSegment(1)==='keluar')?'active':''?>"><a class="nav-link" href="<?= base_url(); ?>/keluar"> <i class="fab fa-wpforms mx-0"></i>Material Keluar</a></li>
                 </ul>
               </li>
               <!-- End Sidebar Formulir -->
             <?php endif; ?>
               
               <!-- Sidebar tabel -->
-              <li class="menu-header">Tabel</li>
+              <li class="menu-header">Master Data</li>
               <li class="nav-item dropdown
               <?php if($request->uri->getSegment(1) == 'tblbarang' || $request->uri->getSegment(1) == 'tblmasuk' || $request->uri->getSegment(1) == 'tblkeluar' || $request->uri->getSegment(1) == 'tblsatuan')  : ?>
               active
               <?php endif; ?>
               ">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-clipboard-list"></i> <span>Tabel</span></a>
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-clipboard-list"></i> <span>Tabel Material</span></a>
                 <ul class="dropdown-menu">
-                  <li class="<?=($request->uri->getSegment(1)==='tblbarang')?'active':''?>"><a class="nav-link" href="<?= base_url(); ?>/tblbarang"><i class="fas fa-clipboard-list mx-0"></i> Barang</a></li>
-                  <li class="<?=($request->uri->getSegment(1)==='tblmasuk')?'active':''?>"><a class="nav-link" href="<?= base_url(); ?>/tblmasuk"><i class="fas fa-clipboard-list mx-0"></i> Barang Masuk</a></li>
-                  <li class="<?=($request->uri->getSegment(1)==='tblkeluar')?'active':''?>"><a class="nav-link" href="<?= base_url(); ?>/tblkeluar"><i class="fas fa-clipboard-list mx-0"></i> Barang Keluar</a></li>
+                  <li class="<?=($request->uri->getSegment(1)==='tblbarang')?'active':''?>"><a class="nav-link" href="<?= base_url(); ?>/tblbarang"><i class="fas fa-clipboard-list mx-0"></i> Stok Material</a></li>
+                  <li class="<?=($request->uri->getSegment(1)==='tblmasuk')?'active':''?>"><a class="nav-link" href="<?= base_url(); ?>/tblmasuk"><i class="fas fa-clipboard-list mx-0"></i> Material Masuk</a></li>
+                  <li class="<?=($request->uri->getSegment(1)==='tblkeluar')?'active':''?>"><a class="nav-link" href="<?= base_url(); ?>/tblkeluar"><i class="fas fa-clipboard-list mx-0"></i> Material Keluar</a></li>
 
                 <?php if (in_groups('admin')) : ?>
                   <li class="<?=($request->uri->getSegment(1)==='tblsatuan')?'active':''?>"><a class="nav-link" href="<?= base_url(); ?>/tblsatuan"><i class="fas fa-clipboard-list mx-0"></i> Satuan</a></li>
@@ -52,6 +52,7 @@
               </li>
               <!-- End Sidebar tabel -->
 
+              <li class="menu-header"></li>
             <?php if (in_groups('admin')) : ?>
               <!-- Sidebar Users -->
               <li class="<?=($request->uri->getSegment(1)==='user')?'active':''?>"><a class="nav-link" href="<?= base_url('user'); ?>"><i class="fas fa-users"></i> <span>Users</span></a></li>

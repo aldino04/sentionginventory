@@ -46,6 +46,7 @@ class TblKeluar extends BaseController
 		if (!$this->validate([
 			'fotoKeluar' => 'is_image[fotoKeluar]'
 		])){
+			session()->setFlashdata('unique', 'Data Gagal Ditambahkan!');
 			return redirect()->to('keluar')->withInput();
 		}
 		// dd('berhasil');
@@ -79,7 +80,7 @@ class TblKeluar extends BaseController
 		$this->barangKeluarModel->insert($data);
 
 		session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!');
-		return redirect()->to('/tblkeluar');
+		return redirect()->to('/tblbarang/detail/'.$kode_barang);
 	}
 
 	public function delete($id_keluar)

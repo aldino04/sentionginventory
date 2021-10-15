@@ -21,6 +21,20 @@
 <!-- Body -->
 <div class="section-body">
   <div class="card mb-3">
+
+    <?php if (session()->getFlashdata('pesan')) : ?>
+      <div class="alert alert-success alert-has-icon alert-dismissible show fade">
+          <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+          <div class="alert-body">
+            <div class="alert-title">Success</div>
+            <?= session()->getFlashData('pesan'); ?>
+          </div>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    <?php endif; ?>
+
     <div class="row no-gutters">
       <div class="col-md-4">
         <img src="<?= base_url(); ?>/img/barang/<?= $barang['sampul']; ?>" class="card-img img-thumbnail" alt="..." style="height:350px; width:350px;">

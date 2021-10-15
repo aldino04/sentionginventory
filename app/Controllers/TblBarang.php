@@ -41,7 +41,8 @@ class TblBarang extends BaseController
 			'kodeBarang' => 'required|is_unique[barang.kode_barang]'
 		])){
 			// $validation = \Config\Services::validation();
-			return redirect()->to('tblbarang')->withInput();
+			session()->setFlashdata('unique', 'Data Gagal Ditambahkan!');
+			return redirect()->to('/tblbarang')->withInput();
 		}
 
 		//ambil file sampul
