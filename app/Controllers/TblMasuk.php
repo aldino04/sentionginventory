@@ -6,6 +6,9 @@ use App\Models\BarangMasukModel;
 use App\Models\BarangModel;
 use App\Models\SatuanModel;
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
 class TblMasuk extends BaseController
 {
 	protected $barangMasukModel;
@@ -93,7 +96,6 @@ class TblMasuk extends BaseController
 			'barang_masuk' => $this->barangMasukModel->getId($id_masuk),
 			'satuan' => $this->satuanModel->findAll()
 		];
-		// dd($data);
 		return view('forms/formEdtBarangMasuk', $data);
 	}
 
@@ -103,30 +105,54 @@ class TblMasuk extends BaseController
 			'id_masuk' 		=> $id_masuk,
 			'bapb' 				=> $this->request->getVar('bapb'),
 			'tgl_masuk' 	=> $this->request->getVar('tglMasuk'),
-			// 'kode_barang' => $this->request->getVar('kodeBarang'),
 			'jml_masuk' 	=> $this->request->getVar('jmlMasuk'),
 			'ket_masuk' 	=> $this->request->getVar('ketMasuk')
 		]);
 
 		session()->setFlashdata('pesan', 'Data Berhasil Diubah!');
-		return redirect()->to('/tblmasuk');
+		return redirect()->to('/tblmasuk/detail/'.$id_masuk.'/'.$this->request->getVar('bapb'));
 	}
 
 	public function detail($id_masuk, $bapb)
 	{
-		$db = \Config\Database::connect();
-		$query = $db->query("SELECT id_masuk, bapb, tgl_masuk, barang_masuk.kode_barang, nama_barang, nama_satuan, jml_masuk, ket_masuk FROM `barang_masuk`
-		INNER JOIN barang ON barang.kode_barang = barang_masuk.kode_barang
-		INNER JOIN satuan ON satuan.id_satuan = barang.id_satuan
-		WHERE bapb = '$bapb';");
-
 		$data = [
 			'tittle' => 'Detail Barang Masuk &mdash; Sentiong',
 			'barang_masuk' => $this->barangMasukModel->getId($id_masuk),
-			'result' => $query->getResultArray()
+			'result' => $this->barangMasukModel->getBapb($bapb)
 		];
 
 		// dd($data);
 		return view('details/detailBarangMasuk', $data);
+	}
+
+	public function dompdf($id_masuk, $bapb)
+	{
+		$data = [
+			'tittle' => 'BAPB',
+			'barang_masuk' => $this->barangMasukModel->getId($id_masuk),
+			'result' => $this->barangMasukModel->getBapb($bapb)
+		];
+
+		$options = new Options();
+		$options->set('defaultFont', 'times');
+		$options->set('isRemoteEnabled', TRUE);
+		$options->setIsRemoteEnabled(true);
+		$options->set('debugKeepTemp', TRUE);
+		$options->set('isHtml5ParserEnabled', true);
+		$dompdf = new Dompdf($options);
+
+		// instantiate and use the dompdf class
+		$html	= view('details/printBAPB', $data);
+		$dompdf->loadHtml($html);
+
+		// (Optional) Setup the paper size and orientation
+		$dompdf->setPaper('B5', 'landscape');
+		// $dompdf->set_option('isRemoteEnabled', true);
+
+		// Render the HTML as PDF
+		$dompdf->render();
+
+		// Output the generated PDF to Browser
+		$dompdf->stream('APG', ['Attachment'=>false]);
 	}
 }

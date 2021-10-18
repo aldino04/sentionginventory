@@ -193,7 +193,7 @@ class TblBarang extends BaseController
 		$dompdf = new Dompdf($options);
 
 		// instantiate and use the dompdf class
-		$html	= view('details/printPDF', $data);
+		$html	= view('details/printAPG', $data);
 		$dompdf->loadHtml($html);
 
 		// (Optional) Setup the paper size and orientation
@@ -299,7 +299,7 @@ class TblBarang extends BaseController
 		$dompdf = new Dompdf($options);
 
 		// instantiate and use the dompdf class
-		$html	= view('details/printRangePDF', $data);
+		$html	= view('details/printRangeAPG', $data);
 		$dompdf->loadHtml($html);
 
 		// (Optional) Setup the paper size and orientation

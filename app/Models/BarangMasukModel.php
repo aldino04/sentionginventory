@@ -29,4 +29,17 @@ class BarangMasukModel extends Model
     // return $this->where(['id_masuk' => $id_masuk])->first();
     return $this->select('*')->join('barang', 'barang.kode_barang = barang_masuk.kode_barang', 'inner')->join('satuan', 'satuan.id_satuan = barang.id_satuan', 'inner')->join('users', 'users.id = barang_masuk.id_user', 'inner')->where(['id_masuk' => $id_masuk])->first();
   }
+
+  public function getBapb($bapb)
+  {
+    $db = \Config\Database::connect();
+    $builder = $db->table('barang_masuk');
+    $builder->select('id_masuk, bapb, tgl_masuk, barang_masuk.kode_barang, nama_barang, nama_satuan, jml_masuk, ket_masuk');
+    $builder->join('barang', 'barang.kode_barang = barang_masuk.kode_barang', 'inner');
+    $builder->join('satuan', 'satuan.id_satuan = barang.id_satuan', 'inner');
+    $builder->where('bapb', $bapb);
+    $noBapb = $builder->get()->getResultArray();
+
+    return $noBapb;
+  }
 }

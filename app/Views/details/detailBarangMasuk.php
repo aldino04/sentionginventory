@@ -72,7 +72,7 @@
               <a href="/tblmasuk/edit/<?= $barang_masuk['id_masuk']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i> Update</a>
               <?php endif; ?>
 
-              <a href="#" class="btn btn-success"><i class="fas fa-file"></i> Print</a>
+              <a href="../../../tblmasuk/dompdf/<?= $barang_masuk['id_masuk']; ?>/<?= $barang_masuk['bapb']; ?>" class="btn btn-success" target="_blank"><i class="fas fa-file"></i> Print</a>
               <p class="mt-3"><a href="<?= base_url(); ?>/tblmasuk">Kembali ke tabel barang masuk</a></p>
             </div>
           </div>

@@ -95,10 +95,10 @@
             <?php if(has_permission('transaksi')) : ?>
               <div class="row mb-4">
                 <div class="col-lg-4 col-12 mb-2">
-                  <a href="<?= base_url('tblbarang'); ?>" class="btn btn-block btn-lg btn-success align-middle" style="height: 50px;"><i class="fas fa-clipboard pt-2"></i><h6 class="d-inline"> Tabel Material</h6></a>
+                  <a href="<?= base_url('tblbarang'); ?>" class="btn btn-block btn-lg btn-success align-middle" style="height: 50px;"><i class="fas fa-clipboard pt-2"></i><h6 class="d-inline"> Stok Material</h6></a>
                 </div>
                 <div class="col-lg-4 col-12 mb-2">
-                  <a href="<?= base_url('tblmasuk/form2'); ?>" class="btn btn-block btn-lg btn-primary align-middle" style="height: 50px;"><i class="fas fa-plus-square pt-2"></i><h6 class="d-inline"> Tambah Material Masuk</h6></a>
+                  <a href="<?= base_url('masuk'); ?>" class="btn btn-block btn-lg btn-primary align-middle" style="height: 50px;"><i class="fas fa-plus-square pt-2"></i><h6 class="d-inline"> Tambah Material Masuk</h6></a>
                 </div>
                 <div class="col-lg-4 col-12 mb-2">
                   <a href="<?= base_url('keluar'); ?>" class="btn btn-block btn-lg btn-warning align-middle" style="height: 50px;"><i class="fas fa-minus-square pt-2"></i><h6 class="d-inline"> Tambah Material Keluar</h6></a>
@@ -109,7 +109,7 @@
             <?php if(in_groups('user')) : ?>
               <div class="row mb-4">
                 <div class="col-lg-4 col-12 mb-2">
-                  <a href="<?= base_url('tblbarang'); ?>" class="btn btn-block btn-lg btn-success align-middle" style="height: 50px;"><i class="fas fa-clipboard pt-2"></i><h6 class="d-inline"> Tabel Material</h6></a>
+                  <a href="<?= base_url('tblbarang'); ?>" class="btn btn-block btn-lg btn-success align-middle" style="height: 50px;"><i class="fas fa-clipboard pt-2"></i><h6 class="d-inline"> Stok Material</h6></a>
                 </div>
                 <div class="col-lg-4 col-12 mb-2">
                   <a href="<?= base_url('tblmasuk'); ?>" class="btn btn-block btn-lg btn-primary align-middle" style="height: 50px;"><i class="fas fa-plus-square pt-2"></i><h6 class="d-inline"> Tabel Material Masuk</h6></a>

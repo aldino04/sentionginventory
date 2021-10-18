@@ -127,7 +127,7 @@ class TblKeluar extends BaseController
 		]);
 
 		session()->setFlashdata('pesan', 'Data Berhasil Diubah!');
-		return redirect()->to('/tblkeluar');
+		return redirect()->to('/tblkeluar/detail/'.$id_keluar);
 	}
 
 	public function detail($id_keluar)
