@@ -9,7 +9,7 @@ class Home extends BaseController
 	{
 		$db = \Config\Database::connect();
 		
-		$keluar = $db->query("SELECT id_keluar, tgl_keluar AS tanggal, nama_barang as nama, jml_keluar AS keluar, nama_satuan AS satuan, ket_keluar as keterangan, user_image as gambar, fullname AS petugas, description as role
+		$keluar = $db->query("SELECT id_keluar, bpm, tgl_keluar AS tanggal, nama_barang as nama, jml_keluar AS keluar, nama_satuan AS satuan, ket_keluar as keterangan, user_image as gambar, fullname AS petugas, description as role
 		FROM barang_keluar 
 		INNER JOIN barang ON barang.kode_barang = barang_keluar.kode_barang
 		INNER JOIN satuan ON satuan.id_satuan = barang.id_satuan

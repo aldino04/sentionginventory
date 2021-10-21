@@ -188,7 +188,7 @@
                   <td class=" align-middle"><?= $apg['keterangan']; ?></td>
                   <td class="text-center align-middle">
                     <?php if ($apg['keluar'] != "") : ?>
-                      <a href="/tblkeluar/detail/<?= $apg['id_keluar']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
+                      <a href="/tblkeluar/detail/<?= $apg['id_keluar']; ?>/<?= $apg['bpm']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
                       <?php else : ?>
                         <a href="/tblmasuk/detail/<?= $apg['id_masuk']; ?>/<?= $apg['bapb']; ?>" class="btn btn-success"><i class="fas fa-clipboard"></i></a>
                     <?php endif; ?>

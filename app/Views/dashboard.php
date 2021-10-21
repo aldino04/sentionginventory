@@ -286,7 +286,7 @@
                         <div class="float-right text-primary"><?= $akh['tanggal']; ?></div>
                         <div class="media-title"><?= $akh['nama']; ?></div>
                         <span>Keluar : <?= $akh['keluar'] ?> <?= $akh['satuan']; ?></span>
-                        <a href="/tblkeluar/detail/<?= $akh['id_keluar']; ?>" class="badge badge-success float-right">Details</a>
+                        <a href="/tblkeluar/detail/<?= $akh['id_keluar']; ?>/<?= $akh['bpm']; ?>" class="badge badge-success float-right">Details</a>
                         <br>
                         <span class="text-small text-muted"><?= $akh['keterangan']; ?></span>
                       </div>

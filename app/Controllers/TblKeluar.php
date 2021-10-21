@@ -6,6 +6,9 @@ use App\Models\BarangKeluarModel;
 use App\Models\BarangModel;
 use App\Models\SatuanModel;
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
 class TblKeluar extends BaseController
 {
 	protected $barangKeluarModel;
@@ -118,7 +121,7 @@ class TblKeluar extends BaseController
 
 		$this->barangKeluarModel->save([
 			'id_keluar' 	=> $id_keluar,
-			'bapb' 				=> $this->request->getVar('bapb'),
+			'bpm' 				=> $this->request->getVar('bpm'),
 			'tgl_keluar' 	=> $this->request->getVar('tglKeluar'),
 			// 'kode_barang' => $this->request->getVar('kodeBarang'),
 			'jml_keluar' 	=> $this->request->getVar('jmlKeluar'),
@@ -127,17 +130,49 @@ class TblKeluar extends BaseController
 		]);
 
 		session()->setFlashdata('pesan', 'Data Berhasil Diubah!');
-		return redirect()->to('/tblkeluar/detail/'.$id_keluar);
+		return redirect()->to('/tblkeluar/detail/'.$id_keluar.'/'.$this->request->getVar('bpm'));
 	}
 
-	public function detail($id_keluar)
+	public function detail($id_keluar, $bpm)
 	{
 		$data = [
 			'tittle' => 'Detail Barang Keluar &mdash; Sentiong',
-			'barang_keluar' => $this->barangKeluarModel->getId($id_keluar)
+			'barang_keluar' => $this->barangKeluarModel->getId($id_keluar),
+			'result' => $this->barangKeluarModel->getBpm($bpm)
 		];
 
 		// dd($data);
 		return view('details/detailBarangKeluar', $data);
+	}
+
+	public function dompdf($id_keluar, $bpm)
+	{
+		$data = [
+			'tittle' => 'BPM',
+			'barang_keluar' => $this->barangKeluarModel->getId($id_keluar),
+			'result' => $this->barangKeluarModel->getBpm($bpm)
+		];
+
+		$options = new Options();
+		$options->set('defaultFont', 'times');
+		$options->set('isRemoteEnabled', TRUE);
+		$options->setIsRemoteEnabled(true);
+		$options->set('debugKeepTemp', TRUE);
+		$options->set('isHtml5ParserEnabled', true);
+		$dompdf = new Dompdf($options);
+
+		// instantiate and use the dompdf class
+		$html	= view('details/printBPM', $data);
+		$dompdf->loadHtml($html);
+
+		// (Optional) Setup the paper size and orientation
+		$dompdf->setPaper('A5', 'portrait');
+		// $dompdf->set_option('isRemoteEnabled', true);
+
+		// Render the HTML as PDF
+		$dompdf->render();
+
+		// Output the generated PDF to Browser
+		$dompdf->stream('APG', ['Attachment'=>false]);
 	}
 }

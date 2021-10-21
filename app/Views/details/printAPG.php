@@ -53,6 +53,11 @@
       font-size: 14;
       font-family: Arial, Helvetica, sans-serif;
     }
+    
+    #judul2{
+      font-size: 10;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
   </style>
 </head>
@@ -64,7 +69,7 @@
   <p class="text-center" id="judul"><strong>ADMINISTRASI PERSEDIAAN GUDANG</strong></p>
   <?php $tglMin = date("F Y", strtotime($periodeAkhir->tanggal)) ?>
   <?php $tglMax = date("F Y", strtotime($periodeAwal->tanggal)) ?>
-  <p class="text-center">Periode : <strong><?= $tglMin; ?></strong> 
+  <p class="text-center" id="judul2">Periode : <strong><?= $tglMin; ?></strong> 
   <?php if($tglMin != $tglMax) : ?>
   &mdash; <strong><?= $tglMax; ?></strong>
   <?php endif; ?>
@@ -83,7 +88,7 @@
   </table>
 
 
-  <table border="1px" cellpadding="4" style="width: 100%;">
+  <table border="1px" cellpadding="3" style="width: 100%;">
     <tr style="background: #87cbff;">
       <th rowspan="2">No</th>
       <th rowspan="2">Tanggal</th>

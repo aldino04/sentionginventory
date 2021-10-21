@@ -1,4 +1,4 @@
-<?= $this->extend('layout/template'); ?>
+  <?= $this->extend('layout/template'); ?>
 <?= $this->section('content'); ?>
 
 <!-- Main Content -->
@@ -8,7 +8,7 @@
     <!-- Header -->
     <div class="section-header">
       <a href="javascript:window.history.go(-1);" class="btn btn-success"><i class="fas fa-arrow-left"></i></a>&nbsp;&nbsp;
-      <h1>Formulir Barang Keluar</h1>
+      <h1>Formulir Edit Barang Keluar</h1>
       <div class="section-header-breadcrumb">
         <div class="breadcrumb-item active"><a href="<?= base_url(); ?>">Dashboard</a></div>
         <div class="breadcrumb-item"><a href="<?= base_url('tblkeluar'); ?>">Tabel&nbsp;Barang&nbsp;Keluar</a></div>
@@ -26,7 +26,7 @@
           <div class="card">
             <form action="/tblkeluar/update/<?= $barang_keluar['id_keluar']; ?>" method="POST" class="needs-validation" novalidate="" enctype="multipart/form-data">
               <div class="card-header text-center">
-                <h4 class="text-center">Berita Acara Penerimaan Barang [BAPB]</h4>
+                <h4 class="text-center">Edit Bon Pemakaian Material/Suku Cadang [BPM]</h4>
               </div>
 
                 <div class="card-body mb-0 pb-0">

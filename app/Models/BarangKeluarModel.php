@@ -29,4 +29,17 @@ class BarangKeluarModel extends Model
 
     return $this->select('*')->join('barang', 'barang.kode_barang = barang_keluar.kode_barang', 'inner')->join('satuan', 'satuan.id_satuan = barang.id_satuan', 'inner')->join('users', 'users.id = barang_keluar.id_user', 'inner')->where(['id_keluar' => $id_keluar])->first();
   }
+
+  public function getBpm($bpm)
+  {
+    $db = \Config\Database::connect();
+    $builder = $db->table('barang_keluar');
+    $builder->select('id_keluar, bpm, tgl_keluar, barang_keluar.kode_barang, nama_barang, nama_satuan, jml_keluar, ket_keluar');
+    $builder->join('barang', 'barang.kode_barang = barang_keluar.kode_barang', 'inner');
+    $builder->join('satuan', 'satuan.id_satuan = barang.id_satuan', 'inner');
+    $builder->where('bpm', $bpm);
+    $noBpm = $builder->get()->getResultArray();
+
+    return $noBpm;
+  }
 }
