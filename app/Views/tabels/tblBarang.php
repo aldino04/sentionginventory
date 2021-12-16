@@ -61,10 +61,11 @@
                         </div>
                     <?php endif; ?>
                     
-                    <div class="table-responsive">
-                      <table class="table table-hover" id="tableNormal">
+                    <!-- <div class="table-responsive"> -->
+                      <table class="table table-hover" id="tableMaterial" style="width: 100%;">
                         <thead class="bg-primary text-center" style="color: white;">
                           <tr>
+                            <th></th>
                             <th class="text-center">No</th>
                             <th>Kode Barang</th>
                             <th>Nama Barang</th>
@@ -82,6 +83,7 @@
                         <tbody>
                           <?php $i = 1; foreach($barang as $br) : ?>
                           <tr>
+                            <td></td>
                             <td class="text-center align-middle"><?= $i++; ?></td>
                             <td class="text-center align-middle"><?= $br['kode_barang']; ?></td>
                             <td class=" align-middle"><?= $br['nama_barang']; ?></td>
@@ -90,7 +92,7 @@
 
                             <?php if (in_groups('admin')) : ?>
                             <td class="text-center align-middle">
-                              <form action="/tblbarang/<?= $br['kode_barang']; ?>" method="POST">
+                              <form class="d-inline" action="/tblbarang/<?= $br['kode_barang']; ?>" method="POST">
                               <?= csrf_field(); ?>
                               <input type="hidden" name="_method" value="DELETE">
                               <button type="submit" class="btn btn-danger" onclick="return confirm('apakah anda yakin ?')"><i class="fas fa-trash-alt"></i></button>
@@ -106,7 +108,8 @@
                         </tbody>
 
                       </table>
-                    </div>
+                    <!-- </div> -->
+                    
                   </div>
                 </div>
               </div>
@@ -237,6 +240,25 @@
 
 <?= $this->section('fotoBarang'); ?>
 <script>
+  $(document).ready(function() {
+    $('#tableMaterial').DataTable( {
+      // columnDefs: [{ sortable: false, targets: [1,2,3] }],
+
+        responsive: {
+            details: {
+                type: 'column'
+            }
+        },
+        columnDefs: [ {
+            className: 'dtr-control',
+            orderable: false,
+            targets:   0
+        },
+      { sortable: false, targets: [0, 1] }
+      ]
+    } );
+} );
+
   function previewImg() {
     const sampul = document.querySelector('#sampul');
     const sampulLabel = document.querySelector('.custom-file-label');

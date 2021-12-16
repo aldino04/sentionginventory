@@ -175,4 +175,5 @@ class TblKeluar extends BaseController
 		// Output the generated PDF to Browser
 		$dompdf->stream('APG', ['Attachment'=>false]);
 	}
+
 }

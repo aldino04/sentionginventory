@@ -32,14 +32,18 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/css/style.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/template/assets/css/components.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/css/dataTables.dateTime.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/css/responsive.dataTables.min.css">
+    <!-- <link rel="stylesheet" href="<?= base_url(); ?>/css/jquery.dataTables.min.css"> -->
   </head>
   <body>
 
   <!-- load jquery untuk form barang masuk & keluar -->
     <script src="<?= base_url(); ?>/template/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="<?= base_url(); ?>/js/html5-qrcode.min.js"></script>
     <script src="<?= base_url(); ?>/template/node_modules/datatables/media/js/jquery.dataTables.min.js"></script>
     <script src="<?= base_url(); ?>/template/node_modules/moment/min/moment.min.js"></script>
     <script src="<?= base_url(); ?>/js/dataTables.dateTime.min.js"></script>
+    <script src="<?= base_url(); ?>/js/dataTables.responsive.min.js"></script>
     
 <div id="app">
     <div class="main-wrapper">

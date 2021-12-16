@@ -110,16 +110,32 @@
                                       <i class="fas fa-qrcode"></i>
                                     </div>
                                   </div></a>
-                                  <input type="text" class="form-control" required placeholder="Masukan Kode Barang.." id="kodeBarang" name="kodeBarang" autocomplete="off">
+                                  <input type="text" class="form-control readonly" required placeholder="Masukan Kode Barang.." id="kodeBarang" name="kodeBarang" autocomplete="off" style="background-color: #e3e3e3;">
                                   <div class="invalid-feedback">
                                   Masukan Kode Barang!
                                 </div>
-                                <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modal-item">
+
+                                <!-- Button search modal box -->
+                                <!-- <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modal-item">
                                   <i class="fa fa-search"></i>
-                                </button>
+                                </button> -->
+                                <!-- End button search modal box -->
+
+                                <!-- Button open scanner -->
+                                <a href="javascript:location.reload();" class="btn btn-success btn-flat"><i class="fas fa-qrcode mt-2"></i></a>
+                                <!-- End Button open scanner -->
+
                                 </div>
                               </div>
                             </div>
+
+                            <!-- Scan QR 1 -->
+                              <div class="row justify-content-center mt-4">
+                                <div class="col-lg-8 col-md-8">
+                                  <div id="reader" class="text-center"></div>
+                                </div>
+                              </div>
+                              <!-- End Scan QR -->
 
                             <div class="form-group row">
                               <label for="fotoKeluar" class="col-sm-3 col-form-label">Foto Barang Keluar</label>
@@ -145,14 +161,14 @@
                           <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
                             <div class="form-group">
                               <label for="namaBarang">Nama Barang</label>
-                              <input type="text" class="form-control" required="" disabled placeholder="Masukan Nama Barang.." id="namaBarang" name="namaBarang">
+                              <input type="text" class="form-control" required="" placeholder="Masukan Nama Barang.." id="namaBarang" name="namaBarang">
                             </div>
                           </div>
 
                           <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
                             <div class="form-group">
                               <label for="jmlKeluar">Jumlah Keluar</label>
-                              <input type="text" class="form-control jumlah-si" required="" placeholder="Masukan Jumlah.." id="jmlKeluar" name="jmlKeluar">
+                              <input type="text" class="form-control jumlah-si" required="" placeholder="Masukan Jumlah.." id="jmlKeluar" name="jmlKeluar" autocomplete="off">
                               <div class="invalid-feedback">
                                 Masukan Jumlah!.
                               </div>
@@ -162,7 +178,7 @@
                           <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
                             <div class="form-group">
                               <label for="satuan">Satuan</label>
-                              <input type="text" class="form-control" required="" disabled placeholder="Masukan Satuan.." id="satuan" name="satuan">
+                              <input type="text" class="form-control" required="" placeholder="Masukan Satuan.." id="satuan" name="satuan">
                             </div>
                           </div>
                         </div>
@@ -263,6 +279,8 @@
 
 <!-- script tabel pada modal kode barang -->
 <script>
+
+  // Script model search code
   $(document).ready(function () {
   $(document).on('click', '#select', function () {
     var kode_barang = $(this).data('kode');
@@ -274,6 +292,28 @@
     $('#modal-item').modal('hide');
   })
 })
+// End model
+
+// Script scanner QR Code
+var html5QrcodeScanner = new Html5QrcodeScanner(
+	"reader", { fps: 10, qrbox: 250 });
+function onScanSuccess(decodedText, decodedResult) {
+    $('#kodeBarang').val(decodedText);
+
+    // ...
+    html5QrcodeScanner.clear();
+    // ^ this will stop the scanner (video feed) and clear the scan area.
+}
+html5QrcodeScanner.render(onScanSuccess);
+// End Scanner QR Code
+
+// script readonly
+$(".readonly").on('keydown paste focus mousedown', function(e){
+        if(e.keyCode != 9) // ignore tab
+            e.preventDefault();
+    });
+// End script readonly
+
 </script>
 <!-- End Script -->
 

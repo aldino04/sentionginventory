@@ -47,19 +47,19 @@
               <tr>
                 <td>Nama barang</td>
                 <td class="font-weight-bold">:</td>
-                <td><h5 class="text-uppercase"><?= $barang['nama_barang']; ?></h5></td>
+                <td><h6 class="text-uppercase"><?= $barang['nama_barang']; ?></h6></td>
               </tr>
               
               <tr>
                 <td>Kode barang</td>
                 <td class="font-weight-bold">:</td>
-                <td><h5 class="font-weight-light"><?= $barang['kode_barang']; ?></h5></td>
+                <td><h6 class="font-weight-light"><?= $barang['kode_barang']; ?></h6></td>
               </tr>
               
               <tr>
                 <td>Stok barang</td>
                 <td class="font-weight-bold">:</td>
-                <td><h4 class="d-inline"><?= $barang['stok']; ?>&nbsp;</h4><?= $barang['nama_satuan']; ?></td>
+                <td><h5 class="d-inline"><?= $barang['stok']; ?>&nbsp;</h5><?= $barang['nama_satuan']; ?></td>
               </tr>
             </tbody>
           </table>
@@ -254,6 +254,7 @@
 
             </table>
           </div>
+
         </div>
   </div>
 
@@ -266,6 +267,25 @@
 <!-- Script footer jquery total per pages -->
 <script>
  var minDate, maxDate;
+
+ $(document).ready(function() {
+    $('#tableDetailBarang').DataTable( {
+      // columnDefs: [{ sortable: false, targets: [1,2,3] }],
+
+        responsive: {
+            details: {
+                type: 'column'
+            }
+        },
+        columnDefs: [ {
+            className: 'dtr-control',
+            orderable: false,
+            targets:   0
+        },
+      { sortable: false, targets: [0, 1] }
+      ]
+    } );
+} );
  
 // Custom filtering function which will search data in column four between two values
 // $.fn.dataTable.ext.search.push(

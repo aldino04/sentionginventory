@@ -52,7 +52,7 @@
               </li>
               <!-- End Sidebar tabel -->
 
-              <li class="menu-header"></li>
+              <li class="menu-header">Pengguna</li>
             <?php if (in_groups('admin')) : ?>
               <!-- Sidebar Users -->
               <li class="<?=($request->uri->getSegment(1)==='user')?'active':''?>"><a class="nav-link" href="<?= base_url('user'); ?>"><i class="fas fa-users"></i> <span>Users</span></a></li>

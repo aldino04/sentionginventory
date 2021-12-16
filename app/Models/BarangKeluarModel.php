@@ -42,4 +42,5 @@ class BarangKeluarModel extends Model
 
     return $noBpm;
   }
+
 }
