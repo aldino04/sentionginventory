@@ -67,7 +67,7 @@
                               </div>
                             </div> -->
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-3">
                               <label for="bpm" class="col-sm-3 col-form-label">BPM</label>
                               <div class="col-sm-9">
                                 <div class="input-group">
@@ -84,7 +84,7 @@
                               </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-3">
                               <label for="tglKeluar" class="col-sm-3 col-form-label">Tanggal</label>
                               <div class="col-sm-9">
                                 <div class="input-group">
@@ -101,7 +101,7 @@
                               </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-3">
                               <label for="kodeBarang" class="col-sm-3 col-form-label">Kode Barang</label>
                               <div class="col-sm-9">
                                 <div class="input-group">
@@ -115,12 +115,6 @@
                                   Masukan Kode Barang!
                                 </div>
 
-                                <!-- Button search modal box -->
-                                <!-- <button type="button" class="btn btn-info btn-flat" data-toggle="modal" data-target="#modal-item">
-                                  <i class="fa fa-search"></i>
-                                </button> -->
-                                <!-- End button search modal box -->
-
                                 <!-- Button open scanner -->
                                 <a href="javascript:location.reload();" class="btn btn-success btn-flat"><i class="fas fa-qrcode mt-2"></i></a>
                                 <!-- End Button open scanner -->
@@ -130,13 +124,14 @@
                             </div>
 
                             <!-- Scan QR 1 -->
-                              <div class="row justify-content-center mt-4">
+                              <div class="row justify-content-center mt-2 mb-3">
                                 <div class="col-lg-8 col-md-8">
                                   <div id="reader" class="text-center"></div>
                                 </div>
                               </div>
                               <!-- End Scan QR -->
 
+                            <!-- Foto Keluar -->
                             <div class="form-group row">
                               <label for="fotoKeluar" class="col-sm-3 col-form-label">Foto Barang Keluar</label>
                               <div class="col-sm-9">
@@ -153,42 +148,43 @@
                                 <img src="/template/assets/img/products/product-1.jpg" class="img-thumbnail img-preview" style="height: fit-content; width: 200px;">
                               </div>
                             </div>
+                            <!-- End Foto Keluar -->
 
-                          </div>
-                        </div>
+                            <div class="form-group row justify-content-center mb-0 pb-0 mt-0 pt-0">
+                              <div class="col-md-6 col-lg-6 col-sm-9 col-form-label mb-0 pb-0 mt-0 pt-0">
+                                <div class="form-group">
+                                  <label for="namaBarang">Nama Barang</label>
+                                  <input type="text" class="form-control" placeholder="Masukan Nama Barang.." id="namaBarang" name="namaBarang" readonly>
+                                </div>
+                              </div>
 
-                        <div class="form-group row justify-content-center mb-0 pb-0">
-                          <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
-                            <div class="form-group">
-                              <label for="namaBarang">Nama Barang</label>
-                              <input type="text" class="form-control" required="" placeholder="Masukan Nama Barang.." id="namaBarang" name="namaBarang">
-                            </div>
-                          </div>
-
-                          <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
-                            <div class="form-group">
-                              <label for="jmlKeluar">Jumlah Keluar</label>
-                              <input type="text" class="form-control jumlah-si" required="" placeholder="Masukan Jumlah.." id="jmlKeluar" name="jmlKeluar" autocomplete="off">
-                              <div class="invalid-feedback">
-                                Masukan Jumlah!.
+                              <div class="col-md-6 col-lg-6 col-sm-9 col-form-label mb-0 pb-0 mt-0 pt-0">
+                                <div class="form-group">
+                                  <label for="satuan">Satuan</label>
+                                  <input type="text" class="form-control" required="" placeholder="Masukan Satuan.." id="satuan" name="satuan" readonly>
+                                </div>
                               </div>
                             </div>
-                          </div>
 
-                          <div class="col-sm-3 col-md-3 col-lg-3 col-form-label">
-                            <div class="form-group">
-                              <label for="satuan">Satuan</label>
-                              <input type="text" class="form-control" required="" placeholder="Masukan Satuan.." id="satuan" name="satuan">
-                            </div>
-                          </div>
-                        </div>
+                            <div class="form-group row justify-content-center mb-0 pb-0 mt-0 pt-0">
+                              <div class="col-md-6 col-lg-6 col-sm-9 col-form-label mb-0 pb-0 mt-0 pt-0">
+                                <div class="form-group">
+                                  <label for="jmlKeluar">Jumlah Keluar</label>
+                                  <input type="text" class="form-control jumlah-si" required="" placeholder="Masukan Jumlah.." id="jmlKeluar" name="jmlKeluar" autocomplete="off">
+                                  <div class="invalid-feedback">
+                                    Masukan Jumlah!.
+                                  </div>
+                                </div>
+                              </div>
 
-                        <div class="form-group row justify-content-center mb-0 pb-0">
-                          <div class="col-md-9 col-lg-9">
-                            <div class="form-group">
-                              <label for="ketMasuk">Keterangan</label>
-                              <textarea type="number" class="form-control" placeholder="Masukan Keterangan.." style="height: 80px;" id="ketKeluar" name="ketKeluar"></textarea>
+                              <div class="col-md-6 col-lg-6 col-sm-9 col-form-label mb-0 pb-0 mt-0 pt-0">
+                                <div class="form-group">
+                                  <label for="ketMasuk">Keterangan</label>
+                                  <textarea type="number" class="form-control" placeholder="Masukan Keterangan.." style="height: 80px;" id="ketKeluar" name="ketKeluar"></textarea>
+                                </div>
+                              </div>
                             </div>
+
                           </div>
                         </div>
 

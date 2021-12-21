@@ -53,7 +53,7 @@
                         </div>
                       </div> -->
 
-                      <div class="form-group row">
+                      <div class="form-group row mb-3">
                         <label for="bapb" class="col-sm-3 col-form-label">BAPB</label>
                         <div class="col-sm-9">
                           <div class="input-group">
@@ -70,7 +70,7 @@
                         </div>
                       </div>
 
-                      <div class="form-group row">
+                      <div class="form-group row mb-3">
                         <label for="tglMasuk" class="col-sm-3 col-form-label">Tanggal</label>
                         <div class="col-sm-9">
                           <div class="input-group">
@@ -87,7 +87,7 @@
                         </div>
                       </div>
 
-                      <div class="form-group row mb-0 pb-0">
+                      <div class="form-group row mb-3">
                         <label for="kodeBarang" class="col-sm-3 col-form-label">Kode Barang</label>
                         <div class="col-sm-9">
                           <div class="input-group">
@@ -97,6 +97,15 @@
                               </div>
                             </div>
                             <input type="text" class="form-control readonly" required placeholder="Masukan Kode Barang.." id="kodeBarang" name="kodeBarang" autocomplete="off" style="background-color: #e3e3e3;">
+
+                             <!-- <div class="col-form-label form-control">
+                               <select class="col-form-label select2" id="kodeBarang" name="kodeBarang">
+                                 <option>Option 2</option>
+                                 <option value="A01030-0">Besi Ulir D 13</option>
+                                <option>Option 3</option>
+                              </select>
+                             </div> -->
+
                             <div class="invalid-feedback">
                             Masukan Kode Barang!
                           </div>
@@ -118,53 +127,49 @@
                         <!-- End Scan QR -->
 
                         <div class="form-group row justify-content-center mb-0 pb-0 mt-0 pt-0">
-      
-                          <div class="col-6 col-form-label">
+                          <div class="col-md-6 col-lg-6 col-sm-9 col-form-label mb-0 pb-0 mt-0 pt-0">
                             <div class="form-group">
                               <label for="namaBarang">Nama Barang</label>
-                              <input type="text" class="form-control" required="" placeholder="Masukan Nama Barang.." name="namaBarang" id="namaBarang">
+                              <input type="text" class="form-control" required="" placeholder="Masukan Nama Barang.." name="namaBarang" id="namaBarang" readonly>
                               <div class="invalid-feedback">
                                 Masukan Nama Barang!.
                               </div>
                             </div>
                           </div>
       
-                          <div class="col-6 col-form-label">
+                          <div class="col-md-6 col-lg-6 col-sm-9 col-form-label mb-0 pb-0 mt-0 pt-0">
                             <div class="form-group">
                               <label for="satuan">Satuan</label>
-                              <input type="text" class="form-control" required="" placeholder="Masukan Satuan.." name="satuan" id="satuan">
+                              <input type="text" class="form-control" required="" placeholder="Masukan Satuan.." name="satuan" id="satuan" readonly>
                               <div class="invalid-feedback">
                                 Masukan Satuan!.
                               </div>
                             </div>
                           </div>
-                          
                         </div>
                         
+                        <div class="form-group row justify-content-center mb-0 pb-0 mt-0 pt-0">
+                          <div class="col-md-6 col-lg-6 col-sm-9 col-form-label mb-0 pb-0 mt-0 pt-0">
+                            <div class="form-group">
+                              <label for="jmlMasuk">Jumlah</label>
+                              <input type="text" class="form-control jumlah-si" required="" placeholder="Masukan Jumlah.." name="jmlMasuk" id="jmlMasuk" autocomplete="off">
+                              <div class="invalid-feedback">
+                                Masukan Jumlah!.
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-md-6 col-lg-6 col-sm-9 col-form-label mb-0 pb-0 mt-0 pt-0">
+                            <div class="form-group">
+                              <label for="ketMasuk">Keterangan</label>
+                              <textarea type="number" class="form-control" placeholder="Masukan Keterangan.." style="height: 80px;" name="ketMasuk" id="ketMasuk"></textarea>
+                            </div>
+                          </div>
+                        </div>
+
                     </div>
                   </div>
                   
-                  <div class="form-group row justify-content-center mt-0 mt-0">
-
-                    <div class="col-md-6 col-lg-3 col-form-label">
-                      <div class="form-group">
-                        <label for="jmlMasuk">Jumlah</label>
-                        <input type="text" class="form-control jumlah-si" required="" placeholder="Masukan Jumlah.." name="jmlMasuk" id="jmlMasuk" autocomplete="off">
-                        <div class="invalid-feedback">
-                          Masukan Jumlah!.
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4">
-                      <div class="form-group">
-                        <label for="ketMasuk">Keterangan</label>
-                        <textarea type="number" class="form-control" placeholder="Masukan Keterangan.." style="height: 80px;" name="ketMasuk" id="ketMasuk"></textarea>
-                      </div>
-                    </div>
-
-                  </div>
-
                 </div>
 
               <div class="card-footer text-center">
@@ -251,34 +256,21 @@
 </div>
 
 <script>
-    $(document).ready(function () {
-    $(document).on('click', '#select', function () {
-      var kode_barang = $(this).data('kode');
-      var nama_barang = $(this).data('nama');
-      var satuan = $(this).data('satuan');
-      $('#kodeBarang').val(kode_barang);
-      $('#namaBarang').val(nama_barang);
-      $('#satuan').val(satuan);
-      $('#modal-item').modal('hide');
-    })
-  })
 
-  // Script scanner QR Code
+// Script scanner QR Code
 var html5QrcodeScanner = new Html5QrcodeScanner(
 	"reader", { fps: 10, qrbox: 250 });
-
 function onScanSuccess(decodedText, decodedResult) {
     // Handle on success condition with the decoded text or result.
     // console.log(`Scan result: ${decodedText}`, decodedResult);
     $('#kodeBarang').val(decodedText);
-
     // ...
     html5QrcodeScanner.clear();
     // ^ this will stop the scanner (video feed) and clear the scan area.
 }
-
 html5QrcodeScanner.render(onScanSuccess);
 // End Scanner QR Code
+
 
 // script readonly
 $(".readonly").on('keydown paste focus mousedown', function(e){
