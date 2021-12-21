@@ -351,10 +351,10 @@
 <!-- <script src="<?= base_url(); ?>/template/assets/js/page/index.js"></script> -->
 <script>
 
-  // Chart Material Ter
+  // Chart Material VS
     var ctx = document.getElementById("line").getContext("2d");
     var myChart = new Chart(ctx, {
-      type: "line",
+      type: "bar",
       data: {
         labels: [
           <?php foreach($chartMasuk as $chm) :?>
@@ -399,7 +399,7 @@
       },
       options: {
         legend: {
-          display: false,
+          display: true,
         },
         scales: {
           yAxes: [
@@ -429,7 +429,7 @@
         },
       },
     });
-  // End Chart Material Ter
+  // End Chart Material masuk VS keluar
 
   // Chart Donut Saldo
     var ctx = document.getElementById("donutSaldo").getContext("2d");
